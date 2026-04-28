@@ -13,7 +13,8 @@ const SITE_DATA = {
     linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
     googleScholar: "#",   // UPDATE with real URL
     orcid: "#",           // UPDATE with real URL
-    photo: "./assets/cropped_circle_image.png",
+    photo: "./assets/cropped_circle_image.png",       // Landing page circle image
+    aboutPhoto: "./assets/swati maam's photo.jpeg",    // New square image for About section
     shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security. She has served in leading institutions across India, Uzbekistan, and Nepal, published extensively, and is authoring books on AI-driven applications in finance, healthcare, and cyber resilience.`,
     stats: [
       { num: "12+", label: "Years Experience" },
@@ -620,7 +621,33 @@ function toggleTheme() {
 function updateToggleIcon() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+
+  if (!btn) return;
+
+  btn.innerHTML = isDark
+    ? `
+      <svg width="18" height="18" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    `
+    : `
+      <svg width="18" height="18" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.8A9 9 0 1111.2 3
+        7 7 0 0021 12.8z"></path>
+      </svg>
+    `;
 }
 
 initTheme();
@@ -825,7 +852,7 @@ function renderHome() {
           <h1 class="hero-name fade-up delay-2">${p.name}</h1>
           <p class="hero-desc fade-up delay-3">${p.shortBio}</p>
           <div class="hero-actions fade-up delay-4">
-            <a class="btn btn-primary" href="#about">Know More →</a>
+            <a class="btn btn-primary" href="#about">Know More</a>
             <a class="btn btn-outline" href="#contact">Get in Touch</a>
           </div>
           <div class="hero-stats fade-up delay-5">${statsHtml}</div>
@@ -869,7 +896,7 @@ function renderAbout() {
       <div class="about-grid">
         <aside class="about-sidebar">
           <div class="about-photo">
-            <img src="${p.photo}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='👩‍🏫'">
+            <img src="${p.aboutPhoto}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='👩‍🏫'">
           </div>
           <div class="about-sidebar-info">
             <div class="sidebar-label">Institution</div>
@@ -1237,7 +1264,7 @@ function renderContact() {
           </div>
           <button class="btn btn-primary" style="width:100%;justify-content:center;"
             onclick="alert('Thank you! Your message will be sent once the backend email service is configured.')">
-            Send Message →
+            Send Message
           </button>
           <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem;text-align:center;">
             Or email directly at <a href="mailto:${p.email}" style="color:var(--gold)">${p.email}</a>
