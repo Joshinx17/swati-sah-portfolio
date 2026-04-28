@@ -80,7 +80,7 @@ const SITE_DATA = {
       courses: [
         {
           key: "pps",
-          code: "CSE 113",
+          code: "",
           title: "Programming for Problem Solving",
           description: "An introductory course covering fundamental programming concepts using C/Python to develop systematic problem-solving skills. Students learn to design algorithms, trace logic flows, and write clean, structured code.",
           topics: [
