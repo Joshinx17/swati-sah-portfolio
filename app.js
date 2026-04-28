@@ -9,7 +9,7 @@ const SITE_DATA = {
     name: "Prof. Swati Sah",
     title: "Professor",
     institution: "Sharda University, India",
-    email: "swati.sah@sharda.ac.in",
+    email: "iswatisah19@gmail.com",
     linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
     googleScholar: "#",   // UPDATE with real URL
     orcid: "#",           // UPDATE with real URL
@@ -1180,7 +1180,7 @@ function renderArticles() {
         </div>
         <a href="${a.url}" target="_blank" rel="noopener noreferrer"
            class="btn btn-outline btn-sm" style="flex-shrink:0;white-space:nowrap;">
-          View Article →
+          View Article
         </a>
       </div>
       <div class="paper-tags">${a.tags.map(t => `<span class="paper-tag">${t}</span>`).join('')}</div>
