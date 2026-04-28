@@ -904,7 +904,7 @@ function renderAbout() {
           <div class="timeline">${expHtml}</div>
 
           <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
-            <a href="assets/resume.pdf" download class="btn btn-primary">
+            <a href="./assets/swati-sah-resume.docx" download class="btn btn-primary">
               ⬇&nbsp; Download Full CV / Resume
             </a>
           </div>
