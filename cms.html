@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ScholarCMS Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#f8f4ec;
+--panel:#fffdf8;
+--panel2:#f2eadc;
+--gold:#b58a35;
+--brown:#4c3115;
+--text:#2f2114;
+--muted:#7b6a57;
+--border:#dccdb4;
+--shadow:rgba(50,30,10,.08);
+--radius:18px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+height:100vh;
+overflow:hidden;
+}
+
+button,input,textarea{
+font-family:inherit;
+}
+
+/* Top Bar */
+.topbar{
+height:72px;
+border-bottom:1px solid var(--border);
+background:rgba(255,252,245,.95);
+backdrop-filter:blur(10px);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+}
+
+.brand{
+display:flex;
+gap:14px;
+align-items:center;
+}
+
+.brand-badge{
+width:44px;
+height:44px;
+border-radius:14px;
+background:linear-gradient(135deg,#d5bb7a,var(--gold));
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+}
+
+.brand h1{
+font-family:'Cormorant Garamond',serif;
+font-size:34px;
+font-weight:600;
+}
+
+.brand small{
+display:block;
+color:var(--muted);
+font-size:12px;
+}
+
+.search{
+width:420px;
+background:white;
+border:1px solid var(--border);
+padding:12px 16px;
+border-radius:12px;
+}
+
+.top-actions{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.status{
+font-size:14px;
+color:#2f7a45;
+font-weight:600;
+}
+
+.btn{
+padding:11px 18px;
+border:none;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+}
+
+.btn-outline{
+background:white;
+border:1px solid var(--border);
+}
+
+.btn-primary{
+background:var(--gold);
+color:white;
+}
+
+.layout{
+display:grid;
+grid-template-columns:270px 1fr 420px;
+height:calc(100vh - 72px);
+}
+
+/* Sidebar */
+.sidebar{
+border-right:1px solid var(--border);
+background:var(--panel);
+padding:28px 18px;
+overflow:auto;
+}
+
+.menu-label{
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#8b7863;
+margin:20px 0 10px;
+}
+
+.menu-item{
+width:100%;
+border:none;
+background:none;
+padding:13px 16px;
+border-radius:12px;
+text-align:left;
+margin-bottom:6px;
+font-size:15px;
+font-weight:500;
+cursor:pointer;
+}
+
+.menu-item.active,
+.menu-item:hover{
+background:#f3ecdf;
+color:var(--brown);
+}
+
+/* Editor */
+.editor{
+padding:34px;
+overflow:auto;
+}
+
+.page-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:28px;
+}
+
+.page-title h2{
+font-family:'Cormorant Garamond',serif;
+font-size:50px;
+}
+
+.subtitle{
+color:var(--muted);
+margin-top:8px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-bottom:30px;
+}
+
+.stat-card{
+background:white;
+border:1px solid var(--border);
+padding:28px;
+border-radius:var(--radius);
+box-shadow:0 4px 18px var(--shadow);
+}
+
+.stat-number{
+font-size:34px;
+font-weight:700;
+color:var(--gold);
+}
+
+.stat-label{
+margin-top:8px;
+color:var(--muted);
+}
+
+.card{
+background:white;
+border:1px solid var(--border);
+border-radius:22px;
+padding:28px;
+margin-bottom:24px;
+box-shadow:0 4px 20px var(--shadow);
+}
+
+.card-head{
+display:flex;
+justify-content:space-between;
+margin-bottom:22px;
+}
+
+.card-head h3{
+font-size:26px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.field{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:.08em;
+margin-bottom:8px;
+color:#7b6a57;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid var(--border);
+background:#fffdf9;
+}
+
+textarea{
+min-height:130px;
+}
+
+.quick-actions{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:18px;
+}
+
+.action-box{
+padding:24px;
+background:var(--panel2);
+border-radius:16px;
+font-weight:600;
+}
+
+.table{
+width:100%;
+border-collapse:collapse;
+}
+
+.table th{
+text-align:left;
+padding:14px;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#7a6855;
+}
+
+.table td{
+padding:16px 14px;
+border-top:1px solid #eee4d5;
+}
+
+.badge{
+padding:6px 10px;
+background:#f5eedf;
+border-radius:20px;
+font-size:12px;
+}
+
+/* Preview */
+.preview{
+border-left:1px solid var(--border);
+background:#faf6ef;
+padding:24px;
+overflow:auto;
+}
+
+.preview-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.preview-window{
+background:white;
+border-radius:24px;
+border:1px solid var(--border);
+box-shadow:0 6px 30px var(--shadow);
+overflow:hidden;
+}
+
+.preview-navbar{
+padding:18px 28px;
+border-bottom:1px solid #eee;
+}
+
+.preview-hero{
+padding:60px 40px;
+}
+
+.hero-badge{
+color:var(--gold);
+font-size:12px;
+letter-spacing:.2em;
+text-transform:uppercase;
+}
+
+.preview-hero h2{
+font-family:'Cormorant Garamond',serif;
+font-size:50px;
+margin:14px 0;
+}
+
+.preview-card{
+margin:30px;
+padding:24px;
+background:#faf6ef;
+border-radius:18px;
+}
+
+.activity-item{
+padding:16px 0;
+border-bottom:1px solid #eee3d3;
+}
+
+@media(max-width:1300px){
+.layout{
+grid-template-columns:260px 1fr;
+}
+.preview{
+display:none;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+
+<div class="brand">
+<div class="brand-badge">S</div>
+<div>
+<h1>ScholarCMS</h1>
+<small>Academic Content Management Studio</small>
+</div>
+</div>
+
+<input class="search" placeholder="Search content, papers, courses...">
+
+<div class="top-actions">
+<div class="status">● Draft Saved</div>
+<button class="btn btn-outline">Preview</button>
+<button class="btn btn-outline">Save Draft</button>
+<button class="btn btn-primary">Publish</button>
+</div>
+
+</div>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="menu-label">Dashboard</div>
+<button class="menu-item active">Overview</button>
+<button class="menu-item">Recent Activity</button>
+
+<div class="menu-label">Content</div>
+<button class="menu-item">Biography</button>
+<button class="menu-item">Courses</button>
+<button class="menu-item">Publications</button>
+<button class="menu-item">Books</button>
+<button class="menu-item">Media Library</button>
+
+<div class="menu-label">Research</div>
+<button class="menu-item">Projects</button>
+<button class="menu-item">Workshops</button>
+<button class="menu-item">Lectures</button>
+
+<div class="menu-label">Publishing</div>
+<button class="menu-item">Drafts</button>
+<button class="menu-item">Version History</button>
+
+<div class="menu-label">Settings</div>
+<button class="menu-item">SEO</button>
+<button class="menu-item">Security</button>
+
+</aside>
+
+<main class="editor">
+
+<div class="page-title">
+<div>
+<h2>Dashboard</h2>
+<div class="subtitle">
+Manage academic content, publications and teaching materials.
+</div>
+</div>
+<button class="btn btn-primary">+ Add Publication</button>
+</div>
+
+<div class="stats">
+<div class="stat-card">
+<div class="stat-number">29</div>
+<div class="stat-label">Publications</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">18</div>
+<div class="stat-label">Courses</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">14</div>
+<div class="stat-label">Documents</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">98%</div>
+<div class="stat-label">Content Health</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<h3>Profile Editor</h3>
+<button class="btn btn-outline">Save</button>
+</div>
+
+<div class="grid-2">
+<div class="field">
+<label>Professor Name</label>
+<input value="Prof. Swati Sah">
+</div>
+<div class="field">
+<label>Title</label>
+<input value="Professor">
+</div>
+</div>
+
+<div class="field">
+<label>Biography</label>
+<textarea>
+Professor in AI, Machine Learning, Federated Learning and Cyber Security.
+</textarea>
+</div>
+
+<div class="quick-actions">
+<div class="action-box">Upload CV PDF</div>
+<div class="action-box">Manage Links</div>
+<div class="action-box">Edit Hero Section</div>
+</div>
+
+</div>
+
+<div class="card">
+<div class="card-head">
+<h3>Publications Manager</h3>
+<button class="btn btn-outline">+ Add Paper</button>
+</div>
+
+<table class="table">
+<tr>
+<th>Title</th>
+<th>Venue</th>
+<th>Year</th>
+<th>Status</th>
+</tr>
+<tr>
+<td>Machine Learning in Insurance</td>
+<td>IEEE</td>
+<td>2024</td>
+<td><span class="badge">Published</span></td>
+</tr>
+<tr>
+<td>Blockchain Intrusion Detection</td>
+<td>Springer</td>
+<td>2024</td>
+<td><span class="badge">Featured</span></td>
+</tr>
+<tr>
+<td>Plant Disease CNN</td>
+<td>IEEE</td>
+<td>2023</td>
+<td><span class="badge">Published</span></td>
+</tr>
+</table>
+
+</div>
+
+<div class="card">
+<div class="card-head">
+<h3>Recent Activity</h3>
+</div>
+
+<div class="activity-item">
+Updated Publications section
+</div>
+<div class="activity-item">
+Uploaded syllabus.pdf
+</div>
+<div class="activity-item">
+Edited Google Scholar link
+</div>
+
+</div>
+
+</main>
+
+<aside class="preview">
+
+<div class="preview-top">
+<h3>Live Preview</h3>
+<div>
+Desktop | Mobile
+</div>
+</div>
+
+<div class="preview-window">
+<div class="preview-navbar">
+Prof. Swati Sah
+</div>
+
+<div class="preview-hero">
+<div class="hero-badge">Academic Portfolio</div>
+<h2>Artificial Intelligence,
+Machine Learning & Cyber Security</h2>
+
+<p>
+Live preview updates here while editing content.
+</p>
+</div>
+
+<div class="preview-card">
+<h4>Featured Publications</h4>
+<br>
+• Machine Learning in Insurance
+<br><br>
+• Blockchain IDS Research
+</div>
+
+<div class="preview-card">
+<h4>Courses Taught</h4>
+<br>
+Programming
+<br>
+DBMS
+<br>
+Machine Learning
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+<script>
+document.querySelectorAll('.menu-item').forEach(item=>{
+item.addEventListener('click',function(){
+document.querySelectorAll('.menu-item').forEach(i=>i.classList.remove('active'));
+this.classList.add('active');
+});
+});
+
+let changed=false;
+document.querySelectorAll('input,textarea').forEach(el=>{
+el.addEventListener('input',()=>{
+changed=true;
+document.querySelector('.status').textContent='● Unsaved Changes';
+});
+});
+
+setInterval(()=>{
+if(changed){
+document.querySelector('.status').textContent='● Draft Saved';
+changed=false;
+}
+},4000);
+</script>
+
+</body>
+</html>
+

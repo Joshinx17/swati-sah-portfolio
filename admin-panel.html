@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ScholarCMS — Prof. Swati Sah</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f4ec;
+  --panel:#fffdf8;
+  --panel2:#f2eadc;
+  --gold:#b58a35;
+  --gold-dark:#8a6520;
+  --brown:#4c3115;
+  --text:#2f2114;
+  --muted:#7b6a57;
+  --border:#dccdb4;
+  --shadow:rgba(50,30,10,.09);
+  --radius:16px;
+  --green:#2d7a4a;
+  --red:#b83232;
+  --blue:#2563a8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;}
+button,input,textarea,select{font-family:inherit;}
+
+/* ══ LOGIN ══ */
+#login-screen{
+  display:flex;align-items:center;justify-content:center;
+  height:100vh;
+  background:radial-gradient(ellipse at 50% 40%,#f0e4c8 0%,var(--bg) 70%);
+}
+.login-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:24px;padding:3rem 2.5rem;width:380px;
+  text-align:center;box-shadow:0 12px 50px var(--shadow);
+}
+.login-logo{font-size:2.5rem;margin-bottom:1rem;}
+.login-card h1{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;
+  font-weight:600;color:var(--brown);margin-bottom:.3rem;
+}
+.login-card p{font-size:.85rem;color:var(--muted);margin-bottom:2rem;}
+.login-card input{
+  width:100%;padding:.85rem 1.1rem;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:12px;color:var(--text);
+  font-family:'DM Mono',monospace;font-size:.9rem;
+  margin-bottom:1rem;outline:none;transition:border-color .2s;
+}
+.login-card input:focus{border-color:var(--gold);}
+.login-card .login-btn{
+  width:100%;padding:.85rem;background:var(--gold);color:white;
+  border:none;border-radius:12px;font-weight:600;font-size:.95rem;
+  cursor:pointer;transition:opacity .2s;
+}
+.login-card .login-btn:hover{opacity:.88;}
+.login-error{color:var(--red);font-size:.82rem;margin-top:.75rem;display:none;}
+.login-hint{font-size:.72rem;color:var(--muted);margin-top:1.5rem;}
+
+/* ══ ADMIN LAYOUT ══ */
+#admin-screen{display:none;height:100vh;flex-direction:column;}
+
+/* TOP BAR */
+.topbar{
+  height:68px;border-bottom:1px solid var(--border);
+  background:rgba(255,252,245,.97);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;flex-shrink:0;position:sticky;top:0;z-index:100;
+}
+.brand{display:flex;gap:12px;align-items:center;}
+.brand-badge{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,#d5bb7a,var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1.1rem;color:white;flex-shrink:0;
+}
+.brand h1{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--brown);}
+.brand small{display:block;color:var(--muted);font-size:.72rem;line-height:1;}
+
+.top-search{
+  width:360px;background:white;border:1.5px solid var(--border);
+  padding:10px 14px;border-radius:12px;font-size:.88rem;outline:none;
+  transition:border-color .2s;
+}
+.top-search:focus{border-color:var(--gold);}
+
+.top-actions{display:flex;gap:10px;align-items:center;}
+.save-status{
+  font-size:.82rem;color:var(--green);font-weight:600;
+  padding:6px 12px;background:#edfaf3;border-radius:20px;border:1px solid #b7e4cc;
+}
+.save-status.unsaved{color:#8a5500;background:#fdf5e6;border-color:#e8d4a0;}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.55rem 1rem;border-radius:10px;
+  font-size:.85rem;font-weight:500;cursor:pointer;border:none;
+  transition:all .18s;white-space:nowrap;
+}
+.btn-primary{background:var(--gold);color:white;}
+.btn-primary:hover{background:var(--gold-dark);}
+.btn-outline{background:white;border:1.5px solid var(--border);color:var(--text);}
+.btn-outline:hover{border-color:var(--gold);color:var(--brown);}
+.btn-danger{background:transparent;color:var(--red);border:1.5px solid #f5cece;}
+.btn-danger:hover{background:#fdf0f0;}
+.btn-green{background:#2d7a4a;color:white;}
+.btn-green:hover{background:#236039;}
+.btn-sm{padding:.38rem .75rem;font-size:.78rem;}
+
+/* LAYOUT */
+.layout{display:flex;height:calc(100vh - 68px);}
+
+/* SIDEBAR */
+.sidebar{
+  width:260px;flex-shrink:0;background:var(--panel);
+  border-right:1px solid var(--border);padding:20px 14px;
+  overflow-y:auto;
+}
+.menu-label{
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#9b8a77;padding:.8rem .6rem .35rem;font-family:'DM Mono',monospace;
+}
+.menu-item{
+  width:100%;border:none;background:none;padding:10px 12px;
+  border-radius:10px;text-align:left;margin-bottom:3px;
+  font-size:.875rem;font-weight:500;cursor:pointer;color:var(--muted);
+  transition:all .15s;display:flex;align-items:center;gap:8px;
+}
+.menu-item:hover{background:var(--panel2);color:var(--brown);}
+.menu-item.active{background:var(--panel2);color:var(--brown);font-weight:600;}
+.menu-item .icon{font-size:.95rem;width:20px;text-align:center;flex-shrink:0;}
+.menu-badge{
+  margin-left:auto;background:var(--border);color:var(--muted);
+  border-radius:20px;padding:1px 7px;font-size:.7rem;font-family:'DM Mono',monospace;
+}
+
+/* MAIN */
+.main{flex:1;overflow-y:auto;padding:30px 34px;}
+
+/* SECTION HEADER */
+.section-hdr{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:24px;gap:1rem;flex-wrap:wrap;
+}
+.section-hdr h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;}
+.section-hdr p{color:var(--muted);font-size:.85rem;margin-top:4px;}
+
+/* CARDS / PANELS */
+.panel{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius);margin-bottom:20px;
+  box-shadow:0 3px 16px var(--shadow);
+}
+.panel-head{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.panel-head h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;}
+.panel-body{padding:20px;}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.stat-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px 20px;
+  box-shadow:0 3px 14px var(--shadow);
+}
+.stat-card .num{font-size:2rem;font-weight:700;color:var(--gold);font-family:'DM Mono',monospace;}
+.stat-card .lbl{margin-top:5px;color:var(--muted);font-size:.82rem;}
+
+/* FIELDS */
+.field{margin-bottom:16px;}
+.field label{
+  display:block;font-size:.73rem;text-transform:uppercase;
+  letter-spacing:.09em;margin-bottom:6px;color:var(--muted);
+  font-family:'DM Mono',monospace;
+}
+.field input,.field textarea,.field select{
+  width:100%;padding:11px 14px;border-radius:10px;
+  border:1.5px solid var(--border);background:#fffdf9;
+  color:var(--text);font-size:.88rem;outline:none;
+  transition:border-color .2s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);}
+.field textarea{resize:vertical;min-height:100px;line-height:1.6;}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b6a57' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+
+/* TAGS */
+.tags-input-wrapper{
+  background:#fffdf9;border:1.5px solid var(--border);border-radius:10px;
+  padding:.4rem .5rem;display:flex;flex-wrap:wrap;gap:.35rem;
+  cursor:text;transition:border-color .2s;min-height:44px;align-items:center;
+}
+.tags-input-wrapper:focus-within{border-color:var(--gold);}
+.tag-chip{
+  background:var(--panel2);color:var(--brown);border-radius:6px;
+  padding:.2rem .5rem;font-size:.78rem;display:flex;align-items:center;gap:.3rem;border:1px solid var(--border);
+}
+.tag-chip button{background:none;border:none;color:var(--muted);cursor:pointer;padding:0;line-height:1;font-size:.95rem;}
+.tag-chip button:hover{color:var(--red);}
+.tags-input-wrapper input{border:none;background:none;color:var(--text);font-size:.85rem;padding:.2rem .3rem;outline:none;flex:1;min-width:90px;}
+
+/* CARD LIST */
+.card-list{display:flex;flex-direction:column;gap:.65rem;}
+.card-list-item{
+  background:var(--bg);border:1.5px solid var(--border);border-radius:12px;
+  padding:14px 16px;display:flex;align-items:flex-start;gap:14px;
+  transition:border-color .15s;
+}
+.card-list-item:hover{border-color:var(--gold);}
+.item-content{flex:1;min-width:0;}
+.item-title{font-size:.9rem;font-weight:500;margin-bottom:3px;color:var(--text);}
+.item-meta{font-size:.78rem;color:var(--muted);line-height:1.4;}
+.item-actions{display:flex;gap:.45rem;flex-shrink:0;align-items:flex-start;}
+
+/* MODAL */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(44,25,5,.55);
+  z-index:200;display:none;align-items:center;justify-content:center;
+  backdrop-filter:blur(4px);
+}
+.modal-backdrop.open{display:flex;}
+.modal{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:20px;width:620px;max-width:95vw;max-height:90vh;
+  overflow-y:auto;box-shadow:0 20px 60px rgba(44,25,5,.2);
+}
+.modal-head{
+  padding:18px 22px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;background:var(--panel);z-index:1;border-radius:20px 20px 0 0;
+}
+.modal-head h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;}
+.modal-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:.1rem .4rem;border-radius:6px;}
+.modal-close:hover{background:var(--panel2);}
+.modal-body{padding:22px;}
+.modal-footer{
+  padding:14px 22px;border-top:1px solid var(--border);
+  display:flex;justify-content:flex-end;gap:.6rem;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:2rem;right:2rem;
+  background:var(--panel);border:1px solid var(--border);
+  border-left:4px solid var(--green);border-radius:12px;
+  padding:1rem 1.3rem;font-size:.88rem;z-index:999;
+  transform:translateY(120%);opacity:0;transition:all .3s ease;
+  max-width:340px;box-shadow:0 6px 24px var(--shadow);
+}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.error{border-left-color:var(--red);}
+
+/* PUBLISH */
+.publish-hero{
+  background:linear-gradient(135deg,#fdf6e8,#f5e8c8);
+  border:1.5px solid var(--gold);border-radius:var(--radius);
+  padding:28px;margin-bottom:20px;
+}
+.publish-hero h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--brown);margin-bottom:.4rem;}
+.publish-hero p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:1.2rem;}
+.publish-steps{background:white;border-radius:10px;padding:18px;margin-bottom:18px;}
+.publish-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:.85rem;color:var(--muted);}
+.publish-step:last-child{margin-bottom:0;}
+.step-num{
+  background:var(--gold);color:white;border-radius:50%;
+  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:.1rem;
+}
+code{
+  font-family:'DM Mono',monospace;background:var(--panel2);
+  padding:.15rem .4rem;border-radius:5px;font-size:.8rem;color:var(--brown);
+}
+
+/* PATCH CODE BLOCK */
+.code-block{
+  background:#2f2114;border-radius:12px;padding:18px;
+  overflow-x:auto;font-family:'DM Mono',monospace;font-size:.77rem;
+  color:#d4b896;line-height:1.75;margin:14px 0;
+  border:1px solid var(--border);
+}
+
+/* UPLOAD ZONE */
+.upload-zone{
+  border:2px dashed var(--border);border-radius:12px;
+  padding:2rem;text-align:center;cursor:pointer;transition:border-color .2s;
+  background:#fffdf9;
+}
+.upload-zone:hover{border-color:var(--gold);}
+.upload-zone .upload-icon{font-size:2rem;margin-bottom:.5rem;}
+.upload-zone p{color:var(--muted);font-size:.85rem;}
+
+/* QUICK ACTIONS */
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.action-box{
+  padding:18px 16px;background:var(--panel2);border-radius:12px;
+  font-weight:600;font-size:.85rem;cursor:pointer;border:1.5px solid transparent;
+  transition:all .18s;text-align:center;
+}
+.action-box:hover{border-color:var(--gold);background:white;}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;}
+.data-table th{
+  text-align:left;padding:12px 14px;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-family:'DM Mono',monospace;border-bottom:1.5px solid var(--border);
+}
+.data-table td{padding:13px 14px;border-bottom:1px solid #f0e8d8;font-size:.87rem;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:#fffcf5;}
+.badge{padding:4px 10px;background:var(--panel2);border-radius:20px;font-size:.72rem;border:1px solid var(--border);}
+.badge.green{background:#edfaf3;border-color:#b7e4cc;color:var(--green);}
+.badge.gold{background:#fdf5e6;border-color:#e8d4a0;color:#7a5500;}
+
+/* TAB CONTENT */
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--gold);}
+
+/* NOTE */
+.info-note{
+  background:#fdf5e6;border:1px solid #e8d4a0;border-radius:10px;
+  padding:12px 14px;font-size:.82rem;color:#7a5500;line-height:1.6;
+  margin-bottom:16px;
+}
+
+@media(max-width:1100px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .sidebar{width:220px;}
+  .main{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ LOGIN ════════════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">🎓</div>
+    <h1>ScholarCMS</h1>
+    <p>Admin Panel — Prof. Swati Sah</p>
+    <input type="password" id="pwd-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="login-error">❌ Incorrect password. Please try again.</div>
+    <p class="login-hint">Default: <code>admin123</code> — change in &lt;script&gt; at bottom</p>
+  </div>
+</div>
+
+<!-- ════════════════ ADMIN ════════════════ -->
+<div id="admin-screen" style="display:none;">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-badge">S</div>
+      <div>
+        <h1>ScholarCMS</h1>
+        <small>Academic Content Management Studio</small>
+      </div>
+    </div>
+    <input class="top-search" placeholder="Search sections…" oninput="filterMenu(this.value)">
+    <div class="top-actions">
+      <div class="save-status" id="save-status">● All Saved</div>
+      <button class="btn btn-outline btn-sm" onclick="loadFromFile()">⬆ Load JSON</button>
+      <button class="btn btn-outline btn-sm" onclick="downloadJSON()">⬇ Export JSON</button>
+      <button class="btn btn-primary btn-sm" onclick="switchToTab('publish')">🚀 Publish Guide</button>
+      <button class="btn btn-outline btn-sm" style="color:var(--red);" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="menu-label">Dashboard</div>
+      <button class="menu-item active" data-tab="dashboard" onclick="switchTab(this)"><span class="icon">🏠</span>Overview</button>
+
+      <div class="menu-label">Profile</div>
+      <button class="menu-item" data-tab="profile" onclick="switchTab(this)"><span class="icon">👤</span>Basic Info</button>
+      <button class="menu-item" data-tab="links" onclick="switchTab(this)"><span class="icon">🔗</span>Links & Photos</button>
+      <button class="menu-item" data-tab="about" onclick="switchTab(this)"><span class="icon">📝</span>Bio & Experience</button>
+
+      <div class="menu-label">Teaching</div>
+      <button class="menu-item" data-tab="courses" onclick="switchTab(this)"><span class="icon">📚</span>Courses</button>
+
+      <div class="menu-label">Research</div>
+      <button class="menu-item" data-tab="papers" onclick="switchTab(this)"><span class="icon">📄</span>Conference Papers <span class="menu-badge" id="badge-papers">0</span></button>
+      <button class="menu-item" data-tab="articles" onclick="switchTab(this)"><span class="icon">📰</span>Journal Articles <span class="menu-badge" id="badge-articles">0</span></button>
+      <button class="menu-item" data-tab="books" onclick="switchTab(this)"><span class="icon">📖</span>Books <span class="menu-badge" id="badge-books">0</span></button>
+
+      <div class="menu-label">Events & Media</div>
+      <button class="menu-item" data-tab="workshops" onclick="switchTab(this)"><span class="icon">🎤</span>Workshops <span class="menu-badge" id="badge-workshops">0</span></button>
+      <button class="menu-item" data-tab="lectures" onclick="switchTab(this)"><span class="icon">▶️</span>Lectures / Videos <span class="menu-badge" id="badge-lectures">0</span></button>
+
+      <div class="menu-label">Deploy</div>
+      <button class="menu-item" data-tab="publish" onclick="switchTab(this)"><span class="icon">🚀</span>Publish to GitHub</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- ── DASHBOARD ── -->
+      <div class="tab-content active" id="tab-dashboard">
+        <div class="section-hdr">
+          <div>
+            <h2>Dashboard</h2>
+            <p>Welcome back. All changes are saved locally until you export & publish.</p>
+          </div>
+          <button class="btn btn-outline" onclick="downloadJSON()">⬇ Export JSON</button>
+        </div>
+
+        <div class="stats-grid" id="stats-grid"></div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Quick Edit — Profile</h3>
+            <button class="btn btn-primary btn-sm" onclick="saveSection('profile')">Save Changes</button>
+          </div>
+          <div class="panel-body">
+            <div class="grid-2">
+              <div class="field"><label>Professor Name</label><input type="text" id="q-name"></div>
+              <div class="field"><label>Title</label><input type="text" id="q-title"></div>
+            </div>
+            <div class="field"><label>Short Bio (shown on homepage)</label><textarea id="q-shortBio" rows="3"></textarea></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Recent Publications</h3><button class="btn btn-outline btn-sm" onclick="switchToTab('papers')">View All →</button></div>
+          <div class="panel-body">
+            <table class="data-table" id="recent-papers-table"></table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Quick Actions</h3></div>
+          <div class="panel-body">
+            <div class="quick-actions">
+              <div class="action-box" onclick="openModal('paper')">+ Add Paper</div>
+              <div class="action-box" onclick="openModal('article')">+ Add Article</div>
+              <div class="action-box" onclick="openModal('book')">+ Add Book</div>
+              <div class="action-box" onclick="openModal('workshop')">+ Add Workshop</div>
+              <div class="action-box" onclick="openModal('lecture')">+ Add Lecture</div>
+              <div class="action-box" onclick="switchToTab('publish')">🚀 Publish Guide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROFILE ── -->
+      <div class="tab-content" id="tab-profile">
+        <div class="section-hdr">
+          <div><h2>Basic Info</h2><p>Core profile information displayed across the site</p></div>
+          <button class="btn btn-primary" onclick="saveSection('profile')">Save Changes</button>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Professor Details</h3></div>
+          <div class="panel-body">
+            <div class="grid-2">
+              <div class="field"><label>Full Name</label><input type="text" id="prof-name"></div>
+              <div class="field"><label>Academic Title</label><input type="text" id="prof-title"></div>
+            </div>
+            <div class="grid-2">
+              <div class="field"><label>Institution</label><input type="text" id="prof-institution"></div>
+              <div class="field"><label>Email Address</label><input type="email" id="prof-email"></div>
+            </div>
+            <div class="field"><label>Short Bio (Homepage)</label><textarea id="prof-shortBio" rows="3"></textarea></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Homepage Stats (shown under hero)</h3></div>
+          <div class="panel-body" id="stats-editor"></div>
+        </div>
+      </div>
+
+      <!-- ── LINKS ── -->
+      <div class="tab-content" id="tab-links">
+        <div class="section-hdr">
+          <div><h2>Links & Photos</h2><p>Social profiles, academic links, and image paths</p></div>
+          <button class="btn btn-primary" onclick="saveSection('links')">Save Changes</button>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Academic & Social Links</h3></div>
+          <div class="panel-body">
+            <div class="field"><label>LinkedIn URL</label><input type="url" id="link-linkedin" placeholder="https://linkedin.com/in/..."></div>
+            <div class="field"><label>Google Scholar URL</label><input type="url" id="link-googleScholar" placeholder="https://scholar.google.com/..."></div>
+            <div class="field"><label>ORCID URL</label><input type="url" id="link-orcid" placeholder="https://orcid.org/..."></div>
+            <div class="field"><label>YouTube Channel URL</label><input type="url" id="link-youtube" placeholder="https://youtube.com/@..."></div>
+            <div class="field"><label>CV / Resume PDF URL or Path</label><input type="text" id="link-cv" placeholder="./assets/cv.pdf or https://..."></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Profile Photos</h3></div>
+          <div class="panel-body">
+            <div class="info-note">📁 Upload image files to your <code>assets/</code> folder in GitHub, then enter the path below (e.g. <code>./assets/photo.jpg</code>).</div>
+            <div class="field"><label>Homepage Circle Photo Path</label><input type="text" id="link-photo" placeholder="./assets/cropped_circle_image.png"></div>
+            <div class="field"><label>About Page Photo Path</label><input type="text" id="link-aboutPhoto" placeholder="./assets/about-photo.jpeg"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABOUT ── -->
+      <div class="tab-content" id="tab-about">
+        <div class="section-hdr">
+          <div><h2>Bio & Experience</h2><p>Full biography paragraphs and work history</p></div>
+          <button class="btn btn-primary" onclick="saveSection('about')">Save Bio</button>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Full Biography</h3></div>
+          <div class="panel-body" id="bio-paragraphs-editor"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Work Experience</h3>
+            <button class="btn btn-outline btn-sm" onclick="openModal('experience')">+ Add Position</button>
+          </div>
+          <div class="panel-body">
+            <div class="card-list" id="exp-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COURSES ── -->
+      <div class="tab-content" id="tab-courses">
+        <div class="section-hdr">
+          <div><h2>Courses</h2><p>Update syllabus, notes, and assignment URLs per course</p></div>
+        </div>
+        <div class="info-note">💡 These URLs point to your files in GitHub (e.g. <code>./assets/syllabus.pdf</code>) or external links. Set to <code>#</code> to hide the button.</div>
+        <div id="courses-editor"></div>
+      </div>
+
+      <!-- ── PAPERS ── -->
+      <div class="tab-content" id="tab-papers">
+        <div class="section-hdr">
+          <div><h2>Conference Papers</h2><p id="papers-count"></p></div>
+          <button class="btn btn-outline" onclick="openModal('paper')">+ Add Paper</button>
+        </div>
+        <div class="info-note">Papers added here appear <strong>prepended</strong> to the site's existing papers list. You don't need to re-enter all 29+ existing papers.</div>
+        <div class="card-list" id="papers-list"></div>
+      </div>
+
+      <!-- ── ARTICLES ── -->
+      <div class="tab-content" id="tab-articles">
+        <div class="section-hdr">
+          <div><h2>Journal Articles</h2><p id="articles-count"></p></div>
+          <button class="btn btn-outline" onclick="openModal('article')">+ Add Article</button>
+        </div>
+        <div class="info-note">Articles added here appear prepended to the existing articles on the live site.</div>
+        <div class="card-list" id="articles-list"></div>
+      </div>
+
+      <!-- ── BOOKS ── -->
+      <div class="tab-content" id="tab-books">
+        <div class="section-hdr">
+          <div><h2>Books</h2><p id="books-count"></p></div>
+          <button class="btn btn-outline" onclick="openModal('book')">+ Add Book</button>
+        </div>
+        <div class="card-list" id="books-list"></div>
+      </div>
+
+      <!-- ── WORKSHOPS ── -->
+      <div class="tab-content" id="tab-workshops">
+        <div class="section-hdr">
+          <div><h2>Workshops</h2><p id="workshops-count"></p></div>
+          <button class="btn btn-outline" onclick="openModal('workshop')">+ Add Workshop</button>
+        </div>
+        <div class="card-list" id="workshops-list"></div>
+      </div>
+
+      <!-- ── LECTURES ── -->
+      <div class="tab-content" id="tab-lectures">
+        <div class="section-hdr">
+          <div><h2>Lectures & Videos</h2><p id="lectures-count"></p></div>
+          <button class="btn btn-outline" onclick="openModal('lecture')">+ Add Lecture</button>
+        </div>
+        <div class="card-list" id="lectures-list"></div>
+      </div>
+
+      <!-- ── PUBLISH ── -->
+      <div class="tab-content" id="tab-publish">
+        <div class="section-hdr">
+          <div><h2>Publish to GitHub</h2><p>Deploy your content updates to the live site</p></div>
+          <button class="btn btn-primary" onclick="downloadJSON()">⬇ Download content.json</button>
+        </div>
+
+        <div class="publish-hero">
+          <h3>🚀 How Publishing Works</h3>
+          <p>This admin panel stores all your changes locally (in your browser). To push changes live, you export a <code>content.json</code> file and commit it to your GitHub repository. GitHub Pages auto-deploys in ~60 seconds.</p>
+          <div class="publish-steps">
+            <div class="publish-step"><div class="step-num">1</div><div>Make all your edits using the sidebar tabs</div></div>
+            <div class="publish-step"><div class="step-num">2</div><div>Click <strong>"⬇ Download content.json"</strong> above — save it to your computer</div></div>
+            <div class="publish-step"><div class="step-num">3</div><div>In your GitHub repo, navigate to the <strong>root folder</strong> and upload/replace <code>content.json</code></div></div>
+            <div class="publish-step"><div class="step-num">4</div><div>Commit with a message like <em>"Update content via ScholarCMS"</em></div></div>
+            <div class="publish-step"><div class="step-num">5</div><div>GitHub Pages auto-deploys — your live site updates in ~60 seconds ✅</div></div>
+          </div>
+          <button class="btn btn-primary" style="font-size:.95rem;padding:.8rem 2rem;" onclick="downloadJSON()">⬇ Download content.json Now</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>One-Time Setup: app.js Patch Code</h3>
+            <button class="btn btn-outline btn-sm" onclick="copyPatch()">📋 Copy Code</button>
+          </div>
+          <div class="panel-body">
+            <div class="info-note">Add this snippet <strong>once</strong> at the very top of your <code>app.js</code> file (before <code>const SITE_DATA</code>). This makes the site load overrides from <code>content.json</code> on every page load.</div>
+            <pre class="code-block" id="patch-code"></pre>
+            <button class="btn btn-outline btn-sm" onclick="copyPatch()">📋 Copy Patch Code</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Load Existing content.json</h3></div>
+          <div class="panel-body">
+            <p style="color:var(--muted);font-size:.85rem;margin-bottom:14px;">If you already have a <code>content.json</code> from a previous session, load it here to continue editing.</p>
+            <div class="upload-zone" onclick="loadFromFile()">
+              <div class="upload-icon">📂</div>
+              <p>Click to load <strong>content.json</strong></p>
+              <p style="font-size:.75rem;margin-top:4px;">Your changes will be restored</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ════════════════ MODAL ════════════════ -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h3 id="modal-title">Edit</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="modal-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- Hidden file input -->
+<input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
+
+<script>
+/* ════════════════════════════════════════════
+   SCHOLARCMS — Admin Panel v2
+   Design: cms.html | Logic: admin.html
+════════════════════════════════════════════ */
+
+const ADMIN_PASSWORD = 'admin123'; // ← CHANGE THIS before deploying!
+
+// ── DEFAULT DATA ──
+function getDefaultData() {
+  return {
+    professor: {
+      name: "Prof. Swati Sah",
+      title: "Professor",
+      institution: "Sharda University, India",
+      email: "iswatisah19@gmail.com",
+      linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
+      googleScholar: "#",
+      orcid: "#",
+      photo: "./assets/cropped_circle_image.png",
+      aboutPhoto: "./assets/swati maam's photo.jpeg",
+      shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security.`,
+      stats: [
+        { num: "12+", label: "Years Experience" },
+        { num: "29+", label: "Publications" },
+        { num: "6",   label: "Institutions" },
+        { num: "4+",  label: "Books" }
+      ]
+    },
+    youtubeChannel: "https://www.youtube.com/@swatisah6041",
+    cvUrl: "#",
+    about: {
+      fullBio: [
+        `Prof. Swati Sah is a distinguished academic and researcher with over 12 years of experience spanning Artificial Intelligence, Machine Learning, Federated Learning, and Cyber Security. She holds a faculty position at Sharda University, Greater Noida, India.`,
+        `Her international footprint spans multiple countries — India, the United Kingdom, and Uzbekistan — where she has held teaching and research positions at leading institutions.`,
+        `Prof. Sah's research bridges foundational theory with real-world challenges in finance, healthcare, and cyber resilience.`
+      ],
+      experience: [
+        { period: "Present", title: "Professor", org: "Sharda University, Greater Noida, UP, India", icon: "🎓" },
+        { period: "Previous", title: "Faculty", org: "University of Bedfordshire, United Kingdom", icon: "🇬🇧" },
+        { period: "Previous", title: "Faculty", org: "JAIN University, Bangalore, India", icon: "🎓" },
+        { period: "Previous", title: "Faculty", org: "Ajeenkya DY Patil University, India", icon: "🎓" },
+        { period: "Previous", title: "Faculty", org: "Amity University, Tashkent, Uzbekistan", icon: "🌏" }
+      ]
+    },
+    courses: {},
+    papers: [],
+    articles: [],
+    books: [],
+    workshops: [],
+    lectures: []
+  };
+}
+
+let DATA = getDefaultData();
+
+// ── UNIVERSITIES MAP ──
+const UNIVERSITIES = [
+  { key:'sharda', name:'Sharda University', courses:['pps','ds-sharda','dbms','daa'] },
+  { key:'jain', name:'JAIN University', courses:['c-prog','ds-jain','bda','python-jain','ml-jain'] },
+  { key:'adypatil', name:'Ajeenkya DY Patil University', courses:['sql-analytics','aiml-adyp'] },
+  { key:'amity', name:'Amity University Tashkent', courses:['spm','isd','dip'] },
+  { key:'bedfordshire', name:'University of Bedfordshire', courses:['research-meth','proj-mgmt','python-beds','ai-concepts'] },
+  { key:'bharatividya', name:'Bharati Vidyapeeth University', courses:['html-bvp','c-bvp','ds-bvp'] }
+];
+const COURSE_NAMES = {
+  'pps':'Programming for Problem Solving','ds-sharda':'Data Structures','dbms':'Database Management System',
+  'daa':'Design Analysis & Algorithms','c-prog':'C Programming','ds-jain':'Data Structures',
+  'bda':'Big Data Analytics','python-jain':'Python Programming','ml-jain':'Machine Learning using Python',
+  'sql-analytics':'Data Analytics using SQL','aiml-adyp':'AI & ML',
+  'spm':'Software Project Management','isd':'Intro to Software Development','dip':'Digital Image Processing',
+  'research-meth':'Research Methodology','proj-mgmt':'Project Management',
+  'python-beds':'Python Programming','ai-concepts':'Concepts and Technologies of AI',
+  'html-bvp':'Introduction to HTML','c-bvp':'C Programming','ds-bvp':'Data Structures'
+};
+
+// ── LOGIN ──
+function doLogin() {
+  const val = document.getElementById('pwd-input').value;
+  if (val === ADMIN_PASSWORD) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-screen').style.display = 'block';
+    initAdmin();
+  } else {
+    const err = document.getElementById('login-error');
+    err.style.display = 'block';
+    document.getElementById('pwd-input').value = '';
+    setTimeout(() => { err.style.display = 'none'; }, 3000);
+  }
+}
+
+function doLogout() {
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('pwd-input').value = '';
+}
+
+// ── TABS ──
+function switchTab(btn) {
+  document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+}
+
+function switchToTab(tabName) {
+  const btn = document.querySelector(`.menu-item[data-tab="${tabName}"]`);
+  if (btn) switchTab(btn);
+}
+
+function filterMenu(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.menu-item').forEach(btn => {
+    btn.style.display = (!q || btn.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+}
+
+// ── INIT ──
+function initAdmin() {
+  renderDashboard();
+  renderProfile();
+  renderAbout();
+  renderLinks();
+  renderCourses();
+  renderPapers();
+  renderArticles();
+  renderBooks();
+  renderWorkshops();
+  renderLectures();
+  renderPatchCode();
+  syncQuickEdit();
+}
+
+// ── DASHBOARD ──
+function renderDashboard() {
+  document.getElementById('stats-grid').innerHTML = [
+    { num: DATA.papers.length,    lbl: 'New Papers Added' },
+    { num: DATA.articles.length,  lbl: 'New Articles Added' },
+    { num: DATA.books.length,     lbl: 'Books' },
+    { num: DATA.workshops.length + DATA.lectures.length, lbl: 'Workshops & Lectures' }
+  ].map(s => `<div class="stat-card"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`).join('');
+
+  // Badges
+  document.getElementById('badge-papers').textContent   = DATA.papers.length;
+  document.getElementById('badge-articles').textContent = DATA.articles.length;
+  document.getElementById('badge-books').textContent    = DATA.books.length;
+  document.getElementById('badge-workshops').textContent= DATA.workshops.length;
+  document.getElementById('badge-lectures').textContent = DATA.lectures.length;
+
+  // Recent papers table
+  const recent = DATA.papers.slice(0,5);
+  document.getElementById('recent-papers-table').innerHTML = recent.length ?
+    `<tr><th>Title</th><th>Venue</th><th>Status</th></tr>` +
+    recent.map(p => `<tr>
+      <td>${escHtml(p.title)}</td>
+      <td>${escHtml(p.venue||'')}</td>
+      <td><span class="badge green">Added</span></td>
+    </tr>`).join('') :
+    `<tr><td colspan="3" style="color:var(--muted);font-size:.85rem;padding:16px 14px;">No papers added yet. Use the Research section to add new papers.</td></tr>`;
+}
+
+// ── QUICK EDIT SYNC ──
+function syncQuickEdit() {
+  const p = DATA.professor;
+  const qn = document.getElementById('q-name');
+  const qt = document.getElementById('q-title');
+  const qb = document.getElementById('q-shortBio');
+  if (qn) qn.value = p.name || '';
+  if (qt) qt.value = p.title || '';
+  if (qb) qb.value = p.shortBio || '';
+}
+
+// ── PROFILE ──
+function renderProfile() {
+  const p = DATA.professor;
+  document.getElementById('prof-name').value        = p.name || '';
+  document.getElementById('prof-title').value       = p.title || '';
+  document.getElementById('prof-institution').value = p.institution || '';
+  document.getElementById('prof-email').value       = p.email || '';
+  document.getElementById('prof-shortBio').value    = p.shortBio || '';
+  document.getElementById('stats-editor').innerHTML = (p.stats || []).map((s, i) => `
+    <div class="grid-2" style="margin-bottom:.75rem;">
+      <div class="field"><label>Stat ${i+1} Value</label><input type="text" id="stat-num-${i}" value="${escHtml(s.num)}"></div>
+      <div class="field"><label>Stat ${i+1} Label</label><input type="text" id="stat-lbl-${i}" value="${escHtml(s.label)}"></div>
+    </div>`).join('');
+}
+
+function saveSection(section) {
+  markUnsaved();
+  if (section === 'profile') {
+    // Sync from both quick-edit and full profile form
+    DATA.professor.name        = (document.getElementById('prof-name') || document.getElementById('q-name'))?.value || DATA.professor.name;
+    DATA.professor.title       = (document.getElementById('prof-title') || document.getElementById('q-title'))?.value || DATA.professor.title;
+    DATA.professor.institution = document.getElementById('prof-institution')?.value || DATA.professor.institution;
+    DATA.professor.email       = document.getElementById('prof-email')?.value || DATA.professor.email;
+    DATA.professor.shortBio    = (document.getElementById('prof-shortBio') || document.getElementById('q-shortBio'))?.value || DATA.professor.shortBio;
+    DATA.professor.stats = DATA.professor.stats.map((s, i) => ({
+      num:   document.getElementById(`stat-num-${i}`)?.value || s.num,
+      label: document.getElementById(`stat-lbl-${i}`)?.value || s.label
+    }));
+    renderDashboard();
+    syncQuickEdit();
+  } else if (section === 'about') {
+    DATA.about.fullBio = Array.from(document.querySelectorAll('.bio-para-input')).map(t => t.value);
+  } else if (section === 'links') {
+    DATA.professor.linkedin      = document.getElementById('link-linkedin')?.value || '';
+    DATA.professor.googleScholar = document.getElementById('link-googleScholar')?.value || '';
+    DATA.professor.orcid         = document.getElementById('link-orcid')?.value || '';
+    DATA.youtubeChannel          = document.getElementById('link-youtube')?.value || '';
+    DATA.cvUrl                   = document.getElementById('link-cv')?.value || '';
+    DATA.professor.photo         = document.getElementById('link-photo')?.value || '';
+    DATA.professor.aboutPhoto    = document.getElementById('link-aboutPhoto')?.value || '';
+  }
+  markSaved();
+  showToast('✓ Changes saved locally');
+}
+
+// ── ABOUT ──
+function renderAbout() {
+  document.getElementById('bio-paragraphs-editor').innerHTML =
+    (DATA.about.fullBio || []).map((para, i) => `
+      <div class="field">
+        <label>Paragraph ${i+1} <span style="font-weight:normal;color:var(--muted);">(click × to remove)</span></label>
+        <div style="display:flex;gap:8px;align-items:flex-start;">
+          <textarea class="bio-para-input" rows="4" style="flex:1;">${escHtml(para)}</textarea>
+          <button class="btn btn-danger btn-sm" style="margin-top:2px;" onclick="removeBioPara(${i})">✕</button>
+        </div>
+      </div>`).join('') +
+    `<button class="btn btn-outline btn-sm" onclick="addBioParagraph()" style="margin-top:.5rem;">+ Add Paragraph</button>`;
+
+  document.getElementById('exp-list').innerHTML =
+    (DATA.about.experience || []).map((e, i) => `
+      <div class="card-list-item">
+        <div style="font-size:1.5rem;">${e.icon || '🎓'}</div>
+        <div class="item-content">
+          <div class="item-title">${escHtml(e.title)} — ${escHtml(e.org)}</div>
+          <div class="item-meta">${escHtml(e.period)}</div>
+        </div>
+        <div class="item-actions">
+          <button class="btn btn-outline btn-sm" onclick="editExperience(${i})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteItem('experience',${i})">✕</button>
+        </div>
+      </div>`).join('') ||
+    '<p style="color:var(--muted);font-size:.85rem;">No experience entries. Click "+ Add Position" to add.</p>';
+}
+
+function addBioParagraph() { DATA.about.fullBio.push(''); renderAbout(); }
+function removeBioPara(i) {
+  DATA.about.fullBio = Array.from(document.querySelectorAll('.bio-para-input')).map(t => t.value);
+  DATA.about.fullBio.splice(i, 1);
+  renderAbout();
+}
+
+// ── LINKS ──
+function renderLinks() {
+  const p = DATA.professor;
+  document.getElementById('link-linkedin').value      = p.linkedin || '';
+  document.getElementById('link-googleScholar').value = p.googleScholar || '';
+  document.getElementById('link-orcid').value         = p.orcid || '';
+  document.getElementById('link-youtube').value       = DATA.youtubeChannel || '';
+  document.getElementById('link-cv').value            = DATA.cvUrl || '';
+  document.getElementById('link-photo').value         = p.photo || '';
+  document.getElementById('link-aboutPhoto').value    = p.aboutPhoto || '';
+}
+
+// ── COURSES ──
+function renderCourses() {
+  document.getElementById('courses-editor').innerHTML = UNIVERSITIES.map(uni => `
+    <div class="panel">
+      <div class="panel-head">
+        <h3>${uni.name}</h3>
+        <button class="btn btn-primary btn-sm" onclick="saveCoursesForUni('${uni.key}',${JSON.stringify(uni.courses)})">Save ${uni.name.split(' ')[0]}</button>
+      </div>
+      <div class="panel-body">
+        ${uni.courses.map(ck => {
+          const key = `${uni.key}__${ck}`;
+          const saved = DATA.courses[key] || {};
+          return `
+          <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);">
+            <div style="font-size:.88rem;font-weight:600;margin-bottom:10px;color:var(--brown);">📚 ${COURSE_NAMES[ck] || ck}</div>
+            <div class="grid-3">
+              <div class="field"><label>Syllabus URL</label><input type="text" id="c-${key}-syl" value="${escHtml(saved.syllabusUrl||'#')}" placeholder="#"></div>
+              <div class="field"><label>Notes URL</label><input type="text" id="c-${key}-notes" value="${escHtml(saved.notesUrl||'#')}" placeholder="#"></div>
+              <div class="field"><label>Assignments URL</label><input type="text" id="c-${key}-asgn" value="${escHtml(saved.assignmentsUrl||'#')}" placeholder="#"></div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function saveCoursesForUni(uniKey, courses) {
+  markUnsaved();
+  courses.forEach(ck => {
+    const key = `${uniKey}__${ck}`;
+    DATA.courses[key] = {
+      syllabusUrl:    document.getElementById(`c-${key}-syl`)?.value || '#',
+      notesUrl:       document.getElementById(`c-${key}-notes`)?.value || '#',
+      assignmentsUrl: document.getElementById(`c-${key}-asgn`)?.value || '#'
+    };
+  });
+  markSaved();
+  showToast('✓ Course links saved');
+}
+
+// ── LISTS ──
+function renderPapers() {
+  const c = DATA.papers.length;
+  document.getElementById('papers-count').textContent = c
+    ? `${c} new paper${c!==1?'s':''} added (will be prepended to the existing 29+ papers on live site)`
+    : 'No new papers. Your existing 29+ papers are already in app.js.';
+  document.getElementById('papers-list').innerHTML = DATA.papers.map((p, i) => `
+    <div class="card-list-item">
+      <div class="item-content">
+        <div class="item-title">${escHtml(p.title)}</div>
+        <div class="item-meta">${escHtml(p.venue||'')} ${(p.tags||[]).length ? '· ' + p.tags.join(', ') : ''}</div>
+      </div>
+      <div class="item-actions">
+        ${p.url && p.url !== '#' ? `<a href="${escHtml(p.url)}" target="_blank" class="btn btn-outline btn-sm">↗</a>` : ''}
+        <button class="btn btn-outline btn-sm" onclick="editPaper(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('papers',${i})">✕</button>
+      </div>
+    </div>`).join('') ||
+    '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">Your existing 29+ papers are already coded in app.js. Use "+ Add Paper" to add new ones.</p>';
+}
+
+function renderArticles() {
+  const c = DATA.articles.length;
+  document.getElementById('articles-count').textContent = `${c} article${c!==1?'s':''} added`;
+  document.getElementById('articles-list').innerHTML = DATA.articles.map((a, i) => `
+    <div class="card-list-item">
+      <div class="item-content">
+        <div class="item-title">${escHtml(a.title)}</div>
+        <div class="item-meta">${escHtml(a.journal||'')} · ${escHtml(a.year||'')} ${(a.tags||[]).length ? '· ' + a.tags.join(', ') : ''}</div>
+      </div>
+      <div class="item-actions">
+        ${a.url && a.url !== '#' ? `<a href="${escHtml(a.url)}" target="_blank" class="btn btn-outline btn-sm">↗</a>` : ''}
+        <button class="btn btn-outline btn-sm" onclick="editArticle(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('articles',${i})">✕</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No articles added yet.</p>';
+}
+
+function renderBooks() {
+  const c = DATA.books.length;
+  document.getElementById('books-count').textContent = `${c} book${c!==1?'s':''} added`;
+  document.getElementById('books-list').innerHTML = DATA.books.map((b, i) => `
+    <div class="card-list-item">
+      <div class="item-content">
+        <div class="item-title">${escHtml(b.title)}</div>
+        <div class="item-meta">${escHtml(b.publisher||'')} · ${escHtml(b.year||'')} · <em>${escHtml(b.status||'')}</em></div>
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-outline btn-sm" onclick="editBook(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('books',${i})">✕</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No books added yet.</p>';
+}
+
+function renderWorkshops() {
+  const c = DATA.workshops.length;
+  document.getElementById('workshops-count').textContent = `${c} workshop${c!==1?'s':''} added`;
+  document.getElementById('workshops-list').innerHTML = DATA.workshops.map((w, i) => `
+    <div class="card-list-item">
+      <div class="item-content">
+        <div class="item-title">${escHtml(w.title)}</div>
+        <div class="item-meta">${escHtml(w.date||'')} · ${escHtml(w.venue||'')} · ${escHtml(w.role||'')} · ${escHtml(w.attendees||'')} attendees</div>
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-outline btn-sm" onclick="editWorkshop(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('workshops',${i})">✕</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No workshops added yet.</p>';
+}
+
+function renderLectures() {
+  const c = DATA.lectures.length;
+  document.getElementById('lectures-count').textContent = `${c} lecture${c!==1?'s':''} added`;
+  document.getElementById('lectures-list').innerHTML = DATA.lectures.map((l, i) => `
+    <div class="card-list-item">
+      <div class="item-content">
+        <div class="item-title">${escHtml(l.title)}</div>
+        <div class="item-meta">${escHtml(l.platform||'')} ${l.date ? '· ' + escHtml(l.date) : ''} ${l.playlist ? '· Playlist: '+escHtml(l.playlist) : ''}</div>
+      </div>
+      <div class="item-actions">
+        ${l.youtubeUrl ? `<a href="${escHtml(l.youtubeUrl)}" target="_blank" class="btn btn-outline btn-sm">▶</a>` : ''}
+        <button class="btn btn-outline btn-sm" onclick="editLecture(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('lectures',${i})">✕</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No lectures added yet.</p>';
+}
+
+function renderAll() {
+  renderDashboard();
+  renderAbout();
+  renderPapers();
+  renderArticles();
+  renderBooks();
+  renderWorkshops();
+  renderLectures();
+}
+
+// ── MODALS ──
+let modalContext = null;
+
+function openModal(type, idx) {
+  modalContext = { type, idx };
+  document.getElementById('modal-backdrop').classList.add('open');
+
+  const titles = { paper:'Paper', article:'Article', book:'Book', workshop:'Workshop', lecture:'Lecture / Video', experience:'Work Experience' };
+  document.getElementById('modal-title').textContent = (idx !== undefined ? 'Edit ' : 'Add ') + (titles[type] || type);
+
+  const body = document.getElementById('modal-body');
+
+  function getItem() {
+    if (idx === undefined) return {};
+    if (type === 'experience') return DATA.about.experience[idx] || {};
+    return (DATA[type+'s'] || DATA[type] || [])[idx] || {};
+  }
+  const item = getItem();
+
+  if (type === 'paper') {
+    body.innerHTML = `
+      <div class="field"><label>Paper Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}" placeholder="Full paper title"></div>
+      <div class="field"><label>Authors</label><input type="text" id="m-authors" value="${escHtml(item.authors||'Swati Sah et al.')}" placeholder="Swati Sah et al."></div>
+      <div class="grid-2">
+        <div class="field"><label>Venue (e.g. IEEE, Springer)</label><input type="text" id="m-venue" value="${escHtml(item.venue||'')}"></div>
+        <div class="field"><label>Paper URL</label><input type="url" id="m-url" value="${escHtml(item.url||'')}" placeholder="https://scholar.google.com/..."></div>
+      </div>
+      <div class="field"><label>Tags (press Enter or comma to add)</label><div class="tags-input-wrapper" id="tags-wrapper"></div></div>`;
+    initTagsInput('tags-wrapper', item.tags || []);
+  } else if (type === 'article') {
+    body.innerHTML = `
+      <div class="field"><label>Article Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="grid-2">
+        <div class="field"><label>Journal Name</label><input type="text" id="m-journal" value="${escHtml(item.journal||'')}"></div>
+        <div class="field"><label>Year</label><input type="text" id="m-year" value="${escHtml(item.year||'')}" placeholder="2024"></div>
+      </div>
+      <div class="field"><label>Article URL</label><input type="url" id="m-url" value="${escHtml(item.url||'#')}"></div>
+      <div class="field"><label>Tags</label><div class="tags-input-wrapper" id="tags-wrapper"></div></div>`;
+    initTagsInput('tags-wrapper', item.tags || []);
+  } else if (type === 'book') {
+    body.innerHTML = `
+      <div class="field"><label>Book Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="field"><label>Subtitle</label><input type="text" id="m-subtitle" value="${escHtml(item.subtitle||'')}"></div>
+      <div class="grid-2">
+        <div class="field"><label>Publisher</label><input type="text" id="m-publisher" value="${escHtml(item.publisher||'Publisher Name')}"></div>
+        <div class="field"><label>Year</label><input type="text" id="m-year" value="${escHtml(item.year||'2025')}"></div>
+      </div>
+      <div class="field"><label>Status</label>
+        <select id="m-status">
+          <option value="Forthcoming" ${item.status==='Forthcoming'?'selected':''}>Forthcoming</option>
+          <option value="In Progress" ${item.status==='In Progress'?'selected':''}>In Progress</option>
+          <option value="Published" ${item.status==='Published'?'selected':''}>Published</option>
+        </select>
+      </div>
+      <div class="field"><label>Cover Image Path / URL</label><input type="text" id="m-cover" value="${escHtml(item.cover||'assets/book1.jpg')}" placeholder="assets/bookN.jpg"></div>
+      <div class="field"><label>Description</label><textarea id="m-description" rows="3">${escHtml(item.description||'')}</textarea></div>`;
+  } else if (type === 'workshop') {
+    body.innerHTML = `
+      <div class="field"><label>Workshop Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="grid-2">
+        <div class="field"><label>Date (e.g. March 2024)</label><input type="text" id="m-date" value="${escHtml(item.date||'')}"></div>
+        <div class="field"><label>Your Role</label><input type="text" id="m-role" value="${escHtml(item.role||'Organizer & Speaker')}"></div>
+      </div>
+      <div class="field"><label>Venue</label><input type="text" id="m-venue" value="${escHtml(item.venue||'')}"></div>
+      <div class="field"><label>Attendees (e.g. 80+)</label><input type="text" id="m-attendees" value="${escHtml(item.attendees||'')}"></div>`;
+  } else if (type === 'lecture') {
+    body.innerHTML = `
+      <div class="field"><label>Video / Lecture Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="grid-2">
+        <div class="field"><label>Playlist / Series</label><input type="text" id="m-playlist" value="${escHtml(item.playlist||item.platform||'')}"></div>
+        <div class="field"><label>Date (optional)</label><input type="text" id="m-date" value="${escHtml(item.date||'')}"></div>
+      </div>
+      <div class="field"><label>YouTube / Video URL</label><input type="url" id="m-url" value="${escHtml(item.youtubeUrl||item.url||'')}"></div>
+      <div class="field"><label>Thumbnail URL (optional)</label><input type="url" id="m-thumbnail" value="${escHtml(item.thumbnailUrl||item.thumbnail||'')}"></div>
+      <div class="field"><label>Description (optional)</label><textarea id="m-description" rows="2">${escHtml(item.description||'')}</textarea></div>`;
+  } else if (type === 'experience') {
+    body.innerHTML = `
+      <div class="grid-2">
+        <div class="field"><label>Icon (emoji)</label><input type="text" id="m-icon" value="${escHtml(item.icon||'🎓')}"></div>
+        <div class="field"><label>Period (e.g. Present / 2020–2022)</label><input type="text" id="m-period" value="${escHtml(item.period||'')}"></div>
+      </div>
+      <div class="field"><label>Job Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="field"><label>Organization</label><input type="text" id="m-org" value="${escHtml(item.org||'')}"></div>`;
+  }
+
+  document.getElementById('modal-save-btn').onclick = () => saveModal();
+}
+
+function editPaper(i)      { openModal('paper', i); }
+function editArticle(i)    { openModal('article', i); }
+function editBook(i)       { openModal('book', i); }
+function editWorkshop(i)   { openModal('workshop', i); }
+function editLecture(i)    { openModal('lecture', i); }
+function editExperience(i) { openModal('experience', i); }
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-backdrop')) return;
+  document.getElementById('modal-backdrop').classList.remove('open');
+}
+
+function saveModal() {
+  const { type, idx } = modalContext;
+  let item = {};
+  const v = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+
+  if (type === 'paper')      item = { title: v('m-title'), authors: v('m-authors'), venue: v('m-venue'), url: v('m-url'), tags: getTags('tags-wrapper') };
+  else if (type === 'article')   item = { title: v('m-title'), journal: v('m-journal'), year: v('m-year'), url: v('m-url'), tags: getTags('tags-wrapper') };
+  else if (type === 'book')      item = { title: v('m-title'), subtitle: v('m-subtitle'), publisher: v('m-publisher'), year: v('m-year'), status: v('m-status'), cover: v('m-cover'), description: v('m-description') };
+  else if (type === 'workshop')  item = { title: v('m-title'), date: v('m-date'), role: v('m-role'), venue: v('m-venue'), attendees: v('m-attendees') };
+  else if (type === 'lecture')   item = { title: v('m-title'), playlist: v('m-playlist'), date: v('m-date'), youtubeUrl: v('m-url'), thumbnailUrl: v('m-thumbnail'), description: v('m-description') };
+  else if (type === 'experience') item = { icon: v('m-icon'), period: v('m-period'), title: v('m-title'), org: v('m-org') };
+
+  // Get collection
+  let col;
+  if (type === 'experience') col = DATA.about.experience;
+  else col = DATA[type + 's'] || [];
+
+  if (idx !== undefined) col[idx] = item; else col.push(item);
+
+  document.getElementById('modal-backdrop').classList.remove('open');
+  renderAll();
+  markUnsaved();
+  showToast(`✓ ${type.charAt(0).toUpperCase()+type.slice(1)} ${idx !== undefined ? 'updated' : 'added'}`);
+}
+
+function deleteItem(col, idx) {
+  if (!confirm('Delete this item? This cannot be undone.')) return;
+  if (col === 'experience') DATA.about.experience.splice(idx, 1);
+  else if (DATA[col]) DATA[col].splice(idx, 1);
+  renderAll();
+  markUnsaved();
+  showToast('✓ Item deleted');
+}
+
+// ── TAGS INPUT ──
+let tagState = {};
+
+function initTagsInput(wrapperId, initial) {
+  tagState[wrapperId] = [...initial];
+  renderTags(wrapperId);
+}
+
+function renderTags(wrapperId) {
+  const wrapper = document.getElementById(wrapperId);
+  if (!wrapper) return;
+  wrapper.innerHTML = tagState[wrapperId].map((t, i) =>
+    `<span class="tag-chip">${escHtml(t)}<button type="button" onclick="removeTag('${wrapperId}',${i})">×</button></span>`).join('') +
+    `<input type="text" placeholder="Add tag, press Enter…" id="tag-input-${wrapperId}" onkeydown="handleTagInput(event,'${wrapperId}')">`;
+}
+
+function handleTagInput(e, wrapperId) {
+  if (e.key === 'Enter' || e.key === ',') {
+    e.preventDefault();
+    const val = e.target.value.trim().replace(',', '');
+    if (val) { tagState[wrapperId].push(val); renderTags(wrapperId); }
+  }
+}
+
+function removeTag(wrapperId, idx) { tagState[wrapperId].splice(idx, 1); renderTags(wrapperId); }
+function getTags(wrapperId) { return tagState[wrapperId] || []; }
+
+// ── EXPORT / IMPORT ──
+function downloadJSON() {
+  const json = JSON.stringify(DATA, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'content.json';
+  a.click();
+  markSaved();
+  showToast('✓ content.json downloaded! Upload it to your GitHub repo.');
+}
+
+function loadFromFile() { document.getElementById('file-input').click(); }
+
+function handleFileLoad(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      DATA = JSON.parse(ev.target.result);
+      initAdmin();
+      showToast('✓ content.json loaded — ready to edit');
+    } catch {
+      showToast('✗ Invalid JSON file', true);
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// ── PATCH CODE ──
+function renderPatchCode() {
+  const code = `// ══════════════════════════════════════════════
+// CONTENT.JSON LOADER — add at very TOP of app.js
+// (Before the line: const SITE_DATA = { ... })
+// ══════════════════════════════════════════════
+(async function loadContentOverrides() {
+  try {
+    const res = await fetch('./content.json?v=' + Date.now());
+    if (!res.ok) return; // no file yet — use defaults
+    const o = await res.json();
+
+    // Merge professor / links / bio
+    if (o.professor) Object.assign(SITE_DATA.professor, o.professor);
+    if (o.about) {
+      if (o.about.fullBio) SITE_DATA.about.fullBio = o.about.fullBio;
+      if (o.about.experience) SITE_DATA.about.experience = o.about.experience;
+    }
+    if (o.youtubeChannel) SITE_DATA.youtubeChannel = o.youtubeChannel;
+    if (o.cvUrl) SITE_DATA.cvUrl = o.cvUrl;
+
+    // Merge course URLs
+    if (o.courses) {
+      SITE_DATA.universities.forEach(uni => {
+        uni.courses.forEach(course => {
+          const key = uni.key + '__' + course.key;
+          if (o.courses[key]) Object.assign(course, o.courses[key]);
+        });
+      });
+    }
+
+    // Prepend new papers / articles / books / workshops / lectures
+    ['papers','articles','books','workshops','lectures'].forEach(k => {
+      if (o[k] && o[k].length)
+        SITE_DATA[k] = [...o[k], ...SITE_DATA[k]];
+    });
+
+    // Re-render whatever page is currently active
+    router();
+  } catch(e) {
+    console.warn('[ScholarCMS] content.json not found — using hardcoded defaults');
+  }
+})();`;
+  document.getElementById('patch-code').textContent = code;
+}
+
+function copyPatch() {
+  navigator.clipboard.writeText(document.getElementById('patch-code').textContent)
+    .then(() => showToast('✓ Patch code copied to clipboard!'))
+    .catch(() => showToast('✗ Copy failed — please copy manually', true));
+}
+
+// ── SAVE STATUS ──
+function markUnsaved() {
+  const el = document.getElementById('save-status');
+  el.textContent = '● Unsaved Changes';
+  el.className = 'save-status unsaved';
+}
+
+function markSaved() {
+  const el = document.getElementById('save-status');
+  el.textContent = '● All Saved';
+  el.className = 'save-status';
+}
+
+// ── TOAST ──
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => { t.className = 'toast'; }, 3200);
+}
+
+// ── UTILS ──
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
