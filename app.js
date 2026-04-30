@@ -50,14 +50,14 @@ const SITE_DATA = {
     { degree: "B.Tech.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "" },
   ],
 
-  /* ── Recognitions / Awards ───────────────────────────────── */
+  /* ── Recognitions / Awards DATA ───────────────────────────────── */
   recognitions: [
     // ── ADD/EDIT RECOGNITIONS HERE ──
-    { icon: "🏆", title: "Best Researcher Award", body: "Recognized for outstanding contributions to Federated Learning research, Sharda University, 2023." },
-    { icon: "🌟", title: "International Faculty Excellence Award", body: "Awarded for exemplary teaching and research contributions across multiple countries including India and the UK." },
-    { icon: "📚", title: "Distinguished Author Recognition", body: "Acknowledged for authoring influential books on AI-driven applications in healthcare and finance." },
-    { icon: "🤝", title: "International Collaboration Award", body: "Recognized for fostering academic partnerships between India, United Kingdom, and Uzbekistan." },
-    { icon: "🔬", title: "Cyber Security Research Grant", body: "Principal Investigator on a funded research project on AI-driven cyber resilience frameworks." },
+    // { icon: "🏆", title: "Best Researcher Award", body: "Recognized for outstanding contributions to Federated Learning research, Sharda University, 2023." },
+    // { icon: "🌟", title: "International Faculty Excellence Award", body: "Awarded for exemplary teaching and research contributions across multiple countries including India and the UK." },
+    // { icon: "📚", title: "Distinguished Author Recognition", body: "Acknowledged for authoring influential books on AI-driven applications in healthcare and finance." },
+    // { icon: "🤝", title: "International Collaboration Award", body: "Recognized for fostering academic partnerships between India, United Kingdom, and Uzbekistan." },
+    // { icon: "🔬", title: "Cyber Security Research Grant", body: "Principal Investigator on a funded research project on AI-driven cyber resilience frameworks." },
   ],
 
   /* ── Universities & Courses ──────────────────────────────── */
@@ -560,21 +560,21 @@ const SITE_DATA = {
     { title: "Empowering Leather Quality Assurance: Leveraging CNNs for Precise Defect Detection and Classification (Extended)", authors: "Swati Sah et al.", venue: "Springer", tags: ["CNN", "Quality Assurance", "Manufacturing"], url: "https://scholar.google.com/scholar?q=Leather+Quality+CNN+Defect+Detection+Classification+Extended" },
   ],
 
-  /* ── Articles & Journals ─────────────────────────────────── */
+  /* ── Articles & Journals Data ─────────────────────────────────── */
   articles: [
     // ── ADD/EDIT ARTICLES HERE ──
-    { title: "The Future of Federated Learning in Healthcare", journal: "Journal of Biomedical Informatics", year: "2024", url: "#", tags: ["Survey", "Healthcare", "Federated Learning"] },
-    { title: "Machine Learning Approaches in Cyber Threat Intelligence", journal: "Computers & Security (Elsevier)", year: "2023", url: "#", tags: ["Survey", "Cyber Security", "ML"] },
-    { title: "AI Ethics and Bias Mitigation in Financial Services", journal: "IEEE Transactions on Neural Networks", year: "2023", url: "#", tags: ["AI Ethics", "Finance", "Bias"] },
+    // { title: "The Future of Federated Learning in Healthcare", journal: "Journal of Biomedical Informatics", year: "2024", url: "#", tags: ["Survey", "Healthcare", "Federated Learning"] },
+    // { title: "Machine Learning Approaches in Cyber Threat Intelligence", journal: "Computers & Security (Elsevier)", year: "2023", url: "#", tags: ["Survey", "Cyber Security", "ML"] },
+    // { title: "AI Ethics and Bias Mitigation in Financial Services", journal: "IEEE Transactions on Neural Networks", year: "2023", url: "#", tags: ["AI Ethics", "Finance", "Bias"] },
   ],
 
-  /* ── Books ───────────────────────────────────────────────── */
+  /* ── Books Data ───────────────────────────────────────────────── */
   books: [
     // ── ADD/EDIT BOOKS HERE ──
-    { title: "AI-Driven Applications in Finance", subtitle: "Intelligent Systems for Modern Banking", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book1.jpg", description: "A comprehensive guide to applying artificial intelligence in financial services, covering algorithmic trading, fraud detection, and risk assessment." },
-    { title: "AI in Healthcare & Diagnostics", subtitle: "Machine Learning for Medical Intelligence", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book2.jpg", description: "Explores deep learning, federated learning, and NLP techniques for clinical decision support, medical imaging, and patient monitoring." },
-    { title: "Cyber Resilience Framework", subtitle: "AI-Powered Defense Strategies", status: "Forthcoming", publisher: "Publisher Name", year: "2026", cover: "assets/book3.jpg", description: "A practitioner's guide to building adaptive, AI-driven cyber resilience systems against evolving threat landscapes." },
-    { title: "Federated Learning: Principles & Practice", subtitle: "Privacy-Preserving Distributed AI", status: "In Progress", publisher: "Publisher Name", year: "2026", cover: "assets/book4.jpg", description: "Deep dive into federated learning frameworks, optimization techniques, and real-world deployment across healthcare, finance, and IoT." },
+    // { title: "AI-Driven Applications in Finance", subtitle: "Intelligent Systems for Modern Banking", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book1.jpg", description: "A comprehensive guide to applying artificial intelligence in financial services, covering algorithmic trading, fraud detection, and risk assessment." },
+    // { title: "AI in Healthcare & Diagnostics", subtitle: "Machine Learning for Medical Intelligence", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book2.jpg", description: "Explores deep learning, federated learning, and NLP techniques for clinical decision support, medical imaging, and patient monitoring." },
+    // { title: "Cyber Resilience Framework", subtitle: "AI-Powered Defense Strategies", status: "Forthcoming", publisher: "Publisher Name", year: "2026", cover: "assets/book3.jpg", description: "A practitioner's guide to building adaptive, AI-driven cyber resilience systems against evolving threat landscapes." },
+    // { title: "Federated Learning: Principles & Practice", subtitle: "Privacy-Preserving Distributed AI", status: "In Progress", publisher: "Publisher Name", year: "2026", cover: "assets/book4.jpg", description: "Deep dive into federated learning frameworks, optimization techniques, and real-world deployment across healthcare, finance, and IoT." },
   ],
 
   /* ── Workshops Data ───────────────────────────────────────────── */
