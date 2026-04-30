@@ -591,12 +591,12 @@ const SITE_DATA = {
   lectures: [
     // ── ADD/EDIT YOUTUBE VIDEOS HERE ──
     // thumbnailUrl: YouTube thumbnail URL or leave "" for placeholder
-    { title: "Introduction to Federated Learning", playlist: "FL Series", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
-    { title: "Gradient Descent Explained Visually", playlist: "ML Fundamentals", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
-    { title: "Cyber Threats in the Age of AI", playlist: "Cyber Security", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
-    { title: "Neural Networks from Scratch", playlist: "Deep Learning", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
-    { title: "Privacy in Machine Learning", playlist: "FL Series", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
-    { title: "Explainability in AI Systems", playlist: "AI Ethics", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "" },
+    { title: "Random Search & Grid Search", playlist: "", youtubeUrl: "https://youtu.be/bZBeflYLLss?si=nVr94DcPJHu0ac_8", thumbnailUrl: "" },
+    { title: "Travelling Salesman Problem in AI", playlist: "", youtubeUrl: "https://youtu.be/qcS_h-wVaME?si=_Xsja5vybUh-26hf", thumbnailUrl: "" },
+    { title: "Search in AI", playlist: "", youtubeUrl: "https://youtu.be/xPXpPjnxFtM?si=Abl_I4nWWJKGcg2_", thumbnailUrl: "" },
+    { title: "Doubly linked list in data structure", playlist: "", youtubeUrl: "https://youtu.be/IkUqog5q5XQ?si=KyM6dZG1GZIEBfnQ", thumbnailUrl: "" },
+    { title: "Project Management", playlist: "", youtubeUrl: "https://youtu.be/9JOJmnW89yw?si=tdcy5YtFaL0QDdjP", thumbnailUrl: "" },
+    { title: "ITProgManagement", playlist: "", youtubeUrl: "https://youtu.be/h2QXiQ4lYqA?si=pnb6GzI17Gj2jZgy", thumbnailUrl: "" },
   ],
   youtubeChannel: "https://www.youtube.com/@swatisah6041",
 };
