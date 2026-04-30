@@ -577,15 +577,36 @@ const SITE_DATA = {
     { title: "Federated Learning: Principles & Practice", subtitle: "Privacy-Preserving Distributed AI", status: "In Progress", publisher: "Publisher Name", year: "2026", cover: "assets/book4.jpg", description: "Deep dive into federated learning frameworks, optimization techniques, and real-world deployment across healthcare, finance, and IoT." },
   ],
 
-  /* ── Workshops ───────────────────────────────────────────── */
-  workshops: [
-    // ── ADD/EDIT WORKSHOPS HERE ──
-    { date: "March 2024", title: "Hands-on Workshop on Federated Learning with TensorFlow", venue: "Sharda University, Noida", role: "Organizer & Speaker", attendees: "80+" },
-    { date: "November 2023", title: "Cyber Security Bootcamp: Ethical Hacking & Penetration Testing", venue: "Sharda University, Noida", role: "Organizer", attendees: "120+" },
-    { date: "August 2023", title: "Introduction to Machine Learning for Beginners", venue: "National Webinar (Online)", role: "Speaker", attendees: "500+" },
-    { date: "January 2023", title: "AI in Healthcare: Opportunities & Challenges", venue: "University of Bedfordshire, UK", role: "Invited Speaker", attendees: "60+" },
-    { date: "June 2022", title: "Deep Learning Workshop: From Theory to Practice", venue: "Amity University, Tashkent", role: "Speaker", attendees: "75+" },
-  ],
+  /* ── Workshops Data ───────────────────────────────────────────── */
+  workshops: {
+    ongoing: [
+    //   {
+    //   title: "AI in Healthcare Workshop",
+    //   date: "12–14 May 2026",
+    //   time: "10:00 AM – 4:00 PM",
+    //   location: "Sharda University, Greater Noida",
+    //   attendees: "120+ Participants",
+    //   link: "https://example.com"
+    // }
+    ],
+    upcoming: [
+    //   {
+    //   title: "Federated Learning FDP",
+    //   date: "20 June 2026",
+    //   time: "11:00 AM – 3:00 PM",
+    //   location: "Online (Zoom)"
+    // }
+    ],
+    past: [
+      // {
+      // title: "Cyber Security Bootcamp",
+      // date: "Jan 2025",
+      // time: "3 Days",
+      // location: "IIT Delhi",
+      // attendees: "200+ Participants"
+      // }
+    ]
+  },
 
   /* ── Lectures (YouTube) ──────────────────────────────────── */
   lectures: [
@@ -1043,23 +1064,48 @@ function renderCourse({ uni: uniKey, course: courseKey }) {
 
 
 /* ── WORKSHOPS ───────────────────────────────────────────────── */
-function renderWorkshops() {
-  const cardsHtml = SITE_DATA.workshops.map(w => `
+function workshopSection(title, workshops) {
+  // If no workshops → show message
+  if (!workshops || workshops.length === 0) {
+    return `
+      <div class="empty-workshop">
+        No workshops available currently.
+      </div>
+    `;
+  }
+
+  const cards = workshops.map(w => `
     <div class="workshop-card">
       <div class="workshop-date">${w.date}</div>
       <div class="workshop-title">${w.title}</div>
-      <div class="workshop-venue">📍 ${w.venue}</div>
-      ${w.attendees ? `<div style="font-size:.8rem;color:var(--text-light);margin-top:.4rem;">👥 ${w.attendees} Attendees</div>` : ''}
-      <div class="workshop-role">${w.role}</div>
-    </div>`).join('');
+      <div class="workshop-venue">📍 ${w.location}</div>
+      <div class="workshop-time">⏰ ${w.time}</div>
+      ${w.attendees ? `<div class="workshop-attendees">👥 ${w.attendees}</div>` : ''}
+      ${w.link ? `<a href="${w.link}" target="_blank" class="btn btn-outline btn-sm">View Details</a>` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <h3 class="workshop-section-title">${title}</h3>
+    <div class="workshop-grid">${cards}</div>
+  `;
+}
+
+function renderWorkshops() {
+  const w = SITE_DATA.workshops;
 
   setPage(`
-    ${pageHeader('Academic Events', 'Workshops', 'Organized & delivered workshops across India and abroad')}
+    ${pageHeader('Academic Events','Workshops','Workshops, FDPs & Training Programs')}
+
     <div class="section">
-      <div class="section-label">Events &amp; Training</div>
+      <div class="section-label">Events</div>
       <h2 class="section-title">Workshops</h2>
       <div class="section-divider"></div>
-      <div class="workshop-grid">${cardsHtml}</div>
+
+      ${workshopSection("Ongoing Workshops", w.ongoing)}
+      ${workshopSection("Upcoming Workshops", w.upcoming)}
+      ${workshopSection("Past Workshops", w.past)}
+
     </div>
   `);
 }

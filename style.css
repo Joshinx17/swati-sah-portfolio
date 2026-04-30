@@ -493,3 +493,21 @@ footer .footer-name { font-family: 'Cormorant Garamond',serif; font-size: 1.2rem
 .delay-3{animation-delay:.36s;opacity:0}
 .delay-4{animation-delay:.5s;opacity:0}
 .delay-5{animation-delay:.65s;opacity:0}
+
+
+/* Workshops section css */
+.workshop-section-title{
+  margin-top:3rem;
+  font-size:1.6rem;
+  color:var(--brown-deep);
+  font-family:'Cormorant Garamond',serif;
+}
+
+.empty-workshop{
+  padding:2rem;
+  border:1px dashed var(--border);
+  border-radius:14px;
+  text-align:center;
+  color:var(--text-light);
+  margin-bottom:2rem;
+}
