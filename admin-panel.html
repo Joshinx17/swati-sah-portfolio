@@ -17,7 +17,7 @@
   --muted:#7b6a57;
   --border:#dccdb4;
   --shadow:rgba(50,30,10,.09);
-  --radius:16px;
+  --radius:14px;
   --green:#2d7a4a;
   --red:#b83232;
   --blue:#2563a8;
@@ -58,47 +58,39 @@ button,input,textarea,select{font-family:inherit;}
 }
 .login-card .login-btn:hover{opacity:.88;}
 .login-error{color:var(--red);font-size:.82rem;margin-top:.75rem;display:none;}
-.login-hint{font-size:.72rem;color:var(--muted);margin-top:1.5rem;}
+.login-hint{font-size:.72rem;color:var(--muted);margin-top:1.5rem;line-height:1.7;}
 
 /* ══ ADMIN LAYOUT ══ */
 #admin-screen{display:none;height:100vh;flex-direction:column;}
 
 /* TOP BAR */
 .topbar{
-  height:68px;border-bottom:1px solid var(--border);
+  height:62px;border-bottom:1px solid var(--border);
   background:rgba(255,252,245,.97);backdrop-filter:blur(10px);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 28px;flex-shrink:0;position:sticky;top:0;z-index:100;
+  padding:0 24px;flex-shrink:0;z-index:100;
 }
-.brand{display:flex;gap:12px;align-items:center;}
+.brand{display:flex;gap:10px;align-items:center;}
 .brand-badge{
-  width:42px;height:42px;border-radius:12px;
+  width:38px;height:38px;border-radius:10px;
   background:linear-gradient(135deg,#d5bb7a,var(--gold));
   display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:1.1rem;color:white;flex-shrink:0;
+  font-weight:700;font-size:1rem;color:white;flex-shrink:0;
 }
-.brand h1{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--brown);}
-.brand small{display:block;color:var(--muted);font-size:.72rem;line-height:1;}
-
-.top-search{
-  width:360px;background:white;border:1.5px solid var(--border);
-  padding:10px 14px;border-radius:12px;font-size:.88rem;outline:none;
-  transition:border-color .2s;
-}
-.top-search:focus{border-color:var(--gold);}
-
-.top-actions{display:flex;gap:10px;align-items:center;}
+.brand h1{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--brown);}
+.brand small{display:block;color:var(--muted);font-size:.68rem;line-height:1;}
+.top-actions{display:flex;gap:8px;align-items:center;}
 .save-status{
-  font-size:.82rem;color:var(--green);font-weight:600;
-  padding:6px 12px;background:#edfaf3;border-radius:20px;border:1px solid #b7e4cc;
+  font-size:.78rem;color:var(--green);font-weight:600;
+  padding:5px 11px;background:#edfaf3;border-radius:20px;border:1px solid #b7e4cc;
 }
 .save-status.unsaved{color:#8a5500;background:#fdf5e6;border-color:#e8d4a0;}
 
 /* BUTTONS */
 .btn{
   display:inline-flex;align-items:center;gap:.35rem;
-  padding:.55rem 1rem;border-radius:10px;
-  font-size:.85rem;font-weight:500;cursor:pointer;border:none;
+  padding:.5rem .9rem;border-radius:9px;
+  font-size:.83rem;font-weight:500;cursor:pointer;border:none;
   transition:all .18s;white-space:nowrap;
 }
 .btn-primary{background:var(--gold);color:white;}
@@ -109,545 +101,402 @@ button,input,textarea,select{font-family:inherit;}
 .btn-danger:hover{background:#fdf0f0;}
 .btn-green{background:#2d7a4a;color:white;}
 .btn-green:hover{background:#236039;}
-.btn-sm{padding:.38rem .75rem;font-size:.78rem;}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid transparent;}
+.btn-ghost:hover{background:var(--panel2);color:var(--brown);}
+.btn-sm{padding:.32rem .65rem;font-size:.75rem;}
+.btn-xs{padding:.22rem .5rem;font-size:.7rem;}
 
 /* LAYOUT */
-.layout{display:flex;height:calc(100vh - 68px);}
+.layout{display:flex;height:calc(100vh - 62px);}
 
 /* SIDEBAR */
 .sidebar{
-  width:260px;flex-shrink:0;background:var(--panel);
-  border-right:1px solid var(--border);padding:20px 14px;
+  width:240px;flex-shrink:0;background:var(--panel);
+  border-right:1px solid var(--border);padding:16px 12px;
   overflow-y:auto;
 }
 .menu-label{
-  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
-  color:#9b8a77;padding:.8rem .6rem .35rem;font-family:'DM Mono',monospace;
+  font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#9b8a77;padding:.8rem .6rem .3rem;font-family:'DM Mono',monospace;
 }
 .menu-item{
-  width:100%;border:none;background:none;padding:10px 12px;
-  border-radius:10px;text-align:left;margin-bottom:3px;
-  font-size:.875rem;font-weight:500;cursor:pointer;color:var(--muted);
-  transition:all .15s;display:flex;align-items:center;gap:8px;
+  width:100%;border:none;background:none;padding:9px 11px;
+  border-radius:9px;text-align:left;margin-bottom:2px;
+  font-size:.845rem;font-weight:500;cursor:pointer;color:var(--muted);
+  transition:all .15s;display:flex;align-items:center;gap:7px;
 }
 .menu-item:hover{background:var(--panel2);color:var(--brown);}
-.menu-item.active{background:var(--panel2);color:var(--brown);font-weight:600;}
-.menu-item .icon{font-size:.95rem;width:20px;text-align:center;flex-shrink:0;}
+.menu-item.active{background:linear-gradient(135deg,#f7e9c8,var(--panel2));color:var(--brown);font-weight:600;border:1px solid #e8d4a0;}
+.menu-item .icon{font-size:.9rem;width:18px;text-align:center;flex-shrink:0;}
 .menu-badge{
   margin-left:auto;background:var(--border);color:var(--muted);
-  border-radius:20px;padding:1px 7px;font-size:.7rem;font-family:'DM Mono',monospace;
+  border-radius:20px;padding:1px 7px;font-size:.67rem;font-family:'DM Mono',monospace;
 }
 
 /* MAIN */
-.main{flex:1;overflow-y:auto;padding:30px 34px;}
+.main{flex:1;overflow-y:auto;padding:26px 30px;}
 
 /* SECTION HEADER */
 .section-hdr{
   display:flex;align-items:flex-start;justify-content:space-between;
-  margin-bottom:24px;gap:1rem;flex-wrap:wrap;
+  margin-bottom:22px;gap:1rem;flex-wrap:wrap;
 }
-.section-hdr h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;}
-.section-hdr p{color:var(--muted);font-size:.85rem;margin-top:4px;}
+.section-hdr h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--brown);}
+.section-hdr p{color:var(--muted);font-size:.82rem;margin-top:3px;}
 
 /* CARDS / PANELS */
 .panel{
   background:white;border:1px solid var(--border);
-  border-radius:var(--radius);margin-bottom:20px;
-  box-shadow:0 3px 16px var(--shadow);
+  border-radius:var(--radius);margin-bottom:18px;
+  box-shadow:0 2px 12px var(--shadow);
 }
 .panel-head{
-  padding:16px 20px;border-bottom:1px solid var(--border);
+  padding:14px 18px;border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
+  background:var(--panel);border-radius:var(--radius) var(--radius) 0 0;
 }
-.panel-head h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;}
-.panel-body{padding:20px;}
+.panel-head h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--brown);}
+.panel-body{padding:18px;}
 
 /* STATS GRID */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px;}
 .stat-card{
   background:white;border:1px solid var(--border);
-  border-radius:var(--radius);padding:22px 20px;
-  box-shadow:0 3px 14px var(--shadow);
+  border-radius:var(--radius);padding:18px;
+  box-shadow:0 2px 12px var(--shadow);
+  position:relative;overflow:hidden;
 }
-.stat-card .num{font-size:2rem;font-weight:700;color:var(--gold);font-family:'DM Mono',monospace;}
-.stat-card .lbl{margin-top:5px;color:var(--muted);font-size:.82rem;}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#e8c97a);}
+.stat-card .num{font-size:1.9rem;font-weight:700;color:var(--gold);font-family:'DM Mono',monospace;}
+.stat-card .lbl{margin-top:4px;color:var(--muted);font-size:.78rem;}
 
 /* FIELDS */
-.field{margin-bottom:16px;}
+.field{margin-bottom:14px;}
 .field label{
-  display:block;font-size:.73rem;text-transform:uppercase;
-  letter-spacing:.09em;margin-bottom:6px;color:var(--muted);
+  display:block;font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:5px;color:var(--muted);
   font-family:'DM Mono',monospace;
 }
 .field input,.field textarea,.field select{
-  width:100%;padding:11px 14px;border-radius:10px;
+  width:100%;padding:10px 13px;border-radius:9px;
   border:1.5px solid var(--border);background:#fffdf9;
-  color:var(--text);font-size:.88rem;outline:none;
+  color:var(--text);font-size:.86rem;outline:none;
   transition:border-color .2s;
 }
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);}
-.field textarea{resize:vertical;min-height:100px;line-height:1.6;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);background:white;}
+.field textarea{resize:vertical;min-height:90px;line-height:1.6;}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b6a57' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.field-hint{font-size:.7rem;color:var(--muted);margin-top:4px;}
 
 /* TAGS */
 .tags-input-wrapper{
-  background:#fffdf9;border:1.5px solid var(--border);border-radius:10px;
-  padding:.4rem .5rem;display:flex;flex-wrap:wrap;gap:.35rem;
-  cursor:text;transition:border-color .2s;min-height:44px;align-items:center;
+  background:#fffdf9;border:1.5px solid var(--border);border-radius:9px;
+  padding:.4rem .5rem;display:flex;flex-wrap:wrap;gap:.3rem;
+  cursor:text;transition:border-color .2s;min-height:42px;align-items:center;
 }
 .tags-input-wrapper:focus-within{border-color:var(--gold);}
 .tag-chip{
-  background:var(--panel2);color:var(--brown);border-radius:6px;
-  padding:.2rem .5rem;font-size:.78rem;display:flex;align-items:center;gap:.3rem;border:1px solid var(--border);
+  background:var(--panel2);border:1px solid var(--border);
+  border-radius:20px;padding:2px 10px;font-size:.73rem;
+  display:inline-flex;align-items:center;gap:5px;
 }
-.tag-chip button{background:none;border:none;color:var(--muted);cursor:pointer;padding:0;line-height:1;font-size:.95rem;}
+.tag-chip button{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.8rem;padding:0;line-height:1;}
 .tag-chip button:hover{color:var(--red);}
-.tags-input-wrapper input{border:none;background:none;color:var(--text);font-size:.85rem;padding:.2rem .3rem;outline:none;flex:1;min-width:90px;}
-
-/* CARD LIST */
-.card-list{display:flex;flex-direction:column;gap:.65rem;}
-.card-list-item{
-  background:var(--bg);border:1.5px solid var(--border);border-radius:12px;
-  padding:14px 16px;display:flex;align-items:flex-start;gap:14px;
-  transition:border-color .15s;
+.tags-input-wrapper input{
+  border:none;background:none;outline:none;font-size:.8rem;
+  color:var(--text);min-width:120px;padding:2px 4px;
 }
-.card-list-item:hover{border-color:var(--gold);}
-.item-content{flex:1;min-width:0;}
-.item-title{font-size:.9rem;font-weight:500;margin-bottom:3px;color:var(--text);}
-.item-meta{font-size:.78rem;color:var(--muted);line-height:1.4;}
-.item-actions{display:flex;gap:.45rem;flex-shrink:0;align-items:flex-start;}
+
+/* LIST ITEMS */
+.list-item{
+  display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
+  border:1px solid var(--border);border-radius:10px;margin-bottom:8px;
+  background:white;transition:box-shadow .15s;
+}
+.list-item:hover{box-shadow:0 4px 16px var(--shadow);}
+.list-item-body{flex:1;min-width:0;}
+.list-item-title{font-weight:600;font-size:.88rem;color:var(--brown);margin-bottom:3px;line-height:1.3;}
+.list-item-sub{font-size:.78rem;color:var(--muted);line-height:1.4;}
+.list-item-actions{display:flex;gap:6px;flex-shrink:0;align-items:flex-start;padding-top:1px;}
+.list-item-num{
+  width:26px;height:26px;border-radius:8px;background:var(--panel2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-top:1px;
+  font-family:'DM Mono',monospace;
+}
 
 /* MODAL */
 .modal-backdrop{
-  position:fixed;inset:0;background:rgba(44,25,5,.55);
-  z-index:200;display:none;align-items:center;justify-content:center;
-  backdrop-filter:blur(4px);
+  position:fixed;inset:0;background:rgba(30,15,5,.45);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;z-index:1000;padding:20px;
 }
 .modal-backdrop.open{display:flex;}
 .modal{
   background:var(--panel);border:1px solid var(--border);
-  border-radius:20px;width:620px;max-width:95vw;max-height:90vh;
-  overflow-y:auto;box-shadow:0 20px 60px rgba(44,25,5,.2);
+  border-radius:20px;width:100%;max-width:600px;max-height:90vh;
+  display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(30,15,5,.3);
 }
 .modal-head{
-  padding:18px 22px;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;background:var(--panel);z-index:1;border-radius:20px 20px 0 0;
+  padding:20px 24px 16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
 }
-.modal-head h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;}
-.modal-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:.1rem .4rem;border-radius:6px;}
-.modal-close:hover{background:var(--panel2);}
-.modal-body{padding:22px;}
-.modal-footer{
-  padding:14px 22px;border-top:1px solid var(--border);
-  display:flex;justify-content:flex-end;gap:.6rem;
-}
+.modal-head h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--brown);}
+.modal-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);padding:4px 8px;border-radius:8px;}
+.modal-close:hover{background:var(--panel2);color:var(--brown);}
+.modal-body{padding:20px 24px;overflow-y:auto;flex:1;}
+.modal-foot{padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;flex-shrink:0;}
 
 /* TOAST */
 .toast{
-  position:fixed;bottom:2rem;right:2rem;
-  background:var(--panel);border:1px solid var(--border);
-  border-left:4px solid var(--green);border-radius:12px;
-  padding:1rem 1.3rem;font-size:.88rem;z-index:999;
-  transform:translateY(120%);opacity:0;transition:all .3s ease;
-  max-width:340px;box-shadow:0 6px 24px var(--shadow);
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--brown);color:white;padding:10px 22px;border-radius:30px;
+  font-size:.83rem;font-weight:500;opacity:0;transition:all .3s;pointer-events:none;z-index:9999;
+  white-space:nowrap;box-shadow:0 8px 30px rgba(30,15,5,.3);
 }
-.toast.show{transform:translateY(0);opacity:1;}
-.toast.error{border-left-color:var(--red);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.error{background:var(--red);}
+.toast.success{background:var(--green);}
 
-/* PUBLISH */
-.publish-hero{
-  background:linear-gradient(135deg,#fdf6e8,#f5e8c8);
-  border:1.5px solid var(--gold);border-radius:var(--radius);
-  padding:28px;margin-bottom:20px;
-}
-.publish-hero h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--brown);margin-bottom:.4rem;}
-.publish-hero p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:1.2rem;}
-.publish-steps{background:white;border-radius:10px;padding:18px;margin-bottom:18px;}
-.publish-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:.85rem;color:var(--muted);}
-.publish-step:last-child{margin-bottom:0;}
-.step-num{
-  background:var(--gold);color:white;border-radius:50%;
-  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
-  font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:.1rem;
-}
-code{
-  font-family:'DM Mono',monospace;background:var(--panel2);
-  padding:.15rem .4rem;border-radius:5px;font-size:.8rem;color:var(--brown);
-}
-
-/* PATCH CODE BLOCK */
+/* CODE BLOCK */
 .code-block{
-  background:#2f2114;border-radius:12px;padding:18px;
-  overflow-x:auto;font-family:'DM Mono',monospace;font-size:.77rem;
-  color:#d4b896;line-height:1.75;margin:14px 0;
-  border:1px solid var(--border);
+  background:#1e1208;color:#e8d9bb;border-radius:12px;
+  padding:18px 20px;font-family:'DM Mono',monospace;
+  font-size:.76rem;line-height:1.7;overflow-x:auto;
+  white-space:pre;border:1px solid #3a2515;margin-bottom:14px;
 }
 
-/* UPLOAD ZONE */
-.upload-zone{
-  border:2px dashed var(--border);border-radius:12px;
-  padding:2rem;text-align:center;cursor:pointer;transition:border-color .2s;
-  background:#fffdf9;
+/* GITHUB WORKFLOW */
+.workflow-step{
+  display:flex;gap:16px;padding:16px;border:1px solid var(--border);
+  border-radius:10px;margin-bottom:10px;background:white;
 }
-.upload-zone:hover{border-color:var(--gold);}
-.upload-zone .upload-icon{font-size:2rem;margin-bottom:.5rem;}
-.upload-zone p{color:var(--muted);font-size:.85rem;}
-
-/* QUICK ACTIONS */
-.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
-.action-box{
-  padding:18px 16px;background:var(--panel2);border-radius:12px;
-  font-weight:600;font-size:.85rem;cursor:pointer;border:1.5px solid transparent;
-  transition:all .18s;text-align:center;
+.step-num{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#d5bb7a,var(--gold));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.85rem;flex-shrink:0;
 }
-.action-box:hover{border-color:var(--gold);background:white;}
+.step-content h4{font-size:.88rem;font-weight:600;color:var(--brown);margin-bottom:4px;}
+.step-content p{font-size:.8rem;color:var(--muted);line-height:1.5;}
 
-/* TABLE */
-.data-table{width:100%;border-collapse:collapse;}
-.data-table th{
-  text-align:left;padding:12px 14px;font-size:.7rem;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
-  font-family:'DM Mono',monospace;border-bottom:1.5px solid var(--border);
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:0;}
+.tab{
+  padding:8px 16px;border-radius:8px 8px 0 0;font-size:.82rem;font-weight:500;
+  cursor:pointer;background:none;border:1px solid transparent;color:var(--muted);
+  border-bottom:2px solid transparent;transition:all .15s;margin-bottom:-1px;
 }
-.data-table td{padding:13px 14px;border-bottom:1px solid #f0e8d8;font-size:.87rem;}
-.data-table tr:last-child td{border-bottom:none;}
-.data-table tr:hover td{background:#fffcf5;}
-.badge{padding:4px 10px;background:var(--panel2);border-radius:20px;font-size:.72rem;border:1px solid var(--border);}
-.badge.green{background:#edfaf3;border-color:#b7e4cc;color:var(--green);}
-.badge.gold{background:#fdf5e6;border-color:#e8d4a0;color:#7a5500;}
+.tab.active{color:var(--brown);border-color:var(--border) var(--border) white var(--border);background:white;border-bottom-color:white;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
 
-/* TAB CONTENT */
-.tab-content{display:none;}
-.tab-content.active{display:block;}
+/* TOPIC LIST EDITOR */
+.topic-list{list-style:none;margin-bottom:8px;}
+.topic-list li{
+  display:flex;align-items:center;gap:8px;padding:7px 10px;
+  background:white;border:1px solid var(--border);border-radius:8px;margin-bottom:5px;
+}
+.topic-list li input{flex:1;border:none;background:none;outline:none;font-size:.84rem;}
+.topic-list li .drag-handle{color:var(--border);cursor:grab;font-size:.9rem;}
+.topic-list li .remove-topic{background:none;border:none;cursor:pointer;color:var(--border);font-size:1rem;padding:0 2px;}
+.topic-list li .remove-topic:hover{color:var(--red);}
+
+/* UNIVERSITY ACCORDION */
+.uni-section{margin-bottom:12px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.uni-header{
+  width:100%;border:none;background:var(--panel);padding:14px 18px;
+  display:flex;align-items:center;gap:10px;cursor:pointer;
+  font-size:.9rem;font-weight:600;color:var(--brown);text-align:left;
+  transition:background .15s;
+}
+.uni-header:hover{background:var(--panel2);}
+.uni-header .chevron{margin-left:auto;transition:transform .2s;font-size:.75rem;}
+.uni-header.open .chevron{transform:rotate(180deg);}
+.uni-body{display:none;padding:14px 18px;background:white;}
+.uni-body.open{display:block;}
+.course-row{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border:1px solid var(--border);border-radius:9px;margin-bottom:8px;background:#fffdf8;
+}
+.course-row-info{flex:1;min-width:0;}
+.course-row-title{font-size:.84rem;font-weight:600;color:var(--brown);}
+.course-row-sub{font-size:.73rem;color:var(--muted);}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:40px 20px;color:var(--muted);}
+.empty-state .icon{font-size:2.5rem;margin-bottom:10px;}
+.empty-state p{font-size:.85rem;}
+
+/* INLINE EDITABLE */
+.inline-field{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.inline-field label{font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace;min-width:120px;text-transform:uppercase;letter-spacing:.07em;}
+.inline-field input{flex:1;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.85rem;outline:none;background:#fffdf9;}
+.inline-field input:focus{border-color:var(--gold);}
+
+/* SEARCH BAR */
+.search-bar{
+  background:white;border:1.5px solid var(--border);padding:9px 14px;
+  border-radius:10px;font-size:.85rem;outline:none;width:100%;margin-bottom:16px;
+  transition:border-color .2s;
+}
+.search-bar:focus{border-color:var(--gold);}
+
+/* RECOGNITION CARD */
+.recognition-card{
+  display:flex;gap:14px;padding:16px;border:1px solid var(--border);
+  border-radius:10px;margin-bottom:8px;background:white;
+}
+.recognition-icon{font-size:1.8rem;flex-shrink:0;}
+.recognition-body{flex:1;}
+.recognition-title{font-weight:600;font-size:.88rem;color:var(--brown);margin-bottom:4px;}
+.recognition-text{font-size:.8rem;color:var(--muted);line-height:1.5;}
+.recognition-actions{display:flex;gap:6px;margin-top:8px;}
+
+/* QUAL CARD */
+.qual-card{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;
+  padding:14px 16px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:white;
+}
+.degree-badge{
+  background:linear-gradient(135deg,var(--gold),#c9a14d);color:white;
+  padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:600;
+  font-family:'DM Mono',monospace;white-space:nowrap;
+}
+
+/* DEPLOY PANEL */
+.deploy-card{
+  background:linear-gradient(135deg,#1e3a2f,#163026);color:white;
+  border-radius:14px;padding:24px;margin-bottom:16px;
+}
+.deploy-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;margin-bottom:6px;}
+.deploy-card p{font-size:.82rem;opacity:.75;line-height:1.6;margin-bottom:16px;}
+.deploy-steps{list-style:none;}
+.deploy-steps li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.82rem;opacity:.85;}
+.deploy-steps li::before{content:'→';color:#4ade80;flex-shrink:0;margin-top:.05rem;}
 
 /* SCROLLBAR */
-::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
-::-webkit-scrollbar-thumb:hover{background:var(--gold);}
-
-/* NOTE */
-.info-note{
-  background:#fdf5e6;border:1px solid #e8d4a0;border-radius:10px;
-  padding:12px 14px;font-size:.82rem;color:#7a5500;line-height:1.6;
-  margin-bottom:16px;
-}
-
-@media(max-width:1100px){
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .sidebar{width:220px;}
-  .main{padding:20px;}
-}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
 </style>
 </head>
 <body>
 
-<!-- ════════════════ LOGIN ════════════════ -->
+<!-- ═══════════════════ LOGIN ═══════════════════ -->
 <div id="login-screen">
   <div class="login-card">
-    <div class="login-logo">🎓</div>
+    <div class="login-logo">🏛️</div>
     <h1>ScholarCMS</h1>
-    <p>Admin Panel — Prof. Swati Sah</p>
-    <input type="password" id="pwd-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">Sign In</button>
-    <div class="login-error" id="login-error">❌ Incorrect password. Please try again.</div>
-    <p class="login-hint">Default: <code>admin123</code> — change in &lt;script&gt; at bottom</p>
+    <p>Content management for Prof. Swati Sah's portfolio</p>
+    <input type="password" id="pw-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In →</button>
+    <div class="login-error" id="login-error">Incorrect password. Try again.</div>
+    <div class="login-hint">
+      Default password: <code style="background:var(--panel2);padding:1px 6px;border-radius:4px;">admin123</code><br>
+      Change it in <code style="background:var(--panel2);padding:1px 6px;border-radius:4px;">ADMIN_PASSWORD</code> at the top of this file.
+    </div>
   </div>
 </div>
 
-<!-- ════════════════ ADMIN ════════════════ -->
-<div id="admin-screen" style="display:none;">
-
-  <!-- TOP BAR -->
+<!-- ═══════════════════ ADMIN ═══════════════════ -->
+<div id="admin-screen">
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="brand">
       <div class="brand-badge">S</div>
       <div>
         <h1>ScholarCMS</h1>
-        <small>Academic Content Management Studio</small>
+        <small>Prof. Swati Sah — Portfolio Manager</small>
       </div>
     </div>
-    <input class="top-search" placeholder="Search sections…" oninput="filterMenu(this.value)">
     <div class="top-actions">
-      <div class="save-status" id="save-status">● All Saved</div>
-      <button class="btn btn-outline btn-sm" onclick="loadFromFile()">⬆ Load JSON</button>
-      <button class="btn btn-outline btn-sm" onclick="downloadJSON()">⬇ Export JSON</button>
-      <button class="btn btn-primary btn-sm" onclick="switchToTab('publish')">🚀 Publish Guide</button>
-      <button class="btn btn-outline btn-sm" style="color:var(--red);" onclick="doLogout()">Sign Out</button>
+      <span class="save-status" id="save-status">● All Saved</span>
+      <button class="btn btn-outline btn-sm" onclick="loadFromFile()">📂 Import JSON</button>
+      <button class="btn btn-primary btn-sm" onclick="downloadJSON()">⬇ Export content.json</button>
+      <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
     </div>
   </div>
 
+  <!-- LAYOUT -->
   <div class="layout">
-
     <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-      <div class="menu-label">Dashboard</div>
-      <button class="menu-item active" data-tab="dashboard" onclick="switchTab(this)"><span class="icon">🏠</span>Overview</button>
+    <div class="sidebar">
+      <div class="menu-label">Overview</div>
+      <button class="menu-item active" onclick="nav('dashboard')" id="nav-dashboard">
+        <span class="icon">🏠</span> Dashboard
+      </button>
 
       <div class="menu-label">Profile</div>
-      <button class="menu-item" data-tab="profile" onclick="switchTab(this)"><span class="icon">👤</span>Basic Info</button>
-      <button class="menu-item" data-tab="links" onclick="switchTab(this)"><span class="icon">🔗</span>Links & Photos</button>
-      <button class="menu-item" data-tab="about" onclick="switchTab(this)"><span class="icon">📝</span>Bio & Experience</button>
+      <button class="menu-item" onclick="nav('profile')" id="nav-profile">
+        <span class="icon">👤</span> Professor Info
+      </button>
+      <button class="menu-item" onclick="nav('about')" id="nav-about">
+        <span class="icon">📖</span> About &amp; Bio
+      </button>
+      <button class="menu-item" onclick="nav('qualifications')" id="nav-qualifications">
+        <span class="icon">🎓</span> Qualifications
+      </button>
+      <button class="menu-item" onclick="nav('recognitions')" id="nav-recognitions">
+        <span class="icon">🏆</span> Recognitions
+      </button>
+      <button class="menu-item" onclick="nav('experience')" id="nav-experience">
+        <span class="icon">💼</span> Experience
+      </button>
 
       <div class="menu-label">Teaching</div>
-      <button class="menu-item" data-tab="courses" onclick="switchTab(this)"><span class="icon">📚</span>Courses</button>
+      <button class="menu-item" onclick="nav('courses')" id="nav-courses">
+        <span class="icon">📚</span> Courses
+        <span class="menu-badge" id="badge-courses">0</span>
+      </button>
 
       <div class="menu-label">Research</div>
-      <button class="menu-item" data-tab="papers" onclick="switchTab(this)"><span class="icon">📄</span>Conference Papers <span class="menu-badge" id="badge-papers">0</span></button>
-      <button class="menu-item" data-tab="articles" onclick="switchTab(this)"><span class="icon">📰</span>Journal Articles <span class="menu-badge" id="badge-articles">0</span></button>
-      <button class="menu-item" data-tab="books" onclick="switchTab(this)"><span class="icon">📖</span>Books <span class="menu-badge" id="badge-books">0</span></button>
+      <button class="menu-item" onclick="nav('papers')" id="nav-papers">
+        <span class="icon">📄</span> Conference Papers
+        <span class="menu-badge" id="badge-papers">0</span>
+      </button>
+      <button class="menu-item" onclick="nav('articles')" id="nav-articles">
+        <span class="icon">📰</span> Journal Articles
+        <span class="menu-badge" id="badge-articles">0</span>
+      </button>
+      <button class="menu-item" onclick="nav('books')" id="nav-books">
+        <span class="icon">📗</span> Books
+        <span class="menu-badge" id="badge-books">0</span>
+      </button>
 
-      <div class="menu-label">Events & Media</div>
-      <button class="menu-item" data-tab="workshops" onclick="switchTab(this)"><span class="icon">🎤</span>Workshops <span class="menu-badge" id="badge-workshops">0</span></button>
-      <button class="menu-item" data-tab="lectures" onclick="switchTab(this)"><span class="icon">▶️</span>Lectures / Videos <span class="menu-badge" id="badge-lectures">0</span></button>
+      <div class="menu-label">Activities</div>
+      <button class="menu-item" onclick="nav('workshops')" id="nav-workshops">
+        <span class="icon">🎤</span> Workshops
+        <span class="menu-badge" id="badge-workshops">0</span>
+      </button>
+      <button class="menu-item" onclick="nav('lectures')" id="nav-lectures">
+        <span class="icon">▶️</span> YouTube Lectures
+        <span class="menu-badge" id="badge-lectures">0</span>
+      </button>
 
-      <div class="menu-label">Deploy</div>
-      <button class="menu-item" data-tab="publish" onclick="switchTab(this)"><span class="icon">🚀</span>Publish to GitHub</button>
-    </aside>
+      <div class="menu-label">System</div>
+      <button class="menu-item" onclick="nav('deploy')" id="nav-deploy">
+        <span class="icon">🚀</span> Deploy Guide
+      </button>
+    </div>
 
     <!-- MAIN -->
-    <main class="main">
-
-      <!-- ── DASHBOARD ── -->
-      <div class="tab-content active" id="tab-dashboard">
-        <div class="section-hdr">
-          <div>
-            <h2>Dashboard</h2>
-            <p>Welcome back. All changes are saved locally until you export & publish.</p>
-          </div>
-          <button class="btn btn-outline" onclick="downloadJSON()">⬇ Export JSON</button>
-        </div>
-
-        <div class="stats-grid" id="stats-grid"></div>
-
-        <div class="panel">
-          <div class="panel-head">
-            <h3>Quick Edit — Profile</h3>
-            <button class="btn btn-primary btn-sm" onclick="saveSection('profile')">Save Changes</button>
-          </div>
-          <div class="panel-body">
-            <div class="grid-2">
-              <div class="field"><label>Professor Name</label><input type="text" id="q-name"></div>
-              <div class="field"><label>Title</label><input type="text" id="q-title"></div>
-            </div>
-            <div class="field"><label>Short Bio (shown on homepage)</label><textarea id="q-shortBio" rows="3"></textarea></div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-head"><h3>Recent Publications</h3><button class="btn btn-outline btn-sm" onclick="switchToTab('papers')">View All →</button></div>
-          <div class="panel-body">
-            <table class="data-table" id="recent-papers-table"></table>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-head"><h3>Quick Actions</h3></div>
-          <div class="panel-body">
-            <div class="quick-actions">
-              <div class="action-box" onclick="openModal('paper')">+ Add Paper</div>
-              <div class="action-box" onclick="openModal('article')">+ Add Article</div>
-              <div class="action-box" onclick="openModal('book')">+ Add Book</div>
-              <div class="action-box" onclick="openModal('workshop')">+ Add Workshop</div>
-              <div class="action-box" onclick="openModal('lecture')">+ Add Lecture</div>
-              <div class="action-box" onclick="switchToTab('publish')">🚀 Publish Guide</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── PROFILE ── -->
-      <div class="tab-content" id="tab-profile">
-        <div class="section-hdr">
-          <div><h2>Basic Info</h2><p>Core profile information displayed across the site</p></div>
-          <button class="btn btn-primary" onclick="saveSection('profile')">Save Changes</button>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h3>Professor Details</h3></div>
-          <div class="panel-body">
-            <div class="grid-2">
-              <div class="field"><label>Full Name</label><input type="text" id="prof-name"></div>
-              <div class="field"><label>Academic Title</label><input type="text" id="prof-title"></div>
-            </div>
-            <div class="grid-2">
-              <div class="field"><label>Institution</label><input type="text" id="prof-institution"></div>
-              <div class="field"><label>Email Address</label><input type="email" id="prof-email"></div>
-            </div>
-            <div class="field"><label>Short Bio (Homepage)</label><textarea id="prof-shortBio" rows="3"></textarea></div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h3>Homepage Stats (shown under hero)</h3></div>
-          <div class="panel-body" id="stats-editor"></div>
-        </div>
-      </div>
-
-      <!-- ── LINKS ── -->
-      <div class="tab-content" id="tab-links">
-        <div class="section-hdr">
-          <div><h2>Links & Photos</h2><p>Social profiles, academic links, and image paths</p></div>
-          <button class="btn btn-primary" onclick="saveSection('links')">Save Changes</button>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h3>Academic & Social Links</h3></div>
-          <div class="panel-body">
-            <div class="field"><label>LinkedIn URL</label><input type="url" id="link-linkedin" placeholder="https://linkedin.com/in/..."></div>
-            <div class="field"><label>Google Scholar URL</label><input type="url" id="link-googleScholar" placeholder="https://scholar.google.com/..."></div>
-            <div class="field"><label>ORCID URL</label><input type="url" id="link-orcid" placeholder="https://orcid.org/..."></div>
-            <div class="field"><label>YouTube Channel URL</label><input type="url" id="link-youtube" placeholder="https://youtube.com/@..."></div>
-            <div class="field"><label>CV / Resume PDF URL or Path</label><input type="text" id="link-cv" placeholder="./assets/cv.pdf or https://..."></div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h3>Profile Photos</h3></div>
-          <div class="panel-body">
-            <div class="info-note">📁 Upload image files to your <code>assets/</code> folder in GitHub, then enter the path below (e.g. <code>./assets/photo.jpg</code>).</div>
-            <div class="field"><label>Homepage Circle Photo Path</label><input type="text" id="link-photo" placeholder="./assets/cropped_circle_image.png"></div>
-            <div class="field"><label>About Page Photo Path</label><input type="text" id="link-aboutPhoto" placeholder="./assets/about-photo.jpeg"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ABOUT ── -->
-      <div class="tab-content" id="tab-about">
-        <div class="section-hdr">
-          <div><h2>Bio & Experience</h2><p>Full biography paragraphs and work history</p></div>
-          <button class="btn btn-primary" onclick="saveSection('about')">Save Bio</button>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><h3>Full Biography</h3></div>
-          <div class="panel-body" id="bio-paragraphs-editor"></div>
-        </div>
-        <div class="panel">
-          <div class="panel-head">
-            <h3>Work Experience</h3>
-            <button class="btn btn-outline btn-sm" onclick="openModal('experience')">+ Add Position</button>
-          </div>
-          <div class="panel-body">
-            <div class="card-list" id="exp-list"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── COURSES ── -->
-      <div class="tab-content" id="tab-courses">
-        <div class="section-hdr">
-          <div><h2>Courses</h2><p>Update syllabus, notes, and assignment URLs per course</p></div>
-        </div>
-        <div class="info-note">💡 These URLs point to your files in GitHub (e.g. <code>./assets/syllabus.pdf</code>) or external links. Set to <code>#</code> to hide the button.</div>
-        <div id="courses-editor"></div>
-      </div>
-
-      <!-- ── PAPERS ── -->
-      <div class="tab-content" id="tab-papers">
-        <div class="section-hdr">
-          <div><h2>Conference Papers</h2><p id="papers-count"></p></div>
-          <button class="btn btn-outline" onclick="openModal('paper')">+ Add Paper</button>
-        </div>
-        <div class="info-note">Papers added here appear <strong>prepended</strong> to the site's existing papers list. You don't need to re-enter all 29+ existing papers.</div>
-        <div class="card-list" id="papers-list"></div>
-      </div>
-
-      <!-- ── ARTICLES ── -->
-      <div class="tab-content" id="tab-articles">
-        <div class="section-hdr">
-          <div><h2>Journal Articles</h2><p id="articles-count"></p></div>
-          <button class="btn btn-outline" onclick="openModal('article')">+ Add Article</button>
-        </div>
-        <div class="info-note">Articles added here appear prepended to the existing articles on the live site.</div>
-        <div class="card-list" id="articles-list"></div>
-      </div>
-
-      <!-- ── BOOKS ── -->
-      <div class="tab-content" id="tab-books">
-        <div class="section-hdr">
-          <div><h2>Books</h2><p id="books-count"></p></div>
-          <button class="btn btn-outline" onclick="openModal('book')">+ Add Book</button>
-        </div>
-        <div class="card-list" id="books-list"></div>
-      </div>
-
-      <!-- ── WORKSHOPS ── -->
-      <div class="tab-content" id="tab-workshops">
-        <div class="section-hdr">
-          <div><h2>Workshops</h2><p id="workshops-count"></p></div>
-          <button class="btn btn-outline" onclick="openModal('workshop')">+ Add Workshop</button>
-        </div>
-        <div class="card-list" id="workshops-list"></div>
-      </div>
-
-      <!-- ── LECTURES ── -->
-      <div class="tab-content" id="tab-lectures">
-        <div class="section-hdr">
-          <div><h2>Lectures & Videos</h2><p id="lectures-count"></p></div>
-          <button class="btn btn-outline" onclick="openModal('lecture')">+ Add Lecture</button>
-        </div>
-        <div class="card-list" id="lectures-list"></div>
-      </div>
-
-      <!-- ── PUBLISH ── -->
-      <div class="tab-content" id="tab-publish">
-        <div class="section-hdr">
-          <div><h2>Publish to GitHub</h2><p>Deploy your content updates to the live site</p></div>
-          <button class="btn btn-primary" onclick="downloadJSON()">⬇ Download content.json</button>
-        </div>
-
-        <div class="publish-hero">
-          <h3>🚀 How Publishing Works</h3>
-          <p>This admin panel stores all your changes locally (in your browser). To push changes live, you export a <code>content.json</code> file and commit it to your GitHub repository. GitHub Pages auto-deploys in ~60 seconds.</p>
-          <div class="publish-steps">
-            <div class="publish-step"><div class="step-num">1</div><div>Make all your edits using the sidebar tabs</div></div>
-            <div class="publish-step"><div class="step-num">2</div><div>Click <strong>"⬇ Download content.json"</strong> above — save it to your computer</div></div>
-            <div class="publish-step"><div class="step-num">3</div><div>In your GitHub repo, navigate to the <strong>root folder</strong> and upload/replace <code>content.json</code></div></div>
-            <div class="publish-step"><div class="step-num">4</div><div>Commit with a message like <em>"Update content via ScholarCMS"</em></div></div>
-            <div class="publish-step"><div class="step-num">5</div><div>GitHub Pages auto-deploys — your live site updates in ~60 seconds ✅</div></div>
-          </div>
-          <button class="btn btn-primary" style="font-size:.95rem;padding:.8rem 2rem;" onclick="downloadJSON()">⬇ Download content.json Now</button>
-        </div>
-
-        <div class="panel">
-          <div class="panel-head">
-            <h3>One-Time Setup: app.js Patch Code</h3>
-            <button class="btn btn-outline btn-sm" onclick="copyPatch()">📋 Copy Code</button>
-          </div>
-          <div class="panel-body">
-            <div class="info-note">Add this snippet <strong>once</strong> at the very top of your <code>app.js</code> file (before <code>const SITE_DATA</code>). This makes the site load overrides from <code>content.json</code> on every page load.</div>
-            <pre class="code-block" id="patch-code"></pre>
-            <button class="btn btn-outline btn-sm" onclick="copyPatch()">📋 Copy Patch Code</button>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-head"><h3>Load Existing content.json</h3></div>
-          <div class="panel-body">
-            <p style="color:var(--muted);font-size:.85rem;margin-bottom:14px;">If you already have a <code>content.json</code> from a previous session, load it here to continue editing.</p>
-            <div class="upload-zone" onclick="loadFromFile()">
-              <div class="upload-icon">📂</div>
-              <p>Click to load <strong>content.json</strong></p>
-              <p style="font-size:.75rem;margin-top:4px;">Your changes will be restored</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </main>
+    <div class="main" id="main-content"></div>
   </div>
 </div>
 
-<!-- ════════════════ MODAL ════════════════ -->
+<!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="closeModal(event)">
-  <div class="modal" id="modal">
+  <div class="modal">
     <div class="modal-head">
       <h3 id="modal-title">Edit</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="document.getElementById('modal-backdrop').classList.remove('open')">✕</button>
     </div>
     <div class="modal-body" id="modal-body"></div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" id="modal-save-btn">Save</button>
+    <div class="modal-foot">
+      <button class="btn btn-outline" onclick="document.getElementById('modal-backdrop').classList.remove('open')">Cancel</button>
+      <button class="btn btn-primary" id="modal-save-btn">Save Changes</button>
     </div>
   </div>
 </div>
@@ -655,573 +504,1009 @@ code{
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- Hidden file input -->
-<input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
-
 <script>
-/* ════════════════════════════════════════════
-   SCHOLARCMS — Admin Panel v2
-   Design: cms.html | Logic: admin.html
-════════════════════════════════════════════ */
+// ══════════════════════════════════════════════════════
+//  CONFIGURATION — change these to your preferences
+// ══════════════════════════════════════════════════════
+const ADMIN_PASSWORD = 'admin123';   // ← Change this!
 
-const ADMIN_PASSWORD = 'admin123'; // ← CHANGE THIS before deploying!
-
-// ── DEFAULT DATA ──
-function getDefaultData() {
-  return {
-    professor: {
-      name: "Prof. Swati Sah",
-      title: "Professor",
-      institution: "Sharda University, India",
-      email: "iswatisah19@gmail.com",
-      linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
-      googleScholar: "#",
-      orcid: "#",
-      photo: "./assets/cropped_circle_image.png",
-      aboutPhoto: "./assets/swati maam's photo.jpeg",
-      shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security.`,
-      stats: [
-        { num: "12+", label: "Years Experience" },
-        { num: "29+", label: "Publications" },
-        { num: "6",   label: "Institutions" },
-        { num: "4+",  label: "Books" }
-      ]
-    },
-    youtubeChannel: "https://www.youtube.com/@swatisah6041",
-    cvUrl: "#",
-    about: {
-      fullBio: [
-        `Prof. Swati Sah is a distinguished academic and researcher with over 12 years of experience spanning Artificial Intelligence, Machine Learning, Federated Learning, and Cyber Security. She holds a faculty position at Sharda University, Greater Noida, India.`,
-        `Her international footprint spans multiple countries — India, the United Kingdom, and Uzbekistan — where she has held teaching and research positions at leading institutions.`,
-        `Prof. Sah's research bridges foundational theory with real-world challenges in finance, healthcare, and cyber resilience.`
+// ══════════════════════════════════════════════════════
+//  DATA MODEL — mirrors app.js SITE_DATA_DEFAULT
+// ══════════════════════════════════════════════════════
+let DATA = {
+  professor: {
+    name: "Prof. Swati Sah",
+    title: "Professor",
+    institution: "Sharda University, India",
+    email: "iswatisah19@gmail.com",
+    linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
+    googleScholar: "#",
+    orcid: "#",
+    photo: "./assets/cropped_circle_image.png",
+    aboutPhoto: "./assets/swati maam's photo.jpeg",
+    shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security. She has served in leading institutions across India, Uzbekistan, and Nepal, published extensively, and is authoring books on AI-driven applications in finance, healthcare, and cyber resilience.`,
+    stats: [
+      { num: "12+", label: "Years Experience" },
+      { num: "29+", label: "Publications" },
+      { num: "6",   label: "Institutions" },
+      { num: "4+",  label: "Books" },
+    ],
+  },
+  youtubeChannel: "https://www.youtube.com/@swatisah6041",
+  cvUrl: "#",
+  about: {
+    fullBio: [
+      `Prof. Swati Sah is a distinguished academic and researcher with over 12 years of experience spanning Artificial Intelligence, Machine Learning, Federated Learning, and Cyber Security. She holds a faculty position at Sharda University, Greater Noida, India.`,
+      `Her international footprint spans multiple countries — India, the United Kingdom, and Uzbekistan — where she has held teaching and research positions at leading institutions including the University of Bedfordshire (UK), Amity University (Tashkent), JAIN University (Bangalore), Ajeenkya DY Patil University, and Bharati Vidyapeeth University (Pune).`,
+      `Prof. Sah's research is characterized by its applied focus: she bridges foundational theory with real-world challenges in finance, healthcare, and cyber resilience. Her published work spans 29+ papers in reputed IEEE, Springer, Elsevier, and ACM venues.`,
+    ],
+    experience: [
+      { period: "Present", title: "Professor", org: "Sharda University, Greater Noida, UP, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "University of Bedfordshire, United Kingdom", icon: "🇬🇧" },
+      { period: "Previous", title: "Faculty", org: "JAIN University, Bangalore, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "Ajeenkya DY Patil University, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "Amity University, Tashkent, Uzbekistan", icon: "🌏" },
+      { period: "Previous", title: "Faculty", org: "Bharati Vidyapeeth University, Pune, India", icon: "🎓" },
+    ],
+  },
+  qualifications: [
+    { degree: "Ph.D.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "Machine Learning & Cyber Security" },
+    { degree: "M.Tech.", field: "Computer Science", university: "University Name, Year", specialization: "Artificial Intelligence" },
+    { degree: "B.Tech.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "" },
+  ],
+  recognitions: [
+    { icon: "🏆", title: "Best Researcher Award", body: "Recognized for outstanding contributions to Federated Learning research, Sharda University, 2023." },
+    { icon: "🌟", title: "International Faculty Excellence Award", body: "Awarded for exemplary teaching and research contributions across multiple countries including India and the UK." },
+    { icon: "📚", title: "Distinguished Author Recognition", body: "Acknowledged for authoring influential books on AI-driven applications in healthcare and finance." },
+    { icon: "🤝", title: "International Collaboration Award", body: "Recognized for fostering academic partnerships between India, United Kingdom, and Uzbekistan." },
+    { icon: "🔬", title: "Cyber Security Research Grant", body: "Principal Investigator on a funded research project on AI-driven cyber resilience frameworks." },
+  ],
+  universities: [
+    {
+      key: "sharda", name: "Sharda University", location: "Greater Noida, UP, India", icon: "🏛️",
+      courses: [
+        { key: "pps", title: "Programming for Problem Solving", description: "An introductory course covering fundamental programming concepts.", topics: ["Introduction to Programming", "Algorithms & Flowcharts", "Variables & Operators", "Control Flow", "Functions & Recursion", "Arrays and Strings", "OOP Concepts", "File I/O"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "ds-sharda", title: "Data Structures", description: "Study of fundamental data structures and their algorithmic applications.", topics: ["Introduction & Complexity", "Arrays & Linked Lists", "Stacks and Queues", "Trees & BST", "Heaps", "Graphs: BFS/DFS", "Hashing", "Sorting Algorithms"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "dbms", title: "Database Management System", description: "Comprehensive study of database design and SQL.", topics: ["Intro to DBMS", "ER Modeling", "Relational Algebra", "SQL", "Normalization", "Transaction Management", "Indexing", "NoSQL"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "daa", title: "Design Analysis & Algorithms", description: "Analysis of algorithm design paradigms.", topics: ["Complexity & Asymptotic Analysis", "Divide and Conquer", "Greedy Algorithms", "Dynamic Programming", "Graph Algorithms", "Backtracking", "NP-Completeness", "Approximation Algorithms"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
       ],
-      experience: [
-        { period: "Present", title: "Professor", org: "Sharda University, Greater Noida, UP, India", icon: "🎓" },
-        { period: "Previous", title: "Faculty", org: "University of Bedfordshire, United Kingdom", icon: "🇬🇧" },
-        { period: "Previous", title: "Faculty", org: "JAIN University, Bangalore, India", icon: "🎓" },
-        { period: "Previous", title: "Faculty", org: "Ajeenkya DY Patil University, India", icon: "🎓" },
-        { period: "Previous", title: "Faculty", org: "Amity University, Tashkent, Uzbekistan", icon: "🌏" }
-      ]
     },
-    courses: {},
-    papers: [],
-    articles: [],
-    books: [],
-    workshops: [],
-    lectures: []
-  };
-}
-
-let DATA = getDefaultData();
-
-// ── UNIVERSITIES MAP ──
-const UNIVERSITIES = [
-  { key:'sharda', name:'Sharda University', courses:['pps','ds-sharda','dbms','daa'] },
-  { key:'jain', name:'JAIN University', courses:['c-prog','ds-jain','bda','python-jain','ml-jain'] },
-  { key:'adypatil', name:'Ajeenkya DY Patil University', courses:['sql-analytics','aiml-adyp'] },
-  { key:'amity', name:'Amity University Tashkent', courses:['spm','isd','dip'] },
-  { key:'bedfordshire', name:'University of Bedfordshire', courses:['research-meth','proj-mgmt','python-beds','ai-concepts'] },
-  { key:'bharatividya', name:'Bharati Vidyapeeth University', courses:['html-bvp','c-bvp','ds-bvp'] }
-];
-const COURSE_NAMES = {
-  'pps':'Programming for Problem Solving','ds-sharda':'Data Structures','dbms':'Database Management System',
-  'daa':'Design Analysis & Algorithms','c-prog':'C Programming','ds-jain':'Data Structures',
-  'bda':'Big Data Analytics','python-jain':'Python Programming','ml-jain':'Machine Learning using Python',
-  'sql-analytics':'Data Analytics using SQL','aiml-adyp':'AI & ML',
-  'spm':'Software Project Management','isd':'Intro to Software Development','dip':'Digital Image Processing',
-  'research-meth':'Research Methodology','proj-mgmt':'Project Management',
-  'python-beds':'Python Programming','ai-concepts':'Concepts and Technologies of AI',
-  'html-bvp':'Introduction to HTML','c-bvp':'C Programming','ds-bvp':'Data Structures'
+    {
+      key: "jain", name: "JAIN University", location: "Bangalore, Karnataka, India", icon: "🎓",
+      courses: [
+        { key: "c-prog", title: "C Programming", description: "Foundational course in C programming.", topics: ["Intro to C", "Variables & Operators", "Control Statements", "Functions", "Arrays & Strings", "Pointers", "Structures", "File Handling"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "ds-jain", title: "Data Structures", description: "Study of data organization techniques.", topics: ["Intro", "Linked Lists", "Stacks & Queues", "Trees & BST", "Graphs", "Hashing", "Sorting", "Complexity Analysis"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "bda", title: "Big Data Analytics", description: "Introduction to big data technologies.", topics: ["Big Data & V's", "Hadoop & HDFS", "MapReduce", "Apache Spark", "NoSQL", "Data Warehousing", "Stream Processing", "Visualization"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+        { key: "ml-jain", title: "Machine Learning using Python", description: "Hands-on machine learning course.", topics: ["Intro to ML", "Python for ML", "Regression", "Decision Trees", "SVM", "Clustering", "PCA", "Model Evaluation"], syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#" },
+      ],
+    },
+  ],
+  papers: [
+    { title: "The implementation of machine learning in the insurance industry with big data analytics", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Machine Learning", "Big Data", "Insurance"], url: "https://scholar.google.com" },
+    { title: "Artificial intelligence biosensing system on hand gesture recognition for the hearing impaired", authors: "Swati Sah et al.", venue: "IEEE", tags: ["AI", "Biosensing", "Gesture Recognition"], url: "https://scholar.google.com" },
+    { title: "Federated Learning for Privacy-Preserving Healthcare Data Analysis", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Federated Learning", "Healthcare", "Privacy"], url: "https://scholar.google.com" },
+  ],
+  articles: [
+    { title: "The Future of Federated Learning in Healthcare", journal: "Journal of Biomedical Informatics", year: "2024", url: "#", tags: ["Survey", "Healthcare", "Federated Learning"] },
+    { title: "Machine Learning Approaches in Cyber Threat Intelligence", journal: "Computers & Security (Elsevier)", year: "2023", url: "#", tags: ["Survey", "Cyber Security", "ML"] },
+    { title: "AI Ethics and Bias Mitigation in Financial Services", journal: "IEEE Transactions on Neural Networks", year: "2023", url: "#", tags: ["AI Ethics", "Finance", "Bias"] },
+  ],
+  books: [
+    { title: "AI-Driven Applications in Finance", subtitle: "Intelligent Systems for Modern Banking", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "", description: "A comprehensive guide to applying artificial intelligence in financial services." },
+    { title: "AI in Healthcare & Diagnostics", subtitle: "Machine Learning for Medical Intelligence", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "", description: "Explores deep learning, federated learning, and NLP techniques for clinical decision support." },
+    { title: "Cyber Resilience Framework", subtitle: "AI-Powered Defense Strategies", status: "Forthcoming", publisher: "Publisher Name", year: "2026", cover: "", description: "A practitioner's guide to building adaptive, AI-driven cyber resilience systems." },
+    { title: "Federated Learning: Principles & Practice", subtitle: "Privacy-Preserving Distributed AI", status: "In Progress", publisher: "Publisher Name", year: "2026", cover: "", description: "Deep dive into federated learning frameworks and real-world deployment." },
+  ],
+  workshops: [
+    { date: "March 2024", title: "Hands-on Workshop on Federated Learning with TensorFlow", venue: "Sharda University, Noida", role: "Organizer & Speaker", attendees: "80+" },
+    { date: "November 2023", title: "Cyber Security Bootcamp: Ethical Hacking & Penetration Testing", venue: "Sharda University, Noida", role: "Organizer", attendees: "120+" },
+    { date: "August 2023", title: "Introduction to Machine Learning for Beginners", venue: "National Webinar (Online)", role: "Speaker", attendees: "500+" },
+  ],
+  lectures: [
+    { title: "Introduction to Federated Learning", playlist: "FL Series", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "", date: "", description: "" },
+    { title: "Gradient Descent Explained Visually", playlist: "ML Fundamentals", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "", date: "", description: "" },
+    { title: "Cyber Threats in the Age of AI", playlist: "Cyber Security", youtubeUrl: "https://www.youtube.com/@swatisah6041", thumbnailUrl: "", date: "", description: "" },
+  ],
 };
 
-// ── LOGIN ──
+let currentSection = 'dashboard';
+let modalCtx = {};
+let tagState = {};
+let _unsaved = false;
+
+// ══ LOGIN ══════════════════════════════════════════════
 function doLogin() {
-  const val = document.getElementById('pwd-input').value;
-  if (val === ADMIN_PASSWORD) {
+  const pw = document.getElementById('pw-input').value;
+  const err = document.getElementById('login-error');
+  if (pw === ADMIN_PASSWORD) {
     document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('admin-screen').style.display = 'block';
-    initAdmin();
+    document.getElementById('admin-screen').style.display = 'flex';
+    updateBadges();
+    renderSection('dashboard');
   } else {
-    const err = document.getElementById('login-error');
     err.style.display = 'block';
-    document.getElementById('pwd-input').value = '';
-    setTimeout(() => { err.style.display = 'none'; }, 3000);
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
   }
 }
 
-function doLogout() {
-  document.getElementById('admin-screen').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('pwd-input').value = '';
+// ══ NAVIGATION ════════════════════════════════════════
+function nav(section) {
+  document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('nav-' + section)?.classList.add('active');
+  currentSection = section;
+  renderSection(section);
 }
 
-// ── TABS ──
-function switchTab(btn) {
-  document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+function renderSection(s) {
+  const mc = document.getElementById('main-content');
+  const renders = {
+    dashboard:      renderDashboard,
+    profile:        renderProfile,
+    about:          renderAbout,
+    qualifications: renderQualifications,
+    recognitions:   renderRecognitions,
+    experience:     renderExperience,
+    courses:        renderCourses,
+    papers:         renderPapers,
+    articles:       renderArticles,
+    books:          renderBooks,
+    workshops:      renderWorkshops,
+    lectures:       renderLectures,
+    deploy:         renderDeploy,
+  };
+  if (renders[s]) renders[s]();
 }
 
-function switchToTab(tabName) {
-  const btn = document.querySelector(`.menu-item[data-tab="${tabName}"]`);
-  if (btn) switchTab(btn);
-}
-
-function filterMenu(q) {
-  q = q.toLowerCase();
-  document.querySelectorAll('.menu-item').forEach(btn => {
-    btn.style.display = (!q || btn.textContent.toLowerCase().includes(q)) ? '' : 'none';
+function updateBadges() {
+  const b = {
+    courses: DATA.universities.reduce((a, u) => a + u.courses.length, 0),
+    papers: DATA.papers.length,
+    articles: DATA.articles.length,
+    books: DATA.books.length,
+    workshops: DATA.workshops.length,
+    lectures: DATA.lectures.length,
+  };
+  Object.keys(b).forEach(k => {
+    const el = document.getElementById('badge-' + k);
+    if (el) el.textContent = b[k];
   });
 }
 
-// ── INIT ──
-function initAdmin() {
-  renderDashboard();
-  renderProfile();
-  renderAbout();
-  renderLinks();
-  renderCourses();
-  renderPapers();
-  renderArticles();
-  renderBooks();
-  renderWorkshops();
-  renderLectures();
-  renderPatchCode();
-  syncQuickEdit();
-}
-
-// ── DASHBOARD ──
+// ══ DASHBOARD ══════════════════════════════════════════
 function renderDashboard() {
-  document.getElementById('stats-grid').innerHTML = [
-    { num: DATA.papers.length,    lbl: 'New Papers Added' },
-    { num: DATA.articles.length,  lbl: 'New Articles Added' },
-    { num: DATA.books.length,     lbl: 'Books' },
-    { num: DATA.workshops.length + DATA.lectures.length, lbl: 'Workshops & Lectures' }
-  ].map(s => `<div class="stat-card"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`).join('');
-
-  // Badges
-  document.getElementById('badge-papers').textContent   = DATA.papers.length;
-  document.getElementById('badge-articles').textContent = DATA.articles.length;
-  document.getElementById('badge-books').textContent    = DATA.books.length;
-  document.getElementById('badge-workshops').textContent= DATA.workshops.length;
-  document.getElementById('badge-lectures').textContent = DATA.lectures.length;
-
-  // Recent papers table
-  const recent = DATA.papers.slice(0,5);
-  document.getElementById('recent-papers-table').innerHTML = recent.length ?
-    `<tr><th>Title</th><th>Venue</th><th>Status</th></tr>` +
-    recent.map(p => `<tr>
-      <td>${escHtml(p.title)}</td>
-      <td>${escHtml(p.venue||'')}</td>
-      <td><span class="badge green">Added</span></td>
-    </tr>`).join('') :
-    `<tr><td colspan="3" style="color:var(--muted);font-size:.85rem;padding:16px 14px;">No papers added yet. Use the Research section to add new papers.</td></tr>`;
+  const totalCourses = DATA.universities.reduce((a, u) => a + u.courses.length, 0);
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Dashboard</h2><p>Overview of all content on Prof. Swati Sah's portfolio</p></div>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">${DATA.papers.length}</div><div class="lbl">Conference Papers</div></div>
+    <div class="stat-card"><div class="num">${DATA.articles.length}</div><div class="lbl">Journal Articles</div></div>
+    <div class="stat-card"><div class="num">${DATA.books.length}</div><div class="lbl">Books</div></div>
+    <div class="stat-card"><div class="num">${totalCourses}</div><div class="lbl">Courses</div></div>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num">${DATA.workshops.length}</div><div class="lbl">Workshops</div></div>
+    <div class="stat-card"><div class="num">${DATA.lectures.length}</div><div class="lbl">YouTube Lectures</div></div>
+    <div class="stat-card"><div class="num">${DATA.universities.length}</div><div class="lbl">Universities</div></div>
+    <div class="stat-card"><div class="num">${DATA.recognitions.length}</div><div class="lbl">Recognitions</div></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Quick Actions</h3></div>
+    <div class="panel-body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('papers');setTimeout(()=>openModal('paper'),100)">➕ Add Paper</button>
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('articles');setTimeout(()=>openModal('article'),100)">➕ Add Article</button>
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('books');setTimeout(()=>openModal('book'),100)">➕ Add Book</button>
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('workshops');setTimeout(()=>openModal('workshop'),100)">➕ Add Workshop</button>
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('lectures');setTimeout(()=>openModal('lecture'),100)">➕ Add Lecture</button>
+      <button class="btn btn-outline" style="justify-content:center;padding:16px;" onclick="nav('recognitions');setTimeout(()=>openModal('recognition'),100)">➕ Add Recognition</button>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>💡 How to Publish Changes</h3></div>
+    <div class="panel-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div style="background:var(--panel2);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">1️⃣</div>
+          <div style="font-size:.82rem;font-weight:600;color:var(--brown);margin-bottom:4px;">Edit in CMS</div>
+          <div style="font-size:.76rem;color:var(--muted);">Make all your edits here in the admin panel</div>
+        </div>
+        <div style="background:var(--panel2);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">2️⃣</div>
+          <div style="font-size:.82rem;font-weight:600;color:var(--brown);margin-bottom:4px;">Export JSON</div>
+          <div style="font-size:.76rem;color:var(--muted);">Click "Export content.json" button in the top bar</div>
+        </div>
+        <div style="background:var(--panel2);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">3️⃣</div>
+          <div style="font-size:.82rem;font-weight:600;color:var(--brown);margin-bottom:4px;">Upload to GitHub</div>
+          <div style="font-size:.76rem;color:var(--muted);">Upload content.json to your main branch repo</div>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:12px;text-align:center;">
+        See the <button onclick="nav('deploy')" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:.78rem;text-decoration:underline;">Deploy Guide</button> for full setup instructions including the one-time app.js patch.
+      </p>
+    </div>
+  </div>`;
 }
 
-// ── QUICK EDIT SYNC ──
-function syncQuickEdit() {
-  const p = DATA.professor;
-  const qn = document.getElementById('q-name');
-  const qt = document.getElementById('q-title');
-  const qb = document.getElementById('q-shortBio');
-  if (qn) qn.value = p.name || '';
-  if (qt) qt.value = p.title || '';
-  if (qb) qb.value = p.shortBio || '';
-}
-
-// ── PROFILE ──
+// ══ PROFILE ════════════════════════════════════════════
 function renderProfile() {
   const p = DATA.professor;
-  document.getElementById('prof-name').value        = p.name || '';
-  document.getElementById('prof-title').value       = p.title || '';
-  document.getElementById('prof-institution').value = p.institution || '';
-  document.getElementById('prof-email').value       = p.email || '';
-  document.getElementById('prof-shortBio').value    = p.shortBio || '';
-  document.getElementById('stats-editor').innerHTML = (p.stats || []).map((s, i) => `
-    <div class="grid-2" style="margin-bottom:.75rem;">
-      <div class="field"><label>Stat ${i+1} Value</label><input type="text" id="stat-num-${i}" value="${escHtml(s.num)}"></div>
-      <div class="field"><label>Stat ${i+1} Label</label><input type="text" id="stat-lbl-${i}" value="${escHtml(s.label)}"></div>
-    </div>`).join('');
-}
-
-function saveSection(section) {
-  markUnsaved();
-  if (section === 'profile') {
-    // Sync from both quick-edit and full profile form
-    DATA.professor.name        = (document.getElementById('prof-name') || document.getElementById('q-name'))?.value || DATA.professor.name;
-    DATA.professor.title       = (document.getElementById('prof-title') || document.getElementById('q-title'))?.value || DATA.professor.title;
-    DATA.professor.institution = document.getElementById('prof-institution')?.value || DATA.professor.institution;
-    DATA.professor.email       = document.getElementById('prof-email')?.value || DATA.professor.email;
-    DATA.professor.shortBio    = (document.getElementById('prof-shortBio') || document.getElementById('q-shortBio'))?.value || DATA.professor.shortBio;
-    DATA.professor.stats = DATA.professor.stats.map((s, i) => ({
-      num:   document.getElementById(`stat-num-${i}`)?.value || s.num,
-      label: document.getElementById(`stat-lbl-${i}`)?.value || s.label
-    }));
-    renderDashboard();
-    syncQuickEdit();
-  } else if (section === 'about') {
-    DATA.about.fullBio = Array.from(document.querySelectorAll('.bio-para-input')).map(t => t.value);
-  } else if (section === 'links') {
-    DATA.professor.linkedin      = document.getElementById('link-linkedin')?.value || '';
-    DATA.professor.googleScholar = document.getElementById('link-googleScholar')?.value || '';
-    DATA.professor.orcid         = document.getElementById('link-orcid')?.value || '';
-    DATA.youtubeChannel          = document.getElementById('link-youtube')?.value || '';
-    DATA.cvUrl                   = document.getElementById('link-cv')?.value || '';
-    DATA.professor.photo         = document.getElementById('link-photo')?.value || '';
-    DATA.professor.aboutPhoto    = document.getElementById('link-aboutPhoto')?.value || '';
-  }
-  markSaved();
-  showToast('✓ Changes saved locally');
-}
-
-// ── ABOUT ──
-function renderAbout() {
-  document.getElementById('bio-paragraphs-editor').innerHTML =
-    (DATA.about.fullBio || []).map((para, i) => `
-      <div class="field">
-        <label>Paragraph ${i+1} <span style="font-weight:normal;color:var(--muted);">(click × to remove)</span></label>
-        <div style="display:flex;gap:8px;align-items:flex-start;">
-          <textarea class="bio-para-input" rows="4" style="flex:1;">${escHtml(para)}</textarea>
-          <button class="btn btn-danger btn-sm" style="margin-top:2px;" onclick="removeBioPara(${i})">✕</button>
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Professor Info</h2><p>Basic profile details shown in the header and landing page</p></div>
+    <button class="btn btn-primary" onclick="saveProfile()">Save Profile</button>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Basic Information</h3></div>
+    <div class="panel-body">
+      <div class="grid-2">
+        <div class="field"><label>Full Name</label><input id="p-name" value="${esc(p.name)}"></div>
+        <div class="field"><label>Title / Role</label><input id="p-title" value="${esc(p.title)}"></div>
+      </div>
+      <div class="field"><label>Institution</label><input id="p-inst" value="${esc(p.institution)}"></div>
+      <div class="field"><label>Email Address</label><input id="p-email" type="email" value="${esc(p.email)}"></div>
+      <div class="field"><label>Short Bio (Landing Page)</label><textarea id="p-bio" rows="4">${esc(p.shortBio)}</textarea></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Social &amp; Academic Links</h3></div>
+    <div class="panel-body">
+      <div class="grid-2">
+        <div class="field"><label>LinkedIn URL</label><input id="p-linkedin" value="${esc(p.linkedin)}"></div>
+        <div class="field"><label>Google Scholar URL</label><input id="p-scholar" value="${esc(p.googleScholar)}"></div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label>ORCID URL</label><input id="p-orcid" value="${esc(p.orcid)}"></div>
+        <div class="field"><label>YouTube Channel URL</label><input id="p-yt" value="${esc(DATA.youtubeChannel)}"></div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label>CV / Resume URL</label><input id="p-cv" value="${esc(DATA.cvUrl||'#')}"><div class="field-hint">Link to your CV file (e.g. Google Drive, Dropbox)</div></div>
+        <div class="field"><label>Profile Photo Path</label><input id="p-photo" value="${esc(p.photo)}"><div class="field-hint">e.g. ./assets/photo.jpg or https://...</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Stats / Hero Numbers</h3><button class="btn btn-outline btn-sm" onclick="addStat()">+ Add Stat</button></div>
+    <div class="panel-body" id="stats-list">
+      ${p.stats.map((s, i) => `
+      <div class="list-item" id="stat-${i}">
+        <div class="list-item-num">${i+1}</div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 2fr;gap:10px;">
+          <input style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.85rem;outline:none;" value="${esc(s.num)}" onchange="updateStat(${i},'num',this.value)" placeholder="12+" oninput="markUnsaved()">
+          <input style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.85rem;outline:none;" value="${esc(s.label)}" onchange="updateStat(${i},'label',this.value)" placeholder="Years Experience" oninput="markUnsaved()">
         </div>
-      </div>`).join('') +
-    `<button class="btn btn-outline btn-sm" onclick="addBioParagraph()" style="margin-top:.5rem;">+ Add Paragraph</button>`;
-
-  document.getElementById('exp-list').innerHTML =
-    (DATA.about.experience || []).map((e, i) => `
-      <div class="card-list-item">
-        <div style="font-size:1.5rem;">${e.icon || '🎓'}</div>
-        <div class="item-content">
-          <div class="item-title">${escHtml(e.title)} — ${escHtml(e.org)}</div>
-          <div class="item-meta">${escHtml(e.period)}</div>
+        <div class="list-item-actions">
+          <button class="btn btn-danger btn-sm" onclick="removeStat(${i})">✕</button>
         </div>
-        <div class="item-actions">
-          <button class="btn btn-outline btn-sm" onclick="editExperience(${i})">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteItem('experience',${i})">✕</button>
-        </div>
-      </div>`).join('') ||
-    '<p style="color:var(--muted);font-size:.85rem;">No experience entries. Click "+ Add Position" to add.</p>';
+      </div>`).join('')}
+    </div>
+  </div>`;
 }
 
-function addBioParagraph() { DATA.about.fullBio.push(''); renderAbout(); }
-function removeBioPara(i) {
-  DATA.about.fullBio = Array.from(document.querySelectorAll('.bio-para-input')).map(t => t.value);
-  DATA.about.fullBio.splice(i, 1);
-  renderAbout();
-}
-
-// ── LINKS ──
-function renderLinks() {
+function saveProfile() {
   const p = DATA.professor;
-  document.getElementById('link-linkedin').value      = p.linkedin || '';
-  document.getElementById('link-googleScholar').value = p.googleScholar || '';
-  document.getElementById('link-orcid').value         = p.orcid || '';
-  document.getElementById('link-youtube').value       = DATA.youtubeChannel || '';
-  document.getElementById('link-cv').value            = DATA.cvUrl || '';
-  document.getElementById('link-photo').value         = p.photo || '';
-  document.getElementById('link-aboutPhoto').value    = p.aboutPhoto || '';
+  p.name = document.getElementById('p-name').value;
+  p.title = document.getElementById('p-title').value;
+  p.institution = document.getElementById('p-inst').value;
+  p.email = document.getElementById('p-email').value;
+  p.shortBio = document.getElementById('p-bio').value;
+  p.linkedin = document.getElementById('p-linkedin').value;
+  p.googleScholar = document.getElementById('p-scholar').value;
+  p.orcid = document.getElementById('p-orcid').value;
+  DATA.youtubeChannel = document.getElementById('p-yt').value;
+  DATA.cvUrl = document.getElementById('p-cv').value;
+  p.photo = document.getElementById('p-photo').value;
+  markSaved();
+  showToast('✓ Profile saved!', 'success');
 }
 
-// ── COURSES ──
-function renderCourses() {
-  document.getElementById('courses-editor').innerHTML = UNIVERSITIES.map(uni => `
-    <div class="panel">
-      <div class="panel-head">
-        <h3>${uni.name}</h3>
-        <button class="btn btn-primary btn-sm" onclick="saveCoursesForUni('${uni.key}',${JSON.stringify(uni.courses)})">Save ${uni.name.split(' ')[0]}</button>
-      </div>
-      <div class="panel-body">
-        ${uni.courses.map(ck => {
-          const key = `${uni.key}__${ck}`;
-          const saved = DATA.courses[key] || {};
-          return `
-          <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);">
-            <div style="font-size:.88rem;font-weight:600;margin-bottom:10px;color:var(--brown);">📚 ${COURSE_NAMES[ck] || ck}</div>
-            <div class="grid-3">
-              <div class="field"><label>Syllabus URL</label><input type="text" id="c-${key}-syl" value="${escHtml(saved.syllabusUrl||'#')}" placeholder="#"></div>
-              <div class="field"><label>Notes URL</label><input type="text" id="c-${key}-notes" value="${escHtml(saved.notesUrl||'#')}" placeholder="#"></div>
-              <div class="field"><label>Assignments URL</label><input type="text" id="c-${key}-asgn" value="${escHtml(saved.assignmentsUrl||'#')}" placeholder="#"></div>
-            </div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>`).join('');
+function updateStat(i, key, val) { DATA.professor.stats[i][key] = val; markUnsaved(); }
+function addStat() { DATA.professor.stats.push({ num: "0", label: "New Stat" }); renderProfile(); markUnsaved(); }
+function removeStat(i) { DATA.professor.stats.splice(i, 1); renderProfile(); markUnsaved(); }
+
+// ══ ABOUT & BIO ════════════════════════════════════════
+function renderAbout() {
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>About &amp; Bio</h2><p>Full biography shown on the About page</p></div>
+    <button class="btn btn-primary" onclick="saveAbout()">Save Bio</button>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Full Biography Paragraphs</h3><button class="btn btn-outline btn-sm" onclick="addBioPara()">+ Add Paragraph</button></div>
+    <div class="panel-body" id="bio-list">
+      ${DATA.about.fullBio.map((para, i) => `
+      <div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+          <label style="font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-family:'DM Mono',monospace;">Paragraph ${i+1}</label>
+          <button class="btn btn-danger btn-xs" onclick="removeBioPara(${i})">Remove</button>
+        </div>
+        <textarea id="bio-para-${i}" rows="4" style="width:100%;padding:10px 13px;border-radius:9px;border:1.5px solid var(--border);background:#fffdf9;font-size:.86rem;outline:none;resize:vertical;line-height:1.6;" oninput="markUnsaved()">${esc(para)}</textarea>
+      </div>`).join('')}
+    </div>
+  </div>`;
 }
 
-function saveCoursesForUni(uniKey, courses) {
-  markUnsaved();
-  courses.forEach(ck => {
-    const key = `${uniKey}__${ck}`;
-    DATA.courses[key] = {
-      syllabusUrl:    document.getElementById(`c-${key}-syl`)?.value || '#',
-      notesUrl:       document.getElementById(`c-${key}-notes`)?.value || '#',
-      assignmentsUrl: document.getElementById(`c-${key}-asgn`)?.value || '#'
-    };
+function saveAbout() {
+  DATA.about.fullBio = DATA.about.fullBio.map((_, i) => {
+    const el = document.getElementById('bio-para-' + i);
+    return el ? el.value : _;
   });
   markSaved();
-  showToast('✓ Course links saved');
+  showToast('✓ Bio saved!', 'success');
 }
 
-// ── LISTS ──
+function addBioPara() { DATA.about.fullBio.push('New paragraph...'); renderAbout(); markUnsaved(); }
+function removeBioPara(i) { DATA.about.fullBio.splice(i, 1); renderAbout(); markUnsaved(); }
+
+// ══ QUALIFICATIONS ═════════════════════════════════════
+function renderQualifications() {
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Qualifications</h2><p>Academic degrees and credentials</p></div>
+    <button class="btn btn-primary" onclick="openModal('qualification')">+ Add Qualification</button>
+  </div>
+  <div id="qual-list">
+    ${DATA.qualifications.map((q, i) => `
+    <div class="qual-card">
+      <div class="degree-badge">${esc(q.degree)}</div>
+      <div>
+        <div style="font-weight:600;font-size:.88rem;color:var(--brown);">${esc(q.field)}</div>
+        <div style="font-size:.78rem;color:var(--muted);">${esc(q.university)}</div>
+        ${q.specialization ? `<div style="font-size:.75rem;color:var(--gold);margin-top:3px;">${esc(q.specialization)}</div>` : ''}
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-outline btn-sm" onclick="openModal('qualification',${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteItem('qualifications',${i})">Delete</button>
+      </div>
+    </div>`).join('')}
+  </div>`;
+}
+
+// ══ RECOGNITIONS ═══════════════════════════════════════
+function renderRecognitions() {
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Recognitions &amp; Awards</h2><p>Awards, grants, and honors</p></div>
+    <button class="btn btn-primary" onclick="openModal('recognition')">+ Add Recognition</button>
+  </div>
+  <div id="rec-list">
+    ${DATA.recognitions.map((r, i) => `
+    <div class="recognition-card">
+      <div class="recognition-icon">${esc(r.icon)}</div>
+      <div class="recognition-body">
+        <div class="recognition-title">${esc(r.title)}</div>
+        <div class="recognition-text">${esc(r.body)}</div>
+        <div class="recognition-actions">
+          <button class="btn btn-outline btn-sm" onclick="openModal('recognition',${i})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteItem('recognitions',${i})">Delete</button>
+        </div>
+      </div>
+    </div>`).join('')}
+  </div>`;
+}
+
+// ══ EXPERIENCE ═════════════════════════════════════════
+function renderExperience() {
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Experience</h2><p>Academic and professional positions</p></div>
+    <button class="btn btn-primary" onclick="openModal('experience')">+ Add Position</button>
+  </div>
+  ${DATA.about.experience.map((e, i) => `
+  <div class="list-item">
+    <div style="font-size:1.5rem;">${esc(e.icon)}</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(e.title)}</div>
+      <div class="list-item-sub">${esc(e.org)} · <strong>${esc(e.period)}</strong></div>
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('experience',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('experience',${i})">Delete</button>
+    </div>
+  </div>`).join('')}`;
+}
+
+// ══ COURSES ════════════════════════════════════════════
+function renderCourses() {
+  const html = DATA.universities.map((uni, ui) => `
+  <div class="uni-section">
+    <button class="uni-header" onclick="toggleUni(${ui})">
+      <span>${uni.icon}</span>
+      <span>${esc(uni.name)}</span>
+      <span style="font-size:.75rem;color:var(--muted);font-weight:400;">${esc(uni.location)}</span>
+      <span class="menu-badge">${uni.courses.length} courses</span>
+      <span class="chevron">▼</span>
+    </button>
+    <div class="uni-body" id="uni-body-${ui}">
+      ${uni.courses.map((c, ci) => `
+      <div class="course-row">
+        <div class="course-row-info">
+          <div class="course-row-title">${esc(c.title)}</div>
+          <div class="course-row-sub">${c.topics.length} topics · Syllabus: ${c.syllabusUrl === '#' ? '⚠ not set' : '✓ set'} · Notes: ${c.notesUrl === '#' ? '⚠ not set' : '✓ set'}</div>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <button class="btn btn-outline btn-sm" onclick="openModal('course',null,{ui:${ui},ci:${ci}})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteCourse(${ui},${ci})">Delete</button>
+        </div>
+      </div>`).join('')}
+      <button class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="addCourse(${ui})">+ Add Course to ${esc(uni.name)}</button>
+    </div>
+  </div>`).join('');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Courses</h2><p>Manage courses across all universities</p></div>
+    <button class="btn btn-primary" onclick="addUniversity()">+ Add University</button>
+  </div>
+  ${html}`;
+}
+
+function toggleUni(ui) {
+  const body = document.getElementById('uni-body-' + ui);
+  const header = body.previousElementSibling;
+  body.classList.toggle('open');
+  header.classList.toggle('open');
+}
+
+function addCourse(ui) {
+  DATA.universities[ui].courses.push({
+    key: 'course-' + Date.now(), title: 'New Course', description: '', topics: [], syllabusUrl: '#', notesUrl: '#', assignmentsUrl: '#'
+  });
+  const ci = DATA.universities[ui].courses.length - 1;
+  renderCourses();
+  updateBadges();
+  markUnsaved();
+  setTimeout(() => openModal('course', null, { ui, ci }), 50);
+}
+
+function addUniversity() {
+  const name = prompt('University name:');
+  if (!name) return;
+  DATA.universities.push({ key: name.toLowerCase().replace(/\s+/g, '-'), name, location: 'Location, Country', icon: '🏛️', courses: [] });
+  renderCourses();
+  markUnsaved();
+  showToast('✓ University added');
+}
+
+function deleteCourse(ui, ci) {
+  if (!confirm('Delete this course?')) return;
+  DATA.universities[ui].courses.splice(ci, 1);
+  renderCourses();
+  updateBadges();
+  markUnsaved();
+  showToast('✓ Course deleted');
+}
+
+// ══ PAPERS ═════════════════════════════════════════════
 function renderPapers() {
-  const c = DATA.papers.length;
-  document.getElementById('papers-count').textContent = c
-    ? `${c} new paper${c!==1?'s':''} added (will be prepended to the existing 29+ papers on live site)`
-    : 'No new papers. Your existing 29+ papers are already in app.js.';
-  document.getElementById('papers-list').innerHTML = DATA.papers.map((p, i) => `
-    <div class="card-list-item">
-      <div class="item-content">
-        <div class="item-title">${escHtml(p.title)}</div>
-        <div class="item-meta">${escHtml(p.venue||'')} ${(p.tags||[]).length ? '· ' + p.tags.join(', ') : ''}</div>
+  const html = DATA.papers.map((p, i) => `
+  <div class="list-item">
+    <div class="list-item-num">${i+1}</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(p.title)}</div>
+      <div class="list-item-sub">${esc(p.authors)} · <em>${esc(p.venue)}</em></div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">
+        ${(p.tags||[]).map(t => `<span class="tag-chip" style="font-size:.68rem;">${esc(t)}</span>`).join('')}
       </div>
-      <div class="item-actions">
-        ${p.url && p.url !== '#' ? `<a href="${escHtml(p.url)}" target="_blank" class="btn btn-outline btn-sm">↗</a>` : ''}
-        <button class="btn btn-outline btn-sm" onclick="editPaper(${i})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('papers',${i})">✕</button>
-      </div>
-    </div>`).join('') ||
-    '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">Your existing 29+ papers are already coded in app.js. Use "+ Add Paper" to add new ones.</p>';
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('paper',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('papers',${i})">Delete</button>
+    </div>
+  </div>`).join('') || emptyState('No papers yet');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Conference Papers</h2><p>${DATA.papers.length} papers</p></div>
+    <button class="btn btn-primary" onclick="openModal('paper')">+ Add Paper</button>
+  </div>
+  <input class="search-bar" placeholder="🔍  Search papers…" oninput="filterList(this.value,'papers')">
+  <div id="list-papers">${html}</div>`;
 }
 
 function renderArticles() {
-  const c = DATA.articles.length;
-  document.getElementById('articles-count').textContent = `${c} article${c!==1?'s':''} added`;
-  document.getElementById('articles-list').innerHTML = DATA.articles.map((a, i) => `
-    <div class="card-list-item">
-      <div class="item-content">
-        <div class="item-title">${escHtml(a.title)}</div>
-        <div class="item-meta">${escHtml(a.journal||'')} · ${escHtml(a.year||'')} ${(a.tags||[]).length ? '· ' + a.tags.join(', ') : ''}</div>
+  const html = DATA.articles.map((a, i) => `
+  <div class="list-item">
+    <div class="list-item-num">${i+1}</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(a.title)}</div>
+      <div class="list-item-sub">${esc(a.journal)} · ${esc(a.year)}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;">
+        ${(a.tags||[]).map(t => `<span class="tag-chip" style="font-size:.68rem;">${esc(t)}</span>`).join('')}
       </div>
-      <div class="item-actions">
-        ${a.url && a.url !== '#' ? `<a href="${escHtml(a.url)}" target="_blank" class="btn btn-outline btn-sm">↗</a>` : ''}
-        <button class="btn btn-outline btn-sm" onclick="editArticle(${i})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('articles',${i})">✕</button>
-      </div>
-    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No articles added yet.</p>';
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('article',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('articles',${i})">Delete</button>
+    </div>
+  </div>`).join('') || emptyState('No articles yet');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Journal Articles</h2><p>${DATA.articles.length} articles</p></div>
+    <button class="btn btn-primary" onclick="openModal('article')">+ Add Article</button>
+  </div>
+  ${html}`;
 }
 
 function renderBooks() {
-  const c = DATA.books.length;
-  document.getElementById('books-count').textContent = `${c} book${c!==1?'s':''} added`;
-  document.getElementById('books-list').innerHTML = DATA.books.map((b, i) => `
-    <div class="card-list-item">
-      <div class="item-content">
-        <div class="item-title">${escHtml(b.title)}</div>
-        <div class="item-meta">${escHtml(b.publisher||'')} · ${escHtml(b.year||'')} · <em>${escHtml(b.status||'')}</em></div>
-      </div>
-      <div class="item-actions">
-        <button class="btn btn-outline btn-sm" onclick="editBook(${i})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('books',${i})">✕</button>
-      </div>
-    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No books added yet.</p>';
+  const html = DATA.books.map((b, i) => `
+  <div class="list-item">
+    <div style="font-size:2rem;">📗</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(b.title)}</div>
+      <div class="list-item-sub">${esc(b.subtitle)} · ${esc(b.publisher)} · ${esc(b.year)}</div>
+      <div style="margin-top:4px;"><span style="background:#edfaf3;border:1px solid #b7e4cc;border-radius:20px;padding:2px 10px;font-size:.72rem;color:#2d7a4a;">${esc(b.status)}</span></div>
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('book',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('books',${i})">Delete</button>
+    </div>
+  </div>`).join('') || emptyState('No books yet');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Books</h2><p>${DATA.books.length} authored books</p></div>
+    <button class="btn btn-primary" onclick="openModal('book')">+ Add Book</button>
+  </div>
+  ${html}`;
 }
 
 function renderWorkshops() {
-  const c = DATA.workshops.length;
-  document.getElementById('workshops-count').textContent = `${c} workshop${c!==1?'s':''} added`;
-  document.getElementById('workshops-list').innerHTML = DATA.workshops.map((w, i) => `
-    <div class="card-list-item">
-      <div class="item-content">
-        <div class="item-title">${escHtml(w.title)}</div>
-        <div class="item-meta">${escHtml(w.date||'')} · ${escHtml(w.venue||'')} · ${escHtml(w.role||'')} · ${escHtml(w.attendees||'')} attendees</div>
-      </div>
-      <div class="item-actions">
-        <button class="btn btn-outline btn-sm" onclick="editWorkshop(${i})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('workshops',${i})">✕</button>
-      </div>
-    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No workshops added yet.</p>';
+  const html = DATA.workshops.map((w, i) => `
+  <div class="list-item">
+    <div style="background:var(--panel2);border-radius:8px;padding:6px 10px;font-size:.72rem;font-family:'DM Mono',monospace;color:var(--brown);white-space:nowrap;flex-shrink:0;">${esc(w.date)}</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(w.title)}</div>
+      <div class="list-item-sub">${esc(w.venue)} · <strong>${esc(w.role)}</strong> · ${esc(w.attendees)} attendees</div>
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('workshop',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('workshops',${i})">Delete</button>
+    </div>
+  </div>`).join('') || emptyState('No workshops yet');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Workshops &amp; Events</h2><p>${DATA.workshops.length} workshops</p></div>
+    <button class="btn btn-primary" onclick="openModal('workshop')">+ Add Workshop</button>
+  </div>
+  ${html}`;
 }
 
 function renderLectures() {
-  const c = DATA.lectures.length;
-  document.getElementById('lectures-count').textContent = `${c} lecture${c!==1?'s':''} added`;
-  document.getElementById('lectures-list').innerHTML = DATA.lectures.map((l, i) => `
-    <div class="card-list-item">
-      <div class="item-content">
-        <div class="item-title">${escHtml(l.title)}</div>
-        <div class="item-meta">${escHtml(l.platform||'')} ${l.date ? '· ' + escHtml(l.date) : ''} ${l.playlist ? '· Playlist: '+escHtml(l.playlist) : ''}</div>
-      </div>
-      <div class="item-actions">
-        ${l.youtubeUrl ? `<a href="${escHtml(l.youtubeUrl)}" target="_blank" class="btn btn-outline btn-sm">▶</a>` : ''}
-        <button class="btn btn-outline btn-sm" onclick="editLecture(${i})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('lectures',${i})">✕</button>
-      </div>
-    </div>`).join('') || '<p style="color:var(--muted);font-size:.85rem;padding:8px 0;">No lectures added yet.</p>';
+  const html = DATA.lectures.map((l, i) => `
+  <div class="list-item">
+    <div style="font-size:1.8rem;flex-shrink:0;">▶️</div>
+    <div class="list-item-body">
+      <div class="list-item-title">${esc(l.title)}</div>
+      <div class="list-item-sub">Playlist: ${esc(l.playlist)}${l.date ? ' · ' + esc(l.date) : ''}</div>
+      <div style="font-size:.75rem;color:var(--blue);margin-top:3px;">${esc(l.youtubeUrl)}</div>
+    </div>
+    <div class="list-item-actions">
+      <button class="btn btn-outline btn-sm" onclick="openModal('lecture',${i})">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteItem('lectures',${i})">Delete</button>
+    </div>
+  </div>`).join('') || emptyState('No lectures yet');
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>YouTube Lectures</h2><p>${DATA.lectures.length} videos</p></div>
+    <button class="btn btn-primary" onclick="openModal('lecture')">+ Add Lecture</button>
+  </div>
+  ${html}`;
 }
 
-function renderAll() {
-  renderDashboard();
-  renderAbout();
-  renderPapers();
-  renderArticles();
-  renderBooks();
-  renderWorkshops();
-  renderLectures();
-}
+// ══ DEPLOY GUIDE ═══════════════════════════════════════
+function renderDeploy() {
+  const patch = `// ══════════════════════════════════════════════════════
+// STEP 1: Add this code at the VERY TOP of your app.js
+// (before the line: const SITE_DATA_DEFAULT = { ... })
+// ══════════════════════════════════════════════════════
 
-// ── MODALS ──
-let modalContext = null;
+(async function loadContentJSON() {
+  try {
+    const res = await fetch('./content.json?v=' + Date.now());
+    if (!res.ok) return; // No content.json yet — use defaults
+    const o = await res.json();
 
-function openModal(type, idx) {
-  modalContext = { type, idx };
-  document.getElementById('modal-backdrop').classList.add('open');
+    // Wait for SITE_DATA to be defined
+    await new Promise(r => setTimeout(r, 0));
 
-  const titles = { paper:'Paper', article:'Article', book:'Book', workshop:'Workshop', lecture:'Lecture / Video', experience:'Work Experience' };
-  document.getElementById('modal-title').textContent = (idx !== undefined ? 'Edit ' : 'Add ') + (titles[type] || type);
+    // Merge professor info
+    if (o.professor) Object.assign(SITE_DATA.professor, o.professor);
+    if (o.youtubeChannel) SITE_DATA.youtubeChannel = o.youtubeChannel;
+    if (o.cvUrl) SITE_DATA.cvUrl = o.cvUrl;
 
-  const body = document.getElementById('modal-body');
+    // Merge bio & experience
+    if (o.about) {
+      if (o.about.fullBio) SITE_DATA.about.fullBio = o.about.fullBio;
+      if (o.about.experience) SITE_DATA.about.experience = o.about.experience;
+    }
 
-  function getItem() {
-    if (idx === undefined) return {};
-    if (type === 'experience') return DATA.about.experience[idx] || {};
-    return (DATA[type+'s'] || DATA[type] || [])[idx] || {};
+    // Replace qualifications & recognitions
+    if (o.qualifications) SITE_DATA.qualifications = o.qualifications;
+    if (o.recognitions)   SITE_DATA.recognitions   = o.recognitions;
+
+    // Replace papers, articles, books, workshops, lectures
+    ['papers','articles','books','workshops','lectures'].forEach(k => {
+      if (o[k] && o[k].length) SITE_DATA[k] = o[k];
+    });
+
+    // Merge course URLs (syllabusUrl / notesUrl / assignmentsUrl)
+    if (o.universities) SITE_DATA.universities = o.universities;
+
+    // Re-render the current page
+    router();
+  } catch(e) {
+    console.warn('[CMS] content.json not found — using defaults');
   }
-  const item = getItem();
+})();`;
+
+  document.getElementById('main-content').innerHTML = `
+  <div class="section-hdr">
+    <div><h2>Deploy Guide</h2><p>How to connect this CMS to your live GitHub Pages site</p></div>
+  </div>
+
+  <div class="deploy-card">
+    <h3>🚀 One-Time Setup (takes ~5 minutes)</h3>
+    <p>After this setup, your workflow is: edit in CMS → export JSON → upload to GitHub. That's it.</p>
+    <ul class="deploy-steps">
+      <li>Copy the patch code below into the top of your app.js file (one time only)</li>
+      <li>Upload content.json whenever you make changes in the CMS</li>
+      <li>Your live site automatically reads the overrides from content.json</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Step 1 — Patch your app.js</h3>
+      <button class="btn btn-primary btn-sm" onclick="copyText('patch-code-block')">📋 Copy Code</button>
+    </div>
+    <div class="panel-body">
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">Add this snippet <strong>once</strong> at the very top of your <code style="background:var(--panel2);padding:1px 5px;border-radius:4px;">app.js</code>, before the SITE_DATA line. You never need to touch it again.</p>
+      <div class="code-block" id="patch-code-block">${esc(patch)}</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>Step 2 — Export content.json from this CMS</h3></div>
+    <div class="panel-body">
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;">Every time you make changes in the admin panel, click the button to export a <code style="background:var(--panel2);padding:1px 5px;border-radius:4px;">content.json</code> file.</p>
+      <button class="btn btn-primary" onclick="downloadJSON()">⬇ Export content.json</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>Step 3 — Upload to GitHub</h3></div>
+    <div class="panel-body">
+      <div class="workflow-step">
+        <div class="step-num">A</div>
+        <div class="step-content">
+          <h4>Via GitHub Web UI (easiest)</h4>
+          <p>Go to your GitHub repo → main branch → click "Add file" → "Upload files" → drag in content.json → commit. Done!</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-num">B</div>
+        <div class="step-content">
+          <h4>Via Git CLI (fastest if you know git)</h4>
+          <p><code style="background:var(--panel2);padding:2px 6px;border-radius:4px;font-family:'DM Mono',monospace;font-size:.76rem;">git add content.json && git commit -m "cms: update content" && git push</code></p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-num">C</div>
+        <div class="step-content">
+          <h4>Automate with GitHub Actions (advanced)</h4>
+          <p>Create <code style="background:var(--panel2);padding:2px 5px;border-radius:4px;font-family:'DM Mono',monospace;font-size:.76rem;">.github/workflows/sync-cms.yml</code> in your admin-panel branch — see below.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Optional — GitHub Actions Auto-Sync</h3>
+      <button class="btn btn-outline btn-sm" onclick="copyText('ga-code')">📋 Copy</button>
+    </div>
+    <div class="panel-body">
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">Place this file at <code style="background:var(--panel2);padding:1px 5px;border-radius:4px;">.github/workflows/sync-cms.yml</code> in your admin-panel branch. Whenever you commit content.json to admin-panel, it automatically copies it to main.</p>
+      <div class="code-block" id="ga-code">${esc(`name: Sync CMS content.json to main
+
+on:
+  push:
+    branches: [admin-panel]
+    paths: [content.json]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy content.json to main branch
+        run: |
+          git config user.name "ScholarCMS Bot"
+          git config user.email "cms-bot@noreply"
+          git checkout main
+          git checkout admin-panel -- content.json
+          git add content.json
+          git commit -m "cms: sync content.json from admin-panel" || echo "No changes"
+          git push`)}</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>📁 File Structure Reference</h3></div>
+    <div class="panel-body">
+      <div class="code-block">${esc(`your-repo/ (main branch)
+├── index.html           ← main site
+├── app.js               ← add the patch code here (one time)
+├── style.css
+├── content.json         ← upload this file after CMS edits
+├── assets/
+│   ├── photo.jpg
+│   └── ...
+└── admin-panel/         ← your admin branch files
+    └── admin-panel.html ← this CMS file`)}</div>
+    </div>
+  </div>`;
+}
+
+function copyText(elId) {
+  const el = document.getElementById(elId);
+  navigator.clipboard.writeText(el.textContent).then(() => showToast('✓ Copied to clipboard!', 'success'));
+}
+
+// ══ MODAL SYSTEM ═══════════════════════════════════════
+function openModal(type, idx, extra) {
+  modalCtx = { type, idx, extra };
+  const body = document.getElementById('modal-body');
+  const title = document.getElementById('modal-title');
+  const isNew = idx === undefined || idx === null;
+
+  title.textContent = (isNew ? 'Add ' : 'Edit ') + type.charAt(0).toUpperCase() + type.slice(1);
+
+  const item = isNew ? {} : getItem(type, idx, extra);
 
   if (type === 'paper') {
     body.innerHTML = `
-      <div class="field"><label>Paper Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}" placeholder="Full paper title"></div>
-      <div class="field"><label>Authors</label><input type="text" id="m-authors" value="${escHtml(item.authors||'Swati Sah et al.')}" placeholder="Swati Sah et al."></div>
+      <div class="field"><label>Paper Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
       <div class="grid-2">
-        <div class="field"><label>Venue (e.g. IEEE, Springer)</label><input type="text" id="m-venue" value="${escHtml(item.venue||'')}"></div>
-        <div class="field"><label>Paper URL</label><input type="url" id="m-url" value="${escHtml(item.url||'')}" placeholder="https://scholar.google.com/..."></div>
+        <div class="field"><label>Authors</label><input id="m-authors" value="${esc(item.authors||'')}"></div>
+        <div class="field"><label>Venue (Conference / Publisher)</label><input id="m-venue" value="${esc(item.venue||'')}"></div>
       </div>
-      <div class="field"><label>Tags (press Enter or comma to add)</label><div class="tags-input-wrapper" id="tags-wrapper"></div></div>`;
-    initTagsInput('tags-wrapper', item.tags || []);
-  } else if (type === 'article') {
-    body.innerHTML = `
-      <div class="field"><label>Article Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
-      <div class="grid-2">
-        <div class="field"><label>Journal Name</label><input type="text" id="m-journal" value="${escHtml(item.journal||'')}"></div>
-        <div class="field"><label>Year</label><input type="text" id="m-year" value="${escHtml(item.year||'')}" placeholder="2024"></div>
-      </div>
-      <div class="field"><label>Article URL</label><input type="url" id="m-url" value="${escHtml(item.url||'#')}"></div>
+      <div class="field"><label>URL (Google Scholar / DOI)</label><input id="m-url" type="url" value="${esc(item.url||'')}"></div>
       <div class="field"><label>Tags</label><div class="tags-input-wrapper" id="tags-wrapper"></div></div>`;
-    initTagsInput('tags-wrapper', item.tags || []);
-  } else if (type === 'book') {
+    setTimeout(() => initTags('tags-wrapper', item.tags || []), 0);
+  }
+  else if (type === 'article') {
     body.innerHTML = `
-      <div class="field"><label>Book Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
-      <div class="field"><label>Subtitle</label><input type="text" id="m-subtitle" value="${escHtml(item.subtitle||'')}"></div>
+      <div class="field"><label>Article Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
       <div class="grid-2">
-        <div class="field"><label>Publisher</label><input type="text" id="m-publisher" value="${escHtml(item.publisher||'Publisher Name')}"></div>
-        <div class="field"><label>Year</label><input type="text" id="m-year" value="${escHtml(item.year||'2025')}"></div>
+        <div class="field"><label>Journal Name</label><input id="m-journal" value="${esc(item.journal||'')}"></div>
+        <div class="field"><label>Year</label><input id="m-year" value="${esc(item.year||'')}"></div>
       </div>
-      <div class="field"><label>Status</label>
-        <select id="m-status">
-          <option value="Forthcoming" ${item.status==='Forthcoming'?'selected':''}>Forthcoming</option>
-          <option value="In Progress" ${item.status==='In Progress'?'selected':''}>In Progress</option>
-          <option value="Published" ${item.status==='Published'?'selected':''}>Published</option>
-        </select>
-      </div>
-      <div class="field"><label>Cover Image Path / URL</label><input type="text" id="m-cover" value="${escHtml(item.cover||'assets/book1.jpg')}" placeholder="assets/bookN.jpg"></div>
-      <div class="field"><label>Description</label><textarea id="m-description" rows="3">${escHtml(item.description||'')}</textarea></div>`;
-  } else if (type === 'workshop') {
+      <div class="field"><label>URL</label><input id="m-url" type="url" value="${esc(item.url||'')}"></div>
+      <div class="field"><label>Tags</label><div class="tags-input-wrapper" id="tags-wrapper"></div></div>`;
+    setTimeout(() => initTags('tags-wrapper', item.tags || []), 0);
+  }
+  else if (type === 'book') {
     body.innerHTML = `
-      <div class="field"><label>Workshop Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
-      <div class="grid-2">
-        <div class="field"><label>Date (e.g. March 2024)</label><input type="text" id="m-date" value="${escHtml(item.date||'')}"></div>
-        <div class="field"><label>Your Role</label><input type="text" id="m-role" value="${escHtml(item.role||'Organizer & Speaker')}"></div>
+      <div class="field"><label>Book Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
+      <div class="field"><label>Subtitle</label><input id="m-subtitle" value="${esc(item.subtitle||'')}"></div>
+      <div class="grid-3">
+        <div class="field"><label>Publisher</label><input id="m-publisher" value="${esc(item.publisher||'')}"></div>
+        <div class="field"><label>Year</label><input id="m-year" value="${esc(item.year||'')}"></div>
+        <div class="field"><label>Status</label>
+          <select id="m-status">
+            ${['Forthcoming','In Progress','Published','Revised Edition'].map(s => `<option value="${s}" ${item.status===s?'selected':''}>${s}</option>`).join('')}
+          </select>
+        </div>
       </div>
-      <div class="field"><label>Venue</label><input type="text" id="m-venue" value="${escHtml(item.venue||'')}"></div>
-      <div class="field"><label>Attendees (e.g. 80+)</label><input type="text" id="m-attendees" value="${escHtml(item.attendees||'')}"></div>`;
-  } else if (type === 'lecture') {
+      <div class="field"><label>Cover Image URL / Path</label><input id="m-cover" value="${esc(item.cover||'')}"></div>
+      <div class="field"><label>Description</label><textarea id="m-description" rows="3">${esc(item.description||'')}</textarea></div>`;
+  }
+  else if (type === 'workshop') {
     body.innerHTML = `
-      <div class="field"><label>Video / Lecture Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
+      <div class="field"><label>Workshop Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
       <div class="grid-2">
-        <div class="field"><label>Playlist / Series</label><input type="text" id="m-playlist" value="${escHtml(item.playlist||item.platform||'')}"></div>
-        <div class="field"><label>Date (optional)</label><input type="text" id="m-date" value="${escHtml(item.date||'')}"></div>
+        <div class="field"><label>Date (e.g. March 2024)</label><input id="m-date" value="${esc(item.date||'')}"></div>
+        <div class="field"><label>Role</label><input id="m-role" value="${esc(item.role||'')}"></div>
       </div>
-      <div class="field"><label>YouTube / Video URL</label><input type="url" id="m-url" value="${escHtml(item.youtubeUrl||item.url||'')}"></div>
-      <div class="field"><label>Thumbnail URL (optional)</label><input type="url" id="m-thumbnail" value="${escHtml(item.thumbnailUrl||item.thumbnail||'')}"></div>
-      <div class="field"><label>Description (optional)</label><textarea id="m-description" rows="2">${escHtml(item.description||'')}</textarea></div>`;
-  } else if (type === 'experience') {
+      <div class="grid-2">
+        <div class="field"><label>Venue</label><input id="m-venue" value="${esc(item.venue||'')}"></div>
+        <div class="field"><label>Attendees (e.g. 80+)</label><input id="m-attendees" value="${esc(item.attendees||'')}"></div>
+      </div>`;
+  }
+  else if (type === 'lecture') {
+    body.innerHTML = `
+      <div class="field"><label>Video Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
+      <div class="grid-2">
+        <div class="field"><label>Playlist Name</label><input id="m-playlist" value="${esc(item.playlist||'')}"></div>
+        <div class="field"><label>Date (optional)</label><input id="m-date" value="${esc(item.date||'')}"></div>
+      </div>
+      <div class="field"><label>YouTube URL</label><input id="m-url" type="url" value="${esc(item.youtubeUrl||'')}"></div>
+      <div class="field"><label>Thumbnail URL (optional)</label><input id="m-thumbnail" value="${esc(item.thumbnailUrl||'')}"></div>
+      <div class="field"><label>Description (optional)</label><textarea id="m-description" rows="2">${esc(item.description||'')}</textarea></div>`;
+  }
+  else if (type === 'experience') {
     body.innerHTML = `
       <div class="grid-2">
-        <div class="field"><label>Icon (emoji)</label><input type="text" id="m-icon" value="${escHtml(item.icon||'🎓')}"></div>
-        <div class="field"><label>Period (e.g. Present / 2020–2022)</label><input type="text" id="m-period" value="${escHtml(item.period||'')}"></div>
+        <div class="field"><label>Icon (emoji)</label><input id="m-icon" value="${esc(item.icon||'🎓')}"></div>
+        <div class="field"><label>Period (e.g. Present / 2019–2022)</label><input id="m-period" value="${esc(item.period||'')}"></div>
       </div>
-      <div class="field"><label>Job Title</label><input type="text" id="m-title" value="${escHtml(item.title||'')}"></div>
-      <div class="field"><label>Organization</label><input type="text" id="m-org" value="${escHtml(item.org||'')}"></div>`;
+      <div class="field"><label>Job Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
+      <div class="field"><label>Organization</label><input id="m-org" value="${esc(item.org||'')}"></div>`;
+  }
+  else if (type === 'qualification') {
+    body.innerHTML = `
+      <div class="grid-2">
+        <div class="field"><label>Degree (e.g. Ph.D.)</label><input id="m-degree" value="${esc(item.degree||'')}"></div>
+        <div class="field"><label>Field of Study</label><input id="m-field" value="${esc(item.field||'')}"></div>
+      </div>
+      <div class="field"><label>University &amp; Year</label><input id="m-university" value="${esc(item.university||'')}"></div>
+      <div class="field"><label>Specialization (optional)</label><input id="m-spec" value="${esc(item.specialization||'')}"></div>`;
+  }
+  else if (type === 'recognition') {
+    body.innerHTML = `
+      <div class="grid-2">
+        <div class="field"><label>Icon (emoji)</label><input id="m-icon" value="${esc(item.icon||'🏆')}"></div>
+        <div class="field"><label>Award Title</label><input id="m-title" value="${esc(item.title||'')}"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="m-body" rows="3">${esc(item.body||'')}</textarea></div>`;
+  }
+  else if (type === 'course') {
+    const { ui, ci } = extra;
+    const c = DATA.universities[ui].courses[ci];
+    body.innerHTML = `
+      <div class="grid-2">
+        <div class="field"><label>Course Key (no spaces)</label><input id="m-key" value="${esc(c.key)}"></div>
+        <div class="field"><label>Course Title</label><input id="m-title" value="${esc(c.title)}"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="m-desc" rows="2">${esc(c.description)}</textarea></div>
+      <div class="grid-3">
+        <div class="field"><label>Syllabus URL</label><input id="m-syl" value="${esc(c.syllabusUrl)}"></div>
+        <div class="field"><label>Notes URL</label><input id="m-notes" value="${esc(c.notesUrl)}"></div>
+        <div class="field"><label>Assignments URL</label><input id="m-assign" value="${esc(c.assignmentsUrl)}"></div>
+      </div>
+      <div class="field">
+        <label>Topics</label>
+        <ul class="topic-list" id="topic-list">
+          ${(c.topics||[]).map((t, ti) => `
+          <li>
+            <span class="drag-handle">⋮⋮</span>
+            <input value="${esc(t)}" onchange="DATA.universities[${ui}].courses[${ci}].topics[${ti}]=this.value;markUnsaved()">
+            <button class="remove-topic" onclick="removeTopic(${ui},${ci},${ti})">✕</button>
+          </li>`).join('')}
+        </ul>
+        <button class="btn btn-ghost btn-sm" onclick="addTopic(${ui},${ci})">+ Add Topic</button>
+      </div>`;
   }
 
   document.getElementById('modal-save-btn').onclick = () => saveModal();
+  document.getElementById('modal-backdrop').classList.add('open');
 }
 
-function editPaper(i)      { openModal('paper', i); }
-function editArticle(i)    { openModal('article', i); }
-function editBook(i)       { openModal('book', i); }
-function editWorkshop(i)   { openModal('workshop', i); }
-function editLecture(i)    { openModal('lecture', i); }
-function editExperience(i) { openModal('experience', i); }
+function addTopic(ui, ci) {
+  DATA.universities[ui].courses[ci].topics.push('New Topic');
+  const ci2 = ci;
+  openModal('course', null, { ui, ci: ci2 });
+  markUnsaved();
+}
 
-function closeModal(e) {
-  if (e && e.target !== document.getElementById('modal-backdrop')) return;
-  document.getElementById('modal-backdrop').classList.remove('open');
+function removeTopic(ui, ci, ti) {
+  DATA.universities[ui].courses[ci].topics.splice(ti, 1);
+  openModal('course', null, { ui, ci });
+  markUnsaved();
+}
+
+function getItem(type, idx, extra) {
+  if (type === 'experience') return DATA.about.experience[idx];
+  if (type === 'qualification') return DATA.qualifications[idx];
+  if (type === 'recognition') return DATA.recognitions[idx];
+  if (type === 'course') return DATA.universities[extra.ui].courses[extra.ci];
+  return (DATA[type + 's'] || [])[idx] || {};
 }
 
 function saveModal() {
-  const { type, idx } = modalContext;
+  const { type, idx, extra } = modalCtx;
+  const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  const isNew = idx === undefined || idx === null;
   let item = {};
-  const v = id => { const el = document.getElementById(id); return el ? el.value : ''; };
 
-  if (type === 'paper')      item = { title: v('m-title'), authors: v('m-authors'), venue: v('m-venue'), url: v('m-url'), tags: getTags('tags-wrapper') };
-  else if (type === 'article')   item = { title: v('m-title'), journal: v('m-journal'), year: v('m-year'), url: v('m-url'), tags: getTags('tags-wrapper') };
-  else if (type === 'book')      item = { title: v('m-title'), subtitle: v('m-subtitle'), publisher: v('m-publisher'), year: v('m-year'), status: v('m-status'), cover: v('m-cover'), description: v('m-description') };
-  else if (type === 'workshop')  item = { title: v('m-title'), date: v('m-date'), role: v('m-role'), venue: v('m-venue'), attendees: v('m-attendees') };
-  else if (type === 'lecture')   item = { title: v('m-title'), playlist: v('m-playlist'), date: v('m-date'), youtubeUrl: v('m-url'), thumbnailUrl: v('m-thumbnail'), description: v('m-description') };
-  else if (type === 'experience') item = { icon: v('m-icon'), period: v('m-period'), title: v('m-title'), org: v('m-org') };
+  if (type === 'paper')        item = { title: v('m-title'), authors: v('m-authors'), venue: v('m-venue'), url: v('m-url'), tags: getTags('tags-wrapper') };
+  else if (type === 'article') item = { title: v('m-title'), journal: v('m-journal'), year: v('m-year'), url: v('m-url'), tags: getTags('tags-wrapper') };
+  else if (type === 'book')    item = { title: v('m-title'), subtitle: v('m-subtitle'), publisher: v('m-publisher'), year: v('m-year'), status: v('m-status'), cover: v('m-cover'), description: v('m-description') };
+  else if (type === 'workshop') item = { title: v('m-title'), date: v('m-date'), role: v('m-role'), venue: v('m-venue'), attendees: v('m-attendees') };
+  else if (type === 'lecture') item = { title: v('m-title'), playlist: v('m-playlist'), date: v('m-date'), youtubeUrl: v('m-url'), thumbnailUrl: v('m-thumbnail'), description: v('m-description') };
+  else if (type === 'experience')   item = { icon: v('m-icon'), period: v('m-period'), title: v('m-title'), org: v('m-org') };
+  else if (type === 'qualification') item = { degree: v('m-degree'), field: v('m-field'), university: v('m-university'), specialization: v('m-spec') };
+  else if (type === 'recognition')  item = { icon: v('m-icon'), title: v('m-title'), body: v('m-body') };
+  else if (type === 'course') {
+    const { ui, ci } = extra;
+    const c = DATA.universities[ui].courses[ci];
+    c.key = v('m-key'); c.title = v('m-title'); c.description = v('m-desc');
+    c.syllabusUrl = v('m-syl'); c.notesUrl = v('m-notes'); c.assignmentsUrl = v('m-assign');
+    document.getElementById('modal-backdrop').classList.remove('open');
+    renderCourses(); updateBadges(); markUnsaved();
+    showToast('✓ Course updated');
+    return;
+  }
 
-  // Get collection
   let col;
-  if (type === 'experience') col = DATA.about.experience;
+  if (type === 'experience')     col = DATA.about.experience;
+  else if (type === 'qualification') col = DATA.qualifications;
+  else if (type === 'recognition')   col = DATA.recognitions;
   else col = DATA[type + 's'] || [];
 
-  if (idx !== undefined) col[idx] = item; else col.push(item);
+  if (isNew) col.push(item); else col[idx] = item;
 
   document.getElementById('modal-backdrop').classList.remove('open');
-  renderAll();
+  renderSection(currentSection);
+  updateBadges();
   markUnsaved();
-  showToast(`✓ ${type.charAt(0).toUpperCase()+type.slice(1)} ${idx !== undefined ? 'updated' : 'added'}`);
+  showToast(`✓ ${type.charAt(0).toUpperCase()+type.slice(1)} ${isNew ? 'added' : 'updated'}`, 'success');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-backdrop'))
+    document.getElementById('modal-backdrop').classList.remove('open');
 }
 
 function deleteItem(col, idx) {
   if (!confirm('Delete this item? This cannot be undone.')) return;
-  if (col === 'experience') DATA.about.experience.splice(idx, 1);
+  if (col === 'experience')    DATA.about.experience.splice(idx, 1);
+  else if (col === 'qualifications') DATA.qualifications.splice(idx, 1);
+  else if (col === 'recognitions')   DATA.recognitions.splice(idx, 1);
   else if (DATA[col]) DATA[col].splice(idx, 1);
-  renderAll();
+  renderSection(currentSection);
+  updateBadges();
   markUnsaved();
-  showToast('✓ Item deleted');
+  showToast('✓ Deleted');
 }
 
-// ── TAGS INPUT ──
-let tagState = {};
-
-function initTagsInput(wrapperId, initial) {
+// ══ TAGS ════════════════════════════════════════════════
+function initTags(wrapperId, initial) {
   tagState[wrapperId] = [...initial];
   renderTags(wrapperId);
 }
 
 function renderTags(wrapperId) {
-  const wrapper = document.getElementById(wrapperId);
-  if (!wrapper) return;
-  wrapper.innerHTML = tagState[wrapperId].map((t, i) =>
-    `<span class="tag-chip">${escHtml(t)}<button type="button" onclick="removeTag('${wrapperId}',${i})">×</button></span>`).join('') +
-    `<input type="text" placeholder="Add tag, press Enter…" id="tag-input-${wrapperId}" onkeydown="handleTagInput(event,'${wrapperId}')">`;
+  const w = document.getElementById(wrapperId);
+  if (!w) return;
+  w.innerHTML = tagState[wrapperId].map((t, i) =>
+    `<span class="tag-chip">${esc(t)}<button type="button" onclick="removeTag('${wrapperId}',${i})">×</button></span>`).join('') +
+    `<input type="text" placeholder="Add tag, Enter…" id="taginp-${wrapperId}" onkeydown="handleTagKey(event,'${wrapperId}')">`;
 }
 
-function handleTagInput(e, wrapperId) {
+function handleTagKey(e, wid) {
   if (e.key === 'Enter' || e.key === ',') {
     e.preventDefault();
-    const val = e.target.value.trim().replace(',', '');
-    if (val) { tagState[wrapperId].push(val); renderTags(wrapperId); }
+    const val = e.target.value.trim().replace(/,$/, '');
+    if (val) { tagState[wid].push(val); renderTags(wid); }
   }
 }
 
-function removeTag(wrapperId, idx) { tagState[wrapperId].splice(idx, 1); renderTags(wrapperId); }
-function getTags(wrapperId) { return tagState[wrapperId] || []; }
+function removeTag(wid, i) { tagState[wid].splice(i, 1); renderTags(wid); }
+function getTags(wid) { return tagState[wid] || []; }
 
-// ── EXPORT / IMPORT ──
+// ══ SEARCH FILTER ════════════════════════════════════════
+function filterList(query, type) {
+  const el = document.getElementById('list-' + type);
+  if (!el) return;
+  const q = query.toLowerCase();
+  el.querySelectorAll('.list-item').forEach(li => {
+    const text = li.textContent.toLowerCase();
+    li.style.display = text.includes(q) ? '' : 'none';
+  });
+}
+
+// ══ EXPORT / IMPORT ══════════════════════════════════════
 function downloadJSON() {
   const json = JSON.stringify(DATA, null, 2);
   const blob = new Blob([json], { type: 'application/json' });
@@ -1230,7 +1515,7 @@ function downloadJSON() {
   a.download = 'content.json';
   a.click();
   markSaved();
-  showToast('✓ content.json downloaded! Upload it to your GitHub repo.');
+  showToast('✓ content.json downloaded — upload it to GitHub main branch!', 'success');
 }
 
 function loadFromFile() { document.getElementById('file-input').click(); }
@@ -1239,97 +1524,54 @@ function handleFileLoad(e) {
   const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = (ev) => {
+  reader.onload = ev => {
     try {
       DATA = JSON.parse(ev.target.result);
-      initAdmin();
-      showToast('✓ content.json loaded — ready to edit');
-    } catch {
-      showToast('✗ Invalid JSON file', true);
-    }
+      updateBadges();
+      renderSection(currentSection);
+      markSaved();
+      showToast('✓ content.json loaded — ready to edit', 'success');
+    } catch { showToast('✗ Invalid JSON file', 'error'); }
   };
   reader.readAsText(file);
   e.target.value = '';
 }
 
-// ── PATCH CODE ──
-function renderPatchCode() {
-  const code = `// ══════════════════════════════════════════════
-// CONTENT.JSON LOADER — add at very TOP of app.js
-// (Before the line: const SITE_DATA = { ... })
-// ══════════════════════════════════════════════
-(async function loadContentOverrides() {
-  try {
-    const res = await fetch('./content.json?v=' + Date.now());
-    if (!res.ok) return; // no file yet — use defaults
-    const o = await res.json();
-
-    // Merge professor / links / bio
-    if (o.professor) Object.assign(SITE_DATA.professor, o.professor);
-    if (o.about) {
-      if (o.about.fullBio) SITE_DATA.about.fullBio = o.about.fullBio;
-      if (o.about.experience) SITE_DATA.about.experience = o.about.experience;
-    }
-    if (o.youtubeChannel) SITE_DATA.youtubeChannel = o.youtubeChannel;
-    if (o.cvUrl) SITE_DATA.cvUrl = o.cvUrl;
-
-    // Merge course URLs
-    if (o.courses) {
-      SITE_DATA.universities.forEach(uni => {
-        uni.courses.forEach(course => {
-          const key = uni.key + '__' + course.key;
-          if (o.courses[key]) Object.assign(course, o.courses[key]);
-        });
-      });
-    }
-
-    // Prepend new papers / articles / books / workshops / lectures
-    ['papers','articles','books','workshops','lectures'].forEach(k => {
-      if (o[k] && o[k].length)
-        SITE_DATA[k] = [...o[k], ...SITE_DATA[k]];
-    });
-
-    // Re-render whatever page is currently active
-    router();
-  } catch(e) {
-    console.warn('[ScholarCMS] content.json not found — using hardcoded defaults');
-  }
-})();`;
-  document.getElementById('patch-code').textContent = code;
-}
-
-function copyPatch() {
-  navigator.clipboard.writeText(document.getElementById('patch-code').textContent)
-    .then(() => showToast('✓ Patch code copied to clipboard!'))
-    .catch(() => showToast('✗ Copy failed — please copy manually', true));
-}
-
-// ── SAVE STATUS ──
+// ══ STATUS ════════════════════════════════════════════════
 function markUnsaved() {
   const el = document.getElementById('save-status');
-  el.textContent = '● Unsaved Changes';
-  el.className = 'save-status unsaved';
+  if (el) { el.textContent = '● Unsaved Changes'; el.className = 'save-status unsaved'; }
+  _unsaved = true;
 }
 
 function markSaved() {
   const el = document.getElementById('save-status');
-  el.textContent = '● All Saved';
-  el.className = 'save-status';
+  if (el) { el.textContent = '● All Saved'; el.className = 'save-status'; }
+  _unsaved = false;
 }
 
-// ── TOAST ──
-function showToast(msg, isError) {
+// ══ TOAST ════════════════════════════════════════════════
+function showToast(msg, type) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast show' + (isError ? ' error' : '');
+  t.className = 'toast show' + (type ? ' ' + type : '');
   clearTimeout(window._toastTimer);
-  window._toastTimer = setTimeout(() => { t.className = 'toast'; }, 3200);
+  window._toastTimer = setTimeout(() => { t.className = 'toast'; }, 3400);
 }
 
-// ── UTILS ──
-function escHtml(str) {
+// ══ UTILS ════════════════════════════════════════════════
+function esc(str) {
   return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
+
+function emptyState(msg) {
+  return `<div class="empty-state"><div class="icon">📭</div><p>${msg}</p></div>`;
+}
+
+// Warn before leaving with unsaved changes
+window.addEventListener('beforeunload', e => {
+  if (_unsaved) { e.preventDefault(); e.returnValue = ''; }
+});
 </script>
 </body>
 </html>

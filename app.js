@@ -2,7 +2,7 @@
    SITE DATA — Edit this section to add/update content easily
    ============================================================ */
 
-const SITE_DATA = {
+const SITE_DATA_DEFAULT = {
 
   /* ── Professor Info ──────────────────────────────────────── */
   professor: {
@@ -601,6 +601,45 @@ const SITE_DATA = {
   youtubeChannel: "https://www.youtube.com/@swatisah6041",
 };
 
+let SITE_DATA = deepClone(SITE_DATA_DEFAULT);
+
+function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function isObject(item) {
+  return item && typeof item === 'object' && !Array.isArray(item);
+}
+
+function mergeDeep(target, source) {
+  for (const key in source) {
+    if (isObject(source[key]) && isObject(target[key])) {
+      mergeDeep(target[key], source[key]);
+    } else {
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+
+function loadContentOverrides() {
+  return fetch('./content.json', { cache: 'no-store' })
+    .then(resp => {
+      if (!resp.ok) throw new Error('No content override available');
+      return resp.text();
+    })
+    .then(text => {
+      const trimmed = text.trim();
+      if (!trimmed) return;
+      const data = JSON.parse(trimmed);
+      mergeDeep(SITE_DATA, data);
+      console.info('Loaded content override from content.json');
+    })
+    .catch(err => {
+      console.info('content.json not loaded:', err.message);
+    });
+}
+
 
 /* ============================================================
    DARK MODE TOGGLE
@@ -692,7 +731,7 @@ function router() {
 }
 
 window.addEventListener('hashchange', router);
-window.addEventListener('DOMContentLoaded', router);
+window.addEventListener('DOMContentLoaded', () => loadContentOverrides().finally(router));
 
 function updateNavActive(route) {
   document.querySelectorAll('.nav-link[data-route]').forEach(el => {

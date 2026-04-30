@@ -1,0 +1,445 @@
+{
+  "professor": {
+    "name": "Dr. Swati Sah",
+    "title": "Professor",
+    "institution": "Sharda University, India",
+    "email": "iswatisah19@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
+    "googleScholar": "#",
+    "orcid": "#",
+    "photo": "./assets/cropped_circle_image.png",
+    "aboutPhoto": "./assets/swati maam's photo.jpeg",
+    "shortBio": "Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security. She has served in leading institutions across India, Uzbekistan, and Nepal, published extensively, and is authoring books on AI-driven applications in finance, healthcare, and cyber resilience.",
+    "stats": [
+      {
+        "num": "12+",
+        "label": "Years Experience"
+      },
+      {
+        "num": "29+",
+        "label": "Publications"
+      },
+      {
+        "num": "6",
+        "label": "Institutions"
+      },
+      {
+        "num": "4+",
+        "label": "Books"
+      }
+    ]
+  },
+  "youtubeChannel": "https://www.youtube.com/@swatisah6041",
+  "cvUrl": "#",
+  "about": {
+    "fullBio": [
+      "Prof. Swati Sah is a distinguished academic and researcher with over 12 years of experience spanning Artificial Intelligence, Machine Learning, Federated Learning, and Cyber Security. She holds a faculty position at Sharda University, Greater Noida, India.",
+      "Her international footprint spans multiple countries — India, the United Kingdom, and Uzbekistan — where she has held teaching and research positions at leading institutions including the University of Bedfordshire (UK), Amity University (Tashkent), JAIN University (Bangalore), Ajeenkya DY Patil University, and Bharati Vidyapeeth University (Pune).",
+      "Prof. Sah's research is characterized by its applied focus: she bridges foundational theory with real-world challenges in finance, healthcare, and cyber resilience. Her published work spans 29+ papers in reputed IEEE, Springer, Elsevier, and ACM venues."
+    ],
+    "experience": [
+      {
+        "period": "Present",
+        "title": "Professor",
+        "org": "Sharda University, Greater Noida, UP, India",
+        "icon": "🎓"
+      },
+      {
+        "period": "Previous",
+        "title": "Faculty",
+        "org": "University of Bedfordshire, United Kingdom",
+        "icon": "🇬🇧"
+      },
+      {
+        "period": "Previous",
+        "title": "Faculty",
+        "org": "JAIN University, Bangalore, India",
+        "icon": "🎓"
+      },
+      {
+        "period": "Previous",
+        "title": "Faculty",
+        "org": "Ajeenkya DY Patil University, India",
+        "icon": "🎓"
+      },
+      {
+        "period": "Previous",
+        "title": "Faculty",
+        "org": "Amity University, Tashkent, Uzbekistan",
+        "icon": "🌏"
+      },
+      {
+        "period": "Previous",
+        "title": "Faculty",
+        "org": "Bharati Vidyapeeth University, Pune, India",
+        "icon": "🎓"
+      }
+    ]
+  },
+  "qualifications": [
+    {
+      "degree": "Ph.D.",
+      "field": "Computer Science & Engineering",
+      "university": "University Name, Year",
+      "specialization": "Machine Learning & Cyber Security"
+    },
+    {
+      "degree": "M.Tech.",
+      "field": "Computer Science",
+      "university": "University Name, Year",
+      "specialization": "Artificial Intelligence"
+    },
+    {
+      "degree": "B.Tech.",
+      "field": "Computer Science & Engineering",
+      "university": "University Name, Year",
+      "specialization": ""
+    }
+  ],
+  "recognitions": [
+    {
+      "icon": "🏆",
+      "title": "Best Researcher Award",
+      "body": "Recognized for outstanding contributions to Federated Learning research, Sharda University, 2023."
+    },
+    {
+      "icon": "🌟",
+      "title": "International Faculty Excellence Award",
+      "body": "Awarded for exemplary teaching and research contributions across multiple countries including India and the UK."
+    },
+    {
+      "icon": "📚",
+      "title": "Distinguished Author Recognition",
+      "body": "Acknowledged for authoring influential books on AI-driven applications in healthcare and finance."
+    },
+    {
+      "icon": "🤝",
+      "title": "International Collaboration Award",
+      "body": "Recognized for fostering academic partnerships between India, United Kingdom, and Uzbekistan."
+    },
+    {
+      "icon": "🔬",
+      "title": "Cyber Security Research Grant",
+      "body": "Principal Investigator on a funded research project on AI-driven cyber resilience frameworks."
+    }
+  ],
+  "universities": [
+    {
+      "key": "sharda",
+      "name": "Sharda University",
+      "location": "Greater Noida, UP, India",
+      "icon": "🏛️",
+      "courses": [
+        {
+          "key": "pps",
+          "title": "Programming for Problem Solving",
+          "description": "An introductory course covering fundamental programming concepts.",
+          "topics": [
+            "Introduction to Programming",
+            "Algorithms & Flowcharts",
+            "Variables & Operators",
+            "Control Flow",
+            "Functions & Recursion",
+            "Arrays and Strings",
+            "OOP Concepts",
+            "File I/O"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "ds-sharda",
+          "title": "Data Structures",
+          "description": "Study of fundamental data structures and their algorithmic applications.",
+          "topics": [
+            "Introduction & Complexity",
+            "Arrays & Linked Lists",
+            "Stacks and Queues",
+            "Trees & BST",
+            "Heaps",
+            "Graphs: BFS/DFS",
+            "Hashing",
+            "Sorting Algorithms"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "dbms",
+          "title": "Database Management System",
+          "description": "Comprehensive study of database design and SQL.",
+          "topics": [
+            "Intro to DBMS",
+            "ER Modeling",
+            "Relational Algebra",
+            "SQL",
+            "Normalization",
+            "Transaction Management",
+            "Indexing",
+            "NoSQL"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "daa",
+          "title": "Design Analysis & Algorithms",
+          "description": "Analysis of algorithm design paradigms.",
+          "topics": [
+            "Complexity & Asymptotic Analysis",
+            "Divide and Conquer",
+            "Greedy Algorithms",
+            "Dynamic Programming",
+            "Graph Algorithms",
+            "Backtracking",
+            "NP-Completeness",
+            "Approximation Algorithms"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        }
+      ]
+    },
+    {
+      "key": "jain",
+      "name": "JAIN University",
+      "location": "Bangalore, Karnataka, India",
+      "icon": "🎓",
+      "courses": [
+        {
+          "key": "c-prog",
+          "title": "C Programming",
+          "description": "Foundational course in C programming.",
+          "topics": [
+            "Intro to C",
+            "Variables & Operators",
+            "Control Statements",
+            "Functions",
+            "Arrays & Strings",
+            "Pointers",
+            "Structures",
+            "File Handling"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "ds-jain",
+          "title": "Data Structures",
+          "description": "Study of data organization techniques.",
+          "topics": [
+            "Intro",
+            "Linked Lists",
+            "Stacks & Queues",
+            "Trees & BST",
+            "Graphs",
+            "Hashing",
+            "Sorting",
+            "Complexity Analysis"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "bda",
+          "title": "Big Data Analytics",
+          "description": "Introduction to big data technologies.",
+          "topics": [
+            "Big Data & V's",
+            "Hadoop & HDFS",
+            "MapReduce",
+            "Apache Spark",
+            "NoSQL",
+            "Data Warehousing",
+            "Stream Processing",
+            "Visualization"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        },
+        {
+          "key": "ml-jain",
+          "title": "Machine Learning using Python",
+          "description": "Hands-on machine learning course.",
+          "topics": [
+            "Intro to ML",
+            "Python for ML",
+            "Regression",
+            "Decision Trees",
+            "SVM",
+            "Clustering",
+            "PCA",
+            "Model Evaluation"
+          ],
+          "syllabusUrl": "#",
+          "notesUrl": "#",
+          "assignmentsUrl": "#"
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "title": "The implementation of machine learning in the insurance industry with big data analytics",
+      "authors": "Swati Sah et al.",
+      "venue": "IEEE / Springer",
+      "tags": [
+        "Machine Learning",
+        "Big Data",
+        "Insurance"
+      ],
+      "url": "https://scholar.google.com"
+    },
+    {
+      "title": "Artificial intelligence biosensing system on hand gesture recognition for the hearing impaired",
+      "authors": "Swati Sah et al.",
+      "venue": "IEEE",
+      "tags": [
+        "AI",
+        "Biosensing",
+        "Gesture Recognition"
+      ],
+      "url": "https://scholar.google.com"
+    },
+    {
+      "title": "Federated Learning for Privacy-Preserving Healthcare Data Analysis",
+      "authors": "Swati Sah et al.",
+      "venue": "IEEE",
+      "tags": [
+        "Federated Learning",
+        "Healthcare",
+        "Privacy"
+      ],
+      "url": "https://scholar.google.com"
+    }
+  ],
+  "articles": [
+    {
+      "title": "The Future of Federated Learning in Healthcare",
+      "journal": "Journal of Biomedical Informatics",
+      "year": "2024",
+      "url": "#",
+      "tags": [
+        "Survey",
+        "Healthcare",
+        "Federated Learning"
+      ]
+    },
+    {
+      "title": "Machine Learning Approaches in Cyber Threat Intelligence",
+      "journal": "Computers & Security (Elsevier)",
+      "year": "2023",
+      "url": "#",
+      "tags": [
+        "Survey",
+        "Cyber Security",
+        "ML"
+      ]
+    },
+    {
+      "title": "AI Ethics and Bias Mitigation in Financial Services",
+      "journal": "IEEE Transactions on Neural Networks",
+      "year": "2023",
+      "url": "#",
+      "tags": [
+        "AI Ethics",
+        "Finance",
+        "Bias"
+      ]
+    }
+  ],
+  "books": [
+    {
+      "title": "AI-Driven Applications in Finance",
+      "subtitle": "Intelligent Systems for Modern Banking",
+      "status": "Forthcoming",
+      "publisher": "Publisher Name",
+      "year": "2025",
+      "cover": "",
+      "description": "A comprehensive guide to applying artificial intelligence in financial services."
+    },
+    {
+      "title": "AI in Healthcare & Diagnostics",
+      "subtitle": "Machine Learning for Medical Intelligence",
+      "status": "Forthcoming",
+      "publisher": "Publisher Name",
+      "year": "2025",
+      "cover": "",
+      "description": "Explores deep learning, federated learning, and NLP techniques for clinical decision support."
+    },
+    {
+      "title": "Cyber Resilience Framework",
+      "subtitle": "AI-Powered Defense Strategies",
+      "status": "Forthcoming",
+      "publisher": "Publisher Name",
+      "year": "2026",
+      "cover": "",
+      "description": "A practitioner's guide to building adaptive, AI-driven cyber resilience systems."
+    },
+    {
+      "title": "Federated Learning: Principles & Practice",
+      "subtitle": "Privacy-Preserving Distributed AI",
+      "status": "In Progress",
+      "publisher": "Publisher Name",
+      "year": "2026",
+      "cover": "",
+      "description": "Deep dive into federated learning frameworks and real-world deployment."
+    }
+  ],
+  "workshops": [
+    {
+      "date": "March 2024",
+      "title": "Hands-on Workshop on Federated Learning with TensorFlow",
+      "venue": "Sharda University, Noida",
+      "role": "Organizer & Speaker",
+      "attendees": "80+"
+    },
+    {
+      "date": "November 2023",
+      "title": "Cyber Security Bootcamp: Ethical Hacking & Penetration Testing",
+      "venue": "Sharda University, Noida",
+      "role": "Organizer",
+      "attendees": "120+"
+    },
+    {
+      "date": "August 2023",
+      "title": "Introduction to Machine Learning for Beginners",
+      "venue": "National Webinar (Online)",
+      "role": "Speaker",
+      "attendees": "500+"
+    }
+  ],
+  "lectures": [
+    {
+      "title": "Introduction to Federated Learning",
+      "playlist": "FL Series",
+      "youtubeUrl": "https://www.youtube.com/@swatisah6041",
+      "thumbnailUrl": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "title": "Gradient Descent Explained Visually",
+      "playlist": "ML Fundamentals",
+      "youtubeUrl": "https://www.youtube.com/@swatisah6041",
+      "thumbnailUrl": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "title": "Cyber Threats in the Age of AI",
+      "playlist": "Cyber Security",
+      "youtubeUrl": "https://www.youtube.com/@swatisah6041",
+      "thumbnailUrl": "",
+      "date": "",
+      "description": ""
+    }
+  ]
+}
