@@ -598,13 +598,20 @@ const SITE_DATA = {
     // }
     ],
     past: [
-      // {
-      // title: "Cyber Security Bootcamp",
-      // date: "Jan 2025",
-      // time: "3 Days",
-      // location: "IIT Delhi",
-      // attendees: "200+ Participants"
-      // }
+      {
+      title: "India AI Impact Summit 2026",
+      date: "09 Feb 2026",
+      time: "10:40 am - 11:30 am",
+      location: "202C Lab, Block 3, Sharda University",
+      link: "https://drive.google.com/file/d/15SUbiK0IRWEKjciKPljGNLuzUdn4V2-W/view?usp=sharing"
+      },
+      {
+      title: "Research Retreat",
+      date: "09 Oct 2024",
+      time: "10:20 am - 12:10 pm",
+      location: "007D Lab, Block 3, Sharda University",
+      link: "https://drive.google.com/file/d/1iJgU2OKnKC33d3QgLOgYtObQz3Y9qosq/view?usp=sharing"
+      }
     ]
   },
 
