@@ -19,8 +19,8 @@ const SITE_DATA = {
     stats: [
       { num: "12+", label: "Years Experience" },
       { num: "29+", label: "Publications" },
-      { num: "6",   label: "Institutions" },
-      { num: "4+",  label: "Books" },
+      { num: "6", label: "Institutions" },
+      { num: "4+", label: "Books" },
     ],
   },
 
@@ -28,11 +28,11 @@ const SITE_DATA = {
   about: {
     fullBio: [
       `Prof. (Dr.) Swati Sah is currently serving as a Professor at Sharda University, Greater Noida, India. Prior to this, she held academic positions at Jain University, Bangalore, and at Amity University, Uzbekistan. She was also associated with Bharati Vidyapeeth Deemed University, Pune, from 2010 to 2017. In May 2018, she was appointed as Head of the Department of Computer Science at Patan College for Professional Studies (PCPS), Nepal, an institution affiliated with the University of Bedfordshire, UK.`,
-      
+
       `Dr. Sah was awarded her Ph.D. degree in Computer Application from Bharati Vidyapeeth University, Pune, India, in 2016. The topic of her doctoral research was "Evaluating Optimal Clustering Techniques for Efficient Storage Retrieval Methods in Large Databases using Soft Computing Techniques." She holds a Master of Computer Applications (MCA) degree from Uttar Pradesh Technical University, Lucknow, India, an M.Sc. from Birmingham City University, United Kingdom, and a Bachelor's degree from Kumaun University, Nainital.`,
-      
+
       `With over 13 years of experience in teaching and research, she has been actively engaged with various professional associations and academic bodies. She has attended and organized numerous FDPs, seminars, workshops, and conferences. Her research interests lie in the areas of Cyber Security, Artificial Intelligence (AI), and Machine Learning (ML). Her current work focuses on leveraging AI and ML techniques to enhance cyber threat detection and prevention frameworks. She is also passionate about interdisciplinary applications of emerging technologies and continues to explore innovative solutions addressing real-world challenges in digital security and intelligent systems.`,
-      
+
       `Dr. Sah has contributed to several scholarly publications and has presented her work at national and international conferences. Some of her forthcoming books include:<br><br>- Federated Learning in Finance: Unlocking Privacy-Preserving and Cyber Resilience using AI (CRC Press)<br>- Cyber-Resilient Federated Learning: Adaptive AI through BCI and Neurotechnological Synergy (CRC Press)<br>- Agentic AI for Securing Decentralized Finance (DeFi): Enhancing Integrity in the FinTech Industry (CRC Press)<br>- Healthcare 5.0 (CRC Press — in process)`
     ],
     experience: [
@@ -56,21 +56,31 @@ const SITE_DATA = {
 
   /* ── Recognitions / Awards DATA ───────────────────────────────── */
   recognitions: [
-  {
-    title: "Certificate of Appreciation",
-    short: "Sharda University, 2026",
-    description: "Served as Distinguished Speaker in the 5 Days National Level FDP on 'Innovative Research Methodologies",
-    image: "./assets/certificates/certificate-appreciation-08-feb-award.jpeg",
-    link: "https://drive.google.com/file/d/1JofCTq-cSsgY0c9x29wz2wqWeRaIQWF9/view?usp=sharing"
-  },
-  {
-    title: "International Faculty Excellence Award",
-    short: "Global Recognition",
-    description: "Awarded for exemplary teaching and research across India and UK.",
-    image: "./assets/award2.jpg",
-    link: "#"
-  }
-],
+    {
+      title: "Certificate of Appreciation",
+      organization: "IOT Academy",
+      date: "Feb 18, 2026",
+      description: "Served as Distinguished Speaker in the 5 Days National Level FDP on 'Innovative Research Methodologies' presenting on 'Foundations of Contemporary Research'.",
+      image: "./assets/certificates/certificate-appreciation-08-feb-award.jpeg",
+      link: "https://drive.google.com/file/d/1JofCTq-cSsgY0c9x29wz2wqWeRaIQWF9/view?usp=sharing"
+    },
+    {
+      title: "Certificate of Appreciation",
+      organization: "IOT Academy",
+      date: "Oct 10, 2025",
+      description: "Served as Resource person in the Seven Days National Level FDP on 'The Art and Science of Teaching Tools, Trends, and Techniques' and delivered a special lecture on 'Personality Development for Teachers'.",
+      image: "./assets/certificates/certificate-appreciation-10-oct-award.jpeg",
+      link: "#"
+    },
+    {
+      title: "Vice-Chancellor's Award",
+      organization: "Birmingham City University",
+      date: "Alumni Leadership",
+      description: "In recognition of distinguished professional achievement and continued engagement as an ambassador of Birmingham City University.",
+      image: "./assets/certificates/vice-chancellor-award.jpeg",
+      link: "#"
+    }
+  ],
 
   /* ── Universities & Courses ──────────────────────────────── */
   /*
@@ -592,37 +602,37 @@ const SITE_DATA = {
   /* ── Workshops Data ───────────────────────────────────────────── */
   workshops: {
     ongoing: [
-    //   {
-    //   title: "AI in Healthcare Workshop",
-    //   date: "12–14 May 2026",
-    //   time: "10:00 AM – 4:00 PM",
-    //   location: "Sharda University, Greater Noida",
-    //   attendees: "120+ Participants",
-    //   link: "https://example.com"
-    // }
+      //   {
+      //   title: "AI in Healthcare Workshop",
+      //   date: "12–14 May 2026",
+      //   time: "10:00 AM – 4:00 PM",
+      //   location: "Sharda University, Greater Noida",
+      //   attendees: "120+ Participants",
+      //   link: "https://example.com"
+      // }
     ],
     upcoming: [
-    //   {
-    //   title: "Federated Learning FDP",
-    //   date: "20 June 2026",
-    //   time: "11:00 AM – 3:00 PM",
-    //   location: "Online (Zoom)"
-    // }
+      //   {
+      //   title: "Federated Learning FDP",
+      //   date: "20 June 2026",
+      //   time: "11:00 AM – 3:00 PM",
+      //   location: "Online (Zoom)"
+      // }
     ],
     past: [
       {
-      title: "India AI Impact Summit 2026",
-      date: "09 Feb 2026",
-      time: "10:40 am - 11:30 am",
-      location: "202C Lab, Block 3, Sharda University",
-      link: "https://drive.google.com/file/d/15SUbiK0IRWEKjciKPljGNLuzUdn4V2-W/view?usp=sharing"
+        title: "India AI Impact Summit 2026",
+        date: "09 Feb 2026",
+        time: "10:40 am - 11:30 am",
+        location: "202C Lab, Block 3, Sharda University",
+        link: "https://drive.google.com/file/d/15SUbiK0IRWEKjciKPljGNLuzUdn4V2-W/view?usp=sharing"
       },
       {
-      title: "Research Retreat",
-      date: "09 Oct 2024",
-      time: "10:20 am - 12:10 pm",
-      location: "007D Lab, Block 3, Sharda University",
-      link: "https://drive.google.com/file/d/1iJgU2OKnKC33d3QgLOgYtObQz3Y9qosq/view?usp=sharing"
+        title: "Research Retreat",
+        date: "09 Oct 2024",
+        time: "10:20 am - 12:10 pm",
+        location: "007D Lab, Block 3, Sharda University",
+        link: "https://drive.google.com/file/d/1iJgU2OKnKC33d3QgLOgYtObQz3Y9qosq/view?usp=sharing"
       }
     ]
   },
@@ -697,17 +707,17 @@ initTheme();
    ROUTER — Hash-based SPA
    ============================================================ */
 const routes = {
-  home:           renderHome,
-  about:          renderAbout,
-  recognitions:   renderRecognitions,
+  home: renderHome,
+  about: renderAbout,
+  recognitions: renderRecognitions,
   qualifications: renderQualifications,
-  workshops:      renderWorkshops,
-  lectures:       renderLectures,
-  books:          renderBooks,
-  papers:         renderPapers,
-  articles:       renderArticles,
-  contact:        renderContact,
-  course:         renderCourse,
+  workshops: renderWorkshops,
+  lectures: renderLectures,
+  books: renderBooks,
+  papers: renderPapers,
+  articles: renderArticles,
+  contact: renderContact,
+  course: renderCourse,
 };
 
 function navigate(route, params = {}) {
@@ -997,32 +1007,22 @@ function renderRecognitions() {
   const data = SITE_DATA.recognitions;
 
   const cards = data.map((item, index) => `
-    <div class="award-card" id="award-${index}">
-      
-      <div class="award-basic">
-        <h3>${item.title}</h3>
-        <p>${item.short}</p>
-        <button class="btn btn-outline btn-sm" onclick="toggleAward(${index})">
-          View
-        </button>
-      </div>
-
-      <div class="award-expanded">
-        <div class="award-content">
-          
-          <div class="award-image">
+    <div class="framed-certificate-card" id="award-${index}">
+      <div class="certificate-frame">
+        <div class="certificate-matte">
+          <div class="certificate-image">
             <img src="${item.image}" alt="${item.title}">
           </div>
-
-          <div class="award-details">
-            <h3>${item.title}</h3>
-            <p>${item.description}</p>
-            ${item.link ? `<a href="${item.link}" target="_blank" class="btn btn-primary btn-sm">Open</a>` : ""}
-          </div>
-
         </div>
       </div>
-
+      <div class="certificate-plaque">
+        <h3 class="certificate-title">${item.title}</h3>
+        <div class="certificate-meta">
+          <span class="certificate-org">${item.organization}</span>
+          <span class="certificate-date">${item.date}</span>
+        </div>
+        <p class="certificate-desc">${item.description}</p>
+      </div>
     </div>
   `).join('');
 
@@ -1035,7 +1035,7 @@ function renderRecognitions() {
         <h2 class="section-title">Recognitions & Awards</h2>
         <div class="section-divider"></div>
 
-        <div class="award-grid">
+        <div class="framed-gallery-grid">
           ${cards}
         </div>
       </section>
@@ -1083,7 +1083,7 @@ function renderCourse({ uni: uniKey, course: courseKey }) {
 
   setPage(`
     ${pageHeader(uni.name + ' · ' + uni.location,
-      course.title + (course.code ? ` <span style="font-size:1.1rem;opacity:.55;font-weight:400">[${course.code}]</span>` : ''))}
+    course.title + (course.code ? ` <span style="font-size:1.1rem;opacity:.55;font-weight:400">[${course.code}]</span>` : ''))}
 
     <div class="section">
       <a href="#home" class="btn btn-outline btn-sm" style="margin-bottom:2rem;">← Back to Home</a>
@@ -1155,7 +1155,7 @@ function renderWorkshops() {
   const w = SITE_DATA.workshops;
 
   setPage(`
-    ${pageHeader('Academic Events','Workshops','Workshops, FDPs & Training Programs')}
+    ${pageHeader('Academic Events', 'Workshops', 'Workshops, FDPs & Training Programs')}
 
     <div class="section">
       <div class="section-label">Events</div>
@@ -1178,8 +1178,8 @@ function renderLectures() {
       <a href="${v.youtubeUrl}" target="_blank">
         <div class="video-thumb">
           ${v.thumbnailUrl
-            ? `<img src="${v.thumbnailUrl}" alt="${v.title}">`
-            : '▶'}
+      ? `<img src="${v.thumbnailUrl}" alt="${v.title}">`
+      : '▶'}
         </div>
       </a>
       <div class="video-info">
@@ -1214,8 +1214,8 @@ function renderBooks() {
     <div class="book-card">
       <div class="book-cover">
         ${b.cover
-          ? `<img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none';this.parentElement.innerHTML='📚'">`
-          : '📚'}
+      ? `<img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none';this.parentElement.innerHTML='📚'">`
+      : '📚'}
       </div>
       <div class="book-info">
         <div class="book-title">${b.title}</div>
@@ -1352,26 +1352,28 @@ function renderContact() {
 
         <div class="contact-form-card">
           <h2>Send a Message</h2>
-          <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input class="form-input" type="text" placeholder="Your name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input class="form-input" type="email" placeholder="your@email.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Subject</label>
-            <input class="form-input" type="text" placeholder="Research collaboration / Speaking invite / Other">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="Your message..."></textarea>
-          </div>
-          <button class="btn btn-primary" style="width:100%;justify-content:center;"
-            onclick="alert('Thank you! Your message will be sent once the backend email service is configured.')">
-            Send Message
-          </button>
+          <form id="contact-form" onsubmit="submitContactForm(event)">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <!-- The name attribute is what EmailJS looks for -->
+              <input class="form-input" type="text" name="from_name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" name="reply_to" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input class="form-input" type="text" name="subject" placeholder="Research collaboration / Speaking invite / Other" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" name="message" placeholder="Your message..." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%;justify-content:center;">
+              Send Message
+            </button>
+          </form>
           <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem;text-align:center;">
             Or email directly at <a href="mailto:${p.email}" style="color:var(--gold)">${p.email}</a>
           </p>
@@ -1380,3 +1382,35 @@ function renderContact() {
     </div>
   `);
 }
+
+/* ── CONTACT FORM HANDLER (EmailJS) ───────────────────────────── */
+window.submitContactForm = function (event) {
+  event.preventDefault();
+  
+  const formElement = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.innerText = 'Sending...';
+  submitBtn.disabled = true;
+
+  const SERVICE_ID = "YOUR_SERVICE_ID";
+  const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+  emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formElement)
+    .then(() => {
+      submitBtn.innerText = 'Message Sent Successfully!';
+      submitBtn.style.backgroundColor = '#4caf50'; // green success
+      formElement.reset();
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      submitBtn.innerText = 'Failed to Send. Try directly emailing.';
+      submitBtn.style.backgroundColor = '#f44336'; // red error
+    })
+    .finally(() => {
+      setTimeout(() => {
+        submitBtn.innerText = 'Send Message';
+        submitBtn.disabled = false;
+        submitBtn.style.backgroundColor = '';
+      }, 5000);
+    });
+};

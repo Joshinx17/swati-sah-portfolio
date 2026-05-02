@@ -114,6 +114,71 @@ youtubeChannel: "https://youtube.com/@...",
 
 ---
 
+## 📧 Setting Up the Contact Form (EmailJS)
+
+The contact form is configured to send emails securely in the background using [EmailJS](https://www.emailjs.com/). To connect it to your own email address:
+
+### 1. Create your EmailJS Account
+1. Sign up for a free account at [EmailJS.com](https://www.emailjs.com/).
+2. On the left sidebar, click **Email Services**, then **Add New Service**.
+3. Select **Gmail** (or your preferred provider), connect your account, and click **Create Service**.
+4. You will get a **Service ID** (e.g., `service_abc123`). Save this.
+
+### 2. Create the Email Template
+1. Click **Email Templates** on the left sidebar and click **Create New Template**.
+2. On the right-side settings panel, set the **Reply To** field to exactly `{{reply_to}}` (this allows you to easily reply to senders).
+3. Switch to the `<>` Source Code mode in the editor.
+4. Delete everything and paste this premium template to match the portfolio's design:
+
+```html
+<div style="font-family: 'Georgia', serif; font-size: 15px; color: #3a2210; background-color: #fdfcf9; padding: 30px; line-height: 1.6;">
+  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #eaddcf; border-radius: 8px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <div style="text-align: center; border-bottom: 2px solid #cdab84; padding-bottom: 20px; margin-bottom: 30px;">
+      <h2 style="margin: 0; color: #4a2e14; font-size: 22px; font-weight: normal; letter-spacing: 1px;">New Portfolio Message</h2>
+      <p style="margin: 5px 0 0; color: #8a6a50; font-family: sans-serif; font-size: 13px;">You have received a new inquiry.</p>
+    </div>
+    <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 30px; font-family: sans-serif; font-size: 14px;">
+      <tbody>
+        <tr>
+          <td style="padding: 10px 0; border-bottom: 1px dashed #eaddcf; width: 100px; color: #8a6a50; font-weight: bold;">From:</td>
+          <td style="padding: 10px 0; border-bottom: 1px dashed #eaddcf; color: #2a1a0a;">{{from_name}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; border-bottom: 1px dashed #eaddcf; color: #8a6a50; font-weight: bold;">Email:</td>
+          <td style="padding: 10px 0; border-bottom: 1px dashed #eaddcf; color: #cdab84; font-weight: bold;"><a href="mailto:{{reply_to}}" style="color: #cdab84; text-decoration: none;">{{reply_to}}</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #8a6a50; font-weight: bold;">Subject:</td>
+          <td style="padding: 10px 0; color: #2a1a0a;">{{subject}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background-color: #fefdfb; border: 1px solid #f2e8de; border-radius: 4px; padding: 25px;">
+      <p style="margin: 0; white-space: pre-wrap; font-size: 15px; color: #4a2e14;">{{message}}</p>
+    </div>
+  </div>
+</div>
+```
+5. Click **Save** in the top right.
+6. You will get a **Template ID** (e.g., `template_xyz789`). Save this.
+
+### 3. Get your Public Key
+1. Go to **Account** (left sidebar).
+2. Under the API Keys tab, copy your **Public Key** (e.g., `abcd1234efgh5678`).
+
+### 4. Paste IDs into the Code
+1. Open `index.html`. Scroll to the bottom and replace `YOUR_PUBLIC_KEY` with your actual Public Key:
+   ```js
+   emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" });
+   ```
+2. Open `js/app.js`. Scroll to the bottom and replace `YOUR_SERVICE_ID` and `YOUR_TEMPLATE_ID`:
+   ```js
+   const SERVICE_ID = "YOUR_SERVICE_ID";
+   const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+   ```
+
+---
+
 ## 🚀 Deployment
 
 This is a **static website** — no server required.

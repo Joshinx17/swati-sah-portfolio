@@ -21,6 +21,18 @@
       Loading…
     </div>
   </div>
+  
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      // Initialize EmailJS
+      emailjs.init({
+        publicKey: "YOUR_PUBLIC_KEY", // <-- PASTE PUBLIC KEY HERE
+      });
+    })();
+  </script>
+
   <script src="./app.js"></script>
 </body>
 </html>
