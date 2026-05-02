@@ -56,13 +56,21 @@ const SITE_DATA = {
 
   /* ── Recognitions / Awards DATA ───────────────────────────────── */
   recognitions: [
-    // ── ADD/EDIT RECOGNITIONS HERE ──
-    // { icon: "🏆", title: "Best Researcher Award", body: "Recognized for outstanding contributions to Federated Learning research, Sharda University, 2023." },
-    // { icon: "🌟", title: "International Faculty Excellence Award", body: "Awarded for exemplary teaching and research contributions across multiple countries including India and the UK." },
-    // { icon: "📚", title: "Distinguished Author Recognition", body: "Acknowledged for authoring influential books on AI-driven applications in healthcare and finance." },
-    // { icon: "🤝", title: "International Collaboration Award", body: "Recognized for fostering academic partnerships between India, United Kingdom, and Uzbekistan." },
-    // { icon: "🔬", title: "Cyber Security Research Grant", body: "Principal Investigator on a funded research project on AI-driven cyber resilience frameworks." },
-  ],
+  {
+    title: "Certificate of Appreciation",
+    short: "Sharda University, 2026",
+    description: "Served as Distinguished Speaker in the 5 Days National Level FDP on 'Innovative Research Methodologies",
+    image: "./assets/certificates/certificate-appreciation-08-feb-award.jpeg",
+    link: "https://drive.google.com/file/d/1JofCTq-cSsgY0c9x29wz2wqWeRaIQWF9/view?usp=sharing"
+  },
+  {
+    title: "International Faculty Excellence Award",
+    short: "Global Recognition",
+    description: "Awarded for exemplary teaching and research across India and UK.",
+    image: "./assets/award2.jpg",
+    link: "#"
+  }
+],
 
   /* ── Universities & Courses ──────────────────────────────── */
   /*
@@ -732,6 +740,16 @@ function updateNavActive(route) {
   });
 }
 
+/* ============================================================
+   AWARD TOGGLE
+   ============================================================ */
+
+function toggleAward(index) {
+  const card = document.getElementById(`award-${index}`);
+  card.classList.toggle("active");
+}
+
+
 
 /* ============================================================
    LAYOUT HELPERS
@@ -976,24 +994,55 @@ function renderAbout() {
 
 /* ── RECOGNITIONS ────────────────────────────────────────────── */
 function renderRecognitions() {
-  const itemsHtml = SITE_DATA.recognitions.map(r => `
-    <div class="recognition-item">
-      <div class="recognition-icon">${r.icon}</div>
-      <div>
-        <div class="recognition-title">${r.title}</div>
-        <div class="recognition-body">${r.body}</div>
-      </div>
-    </div>`).join('');
+  const data = SITE_DATA.recognitions;
 
-  setPage(`
-    ${pageHeader('Honours & Awards', 'Recognitions', 'Awards, Honours and Distinguished Achievements')}
-    <div class="section">
-      <div class="section-label">Achievements</div>
-      <h2 class="section-title">Awards &amp; Recognitions</h2>
-      <div class="section-divider"></div>
-      ${itemsHtml}
+  const cards = data.map((item, index) => `
+    <div class="award-card" id="award-${index}">
+      
+      <div class="award-basic">
+        <h3>${item.title}</h3>
+        <p>${item.short}</p>
+        <button class="btn btn-outline btn-sm" onclick="toggleAward(${index})">
+          View
+        </button>
+      </div>
+
+      <div class="award-expanded">
+        <div class="award-content">
+          
+          <div class="award-image">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+
+          <div class="award-details">
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            ${item.link ? `<a href="${item.link}" target="_blank" class="btn btn-primary btn-sm">Open</a>` : ""}
+          </div>
+
+        </div>
+      </div>
+
     </div>
-  `);
+  `).join('');
+
+  document.getElementById("app").innerHTML = `
+    ${getNavbar()}
+    
+    <div class="page-container">
+      <section class="section">
+        <div class="section-label">Achievements</div>
+        <h2 class="section-title">Recognitions & Awards</h2>
+        <div class="section-divider"></div>
+
+        <div class="award-grid">
+          ${cards}
+        </div>
+      </section>
+    </div>
+
+    ${getFooter()}
+  `;
 }
 
 
