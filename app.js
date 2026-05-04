@@ -13,8 +13,8 @@ const SITE_DATA = {
     linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
     googleScholar: "#",   // UPDATE with real URL
     orcid: "#",           // UPDATE with real URL
-    photo: "./assets/cropped_circle_image.png",       // Landing page circle image
-    aboutPhoto: "./assets/swati maam's photo.jpeg",    // New square image for About section
+    photo: "./assets/cropped_circle_image.png",
+    aboutPhoto: "./assets/swati maam's photo.jpeg",
     shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security. She has served in leading institutions across India, Uzbekistan, and Nepal, published extensively, and is authoring books on AI-driven applications in finance, healthcare, and cyber resilience.`,
     stats: [
       { num: "12+", label: "Years Experience" },
@@ -28,15 +28,11 @@ const SITE_DATA = {
   about: {
     fullBio: [
       `Prof. (Dr.) Swati Sah is currently serving as a Professor at Sharda University, Greater Noida, India. Prior to this, she held academic positions at Jain University, Bangalore, and at Amity University, Uzbekistan. She was also associated with Bharati Vidyapeeth Deemed University, Pune, from 2010 to 2017. In May 2018, she was appointed as Head of the Department of Computer Science at Patan College for Professional Studies (PCPS), Nepal, an institution affiliated with the University of Bedfordshire, UK.`,
-
       `Dr. Sah was awarded her Ph.D. degree in Computer Application from Bharati Vidyapeeth University, Pune, India, in 2016. The topic of her doctoral research was "Evaluating Optimal Clustering Techniques for Efficient Storage Retrieval Methods in Large Databases using Soft Computing Techniques." She holds a Master of Computer Applications (MCA) degree from Uttar Pradesh Technical University, Lucknow, India, an M.Sc. from Birmingham City University, United Kingdom, and a Bachelor's degree from Kumaun University, Nainital.`,
-
       `With over 13 years of experience in teaching and research, she has been actively engaged with various professional associations and academic bodies. She has attended and organized numerous FDPs, seminars, workshops, and conferences. Her research interests lie in the areas of Cyber Security, Artificial Intelligence (AI), and Machine Learning (ML). Her current work focuses on leveraging AI and ML techniques to enhance cyber threat detection and prevention frameworks. She is also passionate about interdisciplinary applications of emerging technologies and continues to explore innovative solutions addressing real-world challenges in digital security and intelligent systems.`,
-
       `Dr. Sah has contributed to several scholarly publications and has presented her work at national and international conferences. Some of her forthcoming books include:<br><br>- Federated Learning in Finance: Unlocking Privacy-Preserving and Cyber Resilience using AI (CRC Press)<br>- Cyber-Resilient Federated Learning: Adaptive AI through BCI and Neurotechnological Synergy (CRC Press)<br>- Agentic AI for Securing Decentralized Finance (DeFi): Enhancing Integrity in the FinTech Industry (CRC Press)<br>- Healthcare 5.0 (CRC Press — in process)`
     ],
     experience: [
-      // ── ADD/EDIT POSITIONS HERE ──
       { period: "Present", title: "Professor", org: "Sharda University, Greater Noida, UP, India", icon: "🎓" },
       { period: "Previous", title: "Faculty", org: "University of Bedfordshire, United Kingdom", icon: "🇬🇧" },
       { period: "Previous", title: "Faculty", org: "JAIN University, Bangalore, India", icon: "🎓" },
@@ -48,7 +44,6 @@ const SITE_DATA = {
 
   /* ── Qualifications ──────────────────────────────────────── */
   qualifications: [
-    // ── ADD/EDIT QUALIFICATIONS HERE ──
     { degree: "Ph.D.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "Machine Learning & Cyber Security" },
     { degree: "M.Tech.", field: "Computer Science", university: "University Name, Year", specialization: "Artificial Intelligence" },
     { degree: "B.Tech.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "" },
@@ -83,16 +78,6 @@ const SITE_DATA = {
   ],
 
   /* ── Universities & Courses ──────────────────────────────── */
-  /*
-   * HOW TO ADD A NEW UNIVERSITY:
-   * Copy a university block below and add it to the array.
-   * key: short URL-safe identifier (no spaces)
-   * icon: any emoji
-   *
-   * HOW TO ADD A NEW COURSE:
-   * Find the university block and add to its `courses` array.
-   * syllabusUrl / notesUrl / assignmentsUrl: file path or external URL
-   */
   universities: [
     {
       key: "sharda",
@@ -101,80 +86,32 @@ const SITE_DATA = {
       icon: "🏛️",
       courses: [
         {
-          key: "pps",
-          code: "",
+          key: "pps", code: "",
           title: "Programming for Problem Solving",
-          description: "An introductory course covering fundamental programming concepts using C/Python to develop systematic problem-solving skills. Students learn to design algorithms, trace logic flows, and write clean, structured code.",
-          topics: [
-            "Introduction to Programming & Problem Solving",
-            "Algorithms, Flowcharts & Pseudocode",
-            "Variables, Data Types & Operators",
-            "Control Flow: Conditions & Loops",
-            "Functions & Recursion",
-            "Arrays and Strings",
-            "Introduction to Object-Oriented Concepts",
-            "File I/O and Exception Handling",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "An introductory course covering fundamental programming concepts using C/Python to develop systematic problem-solving skills.",
+          topics: ["Introduction to Programming & Problem Solving","Algorithms, Flowcharts & Pseudocode","Variables, Data Types & Operators","Control Flow: Conditions & Loops","Functions & Recursion","Arrays and Strings","Introduction to Object-Oriented Concepts","File I/O and Exception Handling"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "ds-sharda",
-          code: "",
+          key: "ds-sharda", code: "",
           title: "Data Structures",
           description: "Study of fundamental data structures and their algorithmic applications for efficient program design and memory management.",
-          topics: [
-            "Introduction to Data Structures & Complexity",
-            "Arrays and Linked Lists",
-            "Stacks and Queues",
-            "Trees: Binary, BST, AVL",
-            "Heaps and Priority Queues",
-            "Graphs: Representation & Traversal (BFS/DFS)",
-            "Hashing Techniques",
-            "Sorting and Searching Algorithms",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Data Structures & Complexity","Arrays and Linked Lists","Stacks and Queues","Trees: Binary, BST, AVL","Heaps and Priority Queues","Graphs: Representation & Traversal (BFS/DFS)","Hashing Techniques","Sorting and Searching Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "dbms",
-          code: "",
+          key: "dbms", code: "",
           title: "Database Management System",
           description: "Comprehensive study of database design, SQL querying, normalization theory, and modern database technologies.",
-          topics: [
-            "Introduction to DBMS & Data Models",
-            "Entity-Relationship Modeling",
-            "Relational Algebra & Calculus",
-            "Structured Query Language (SQL)",
-            "Normalization (1NF – BCNF)",
-            "Transaction Management & Concurrency Control",
-            "Indexing and Query Optimization",
-            "NoSQL & Modern Database Trends",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to DBMS & Data Models","Entity-Relationship Modeling","Relational Algebra & Calculus","Structured Query Language (SQL)","Normalization (1NF – BCNF)","Transaction Management & Concurrency Control","Indexing and Query Optimization","NoSQL & Modern Database Trends"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "daa",
-          code: "",
+          key: "daa", code: "",
           title: "Design Analysis & Algorithms",
-          description: "Analysis of algorithm design paradigms including divide-and-conquer, greedy methods, dynamic programming, and an introduction to NP-completeness theory.",
-          topics: [
-            "Algorithm Complexity & Asymptotic Analysis",
-            "Divide and Conquer Strategies",
-            "Greedy Algorithms",
-            "Dynamic Programming",
-            "Graph Algorithms (Shortest Path, MST)",
-            "Backtracking & Branch and Bound",
-            "NP-Completeness Theory",
-            "Approximation Algorithms",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Analysis of algorithm design paradigms including divide-and-conquer, greedy methods, dynamic programming, and NP-completeness.",
+          topics: ["Algorithm Complexity & Asymptotic Analysis","Divide and Conquer Strategies","Greedy Algorithms","Dynamic Programming","Graph Algorithms (Shortest Path, MST)","Backtracking & Branch and Bound","NP-Completeness Theory","Approximation Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
@@ -185,99 +122,39 @@ const SITE_DATA = {
       icon: "🎓",
       courses: [
         {
-          key: "c-prog",
-          code: "",
+          key: "c-prog", code: "",
           title: "C Programming",
           description: "Foundational course in C programming covering structured programming, pointers, memory management, and file handling.",
-          topics: [
-            "Introduction to C & Program Structure",
-            "Variables, Data Types & Operators",
-            "Control Statements & Loops",
-            "Functions & Recursion",
-            "Arrays & Strings",
-            "Pointers & Memory Management",
-            "Structures and Unions",
-            "File Handling in C",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to C & Program Structure","Variables, Data Types & Operators","Control Statements & Loops","Functions & Recursion","Arrays & Strings","Pointers & Memory Management","Structures and Unions","File Handling in C"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "ds-jain",
-          code: "",
+          key: "ds-jain", code: "",
           title: "Data Structures",
           description: "Study of data organization techniques including linear and non-linear structures with algorithmic applications.",
-          topics: [
-            "Introduction to Data Structures",
-            "Linked Lists (Singly, Doubly, Circular)",
-            "Stacks and Queues",
-            "Trees and Binary Search Trees",
-            "Graph Algorithms",
-            "Hashing",
-            "Sorting Techniques",
-            "Algorithm Complexity Analysis",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Data Structures","Linked Lists (Singly, Doubly, Circular)","Stacks and Queues","Trees and Binary Search Trees","Graph Algorithms","Hashing","Sorting Techniques","Algorithm Complexity Analysis"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "bda",
-          code: "",
+          key: "bda", code: "",
           title: "Big Data Analytics (BDA)",
           description: "Introduction to big data technologies, distributed computing, and analytics frameworks for processing large-scale datasets.",
-          topics: [
-            "Introduction to Big Data & V's of Big Data",
-            "Hadoop Ecosystem & HDFS",
-            "MapReduce Programming Model",
-            "Apache Spark Fundamentals",
-            "NoSQL Databases",
-            "Data Warehousing Concepts",
-            "Real-time Stream Processing",
-            "Big Data Visualization",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Big Data & V's of Big Data","Hadoop Ecosystem & HDFS","MapReduce Programming Model","Apache Spark Fundamentals","NoSQL Databases","Data Warehousing Concepts","Real-time Stream Processing","Big Data Visualization"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "python-jain",
-          code: "",
+          key: "python-jain", code: "",
           title: "Python Programming",
           description: "Comprehensive Python programming course covering core syntax, data structures, OOP, and practical applications.",
-          topics: [
-            "Python Basics & Environment Setup",
-            "Data Types, Variables & Operators",
-            "Control Flow & Functions",
-            "Lists, Tuples, Dictionaries & Sets",
-            "Object-Oriented Programming in Python",
-            "File Handling & Exceptions",
-            "Python Libraries: NumPy & Pandas",
-            "Introduction to Data Visualization",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Python Basics & Environment Setup","Data Types, Variables & Operators","Control Flow & Functions","Lists, Tuples, Dictionaries & Sets","Object-Oriented Programming in Python","File Handling & Exceptions","Python Libraries: NumPy & Pandas","Introduction to Data Visualization"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "ml-jain",
-          code: "",
+          key: "ml-jain", code: "",
           title: "Machine Learning using Python",
           description: "Hands-on machine learning course implementing supervised and unsupervised algorithms using Python's scikit-learn, NumPy, and Pandas.",
-          topics: [
-            "Introduction to Machine Learning",
-            "Python for ML: NumPy, Pandas, Matplotlib",
-            "Linear & Logistic Regression",
-            "Decision Trees & Random Forests",
-            "Support Vector Machines",
-            "K-Means & Hierarchical Clustering",
-            "Dimensionality Reduction (PCA)",
-            "Model Evaluation & Cross-Validation",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Machine Learning","Python for ML: NumPy, Pandas, Matplotlib","Linear & Logistic Regression","Decision Trees & Random Forests","Support Vector Machines","K-Means & Hierarchical Clustering","Dimensionality Reduction (PCA)","Model Evaluation & Cross-Validation"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
@@ -288,42 +165,18 @@ const SITE_DATA = {
       icon: "🏫",
       courses: [
         {
-          key: "sql-analytics",
-          code: "",
+          key: "sql-analytics", code: "",
           title: "Data Analytics using SQL",
           description: "Practical course on extracting insights from relational databases using advanced SQL queries, joins, aggregations, and window functions.",
-          topics: [
-            "Introduction to Databases & SQL",
-            "SELECT Statements & Filtering",
-            "Joins: INNER, LEFT, RIGHT, FULL",
-            "Aggregate Functions & GROUP BY",
-            "Subqueries & CTEs",
-            "Window Functions (RANK, ROW_NUMBER, etc.)",
-            "Database Design for Analytics",
-            "Hands-on Case Studies",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Databases & SQL","SELECT Statements & Filtering","Joins: INNER, LEFT, RIGHT, FULL","Aggregate Functions & GROUP BY","Subqueries & CTEs","Window Functions (RANK, ROW_NUMBER, etc.)","Database Design for Analytics","Hands-on Case Studies"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "aiml-adyp",
-          code: "",
+          key: "aiml-adyp", code: "",
           title: "AI & ML",
           description: "Comprehensive overview of Artificial Intelligence and Machine Learning concepts, algorithms, and real-world applications.",
-          topics: [
-            "Introduction to AI & ML",
-            "Supervised vs Unsupervised Learning",
-            "Regression & Classification Algorithms",
-            "Neural Networks & Deep Learning Basics",
-            "Natural Language Processing Overview",
-            "Computer Vision Fundamentals",
-            "Ethical AI & Bias",
-            "Industry Applications of AI & ML",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to AI & ML","Supervised vs Unsupervised Learning","Regression & Classification Algorithms","Neural Networks & Deep Learning Basics","Natural Language Processing Overview","Computer Vision Fundamentals","Ethical AI & Bias","Industry Applications of AI & ML"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
@@ -334,61 +187,25 @@ const SITE_DATA = {
       icon: "🌏",
       courses: [
         {
-          key: "spm",
-          code: "",
+          key: "spm", code: "",
           title: "Software Project Management",
-          description: "Covers frameworks, tools, and best practices for planning, executing, and closing software projects on time and within budget.",
-          topics: [
-            "Introduction to Project Management",
-            "Software Development Life Cycles (SDLC)",
-            "Agile & Scrum Methodologies",
-            "Project Planning & Estimation",
-            "Risk Management",
-            "Quality Assurance & Testing",
-            "Team Management & Communication",
-            "Project Monitoring & Closure",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Covers frameworks, tools, and best practices for planning, executing, and closing software projects.",
+          topics: ["Introduction to Project Management","Software Development Life Cycles (SDLC)","Agile & Scrum Methodologies","Project Planning & Estimation","Risk Management","Quality Assurance & Testing","Team Management & Communication","Project Monitoring & Closure"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "isd",
-          code: "",
+          key: "isd", code: "",
           title: "Introduction to Software Development",
           description: "Introductory course covering the principles of software engineering, development methodologies, and basic coding practices.",
-          topics: [
-            "Software Engineering Principles",
-            "Requirements Engineering",
-            "Software Design Patterns",
-            "Version Control with Git",
-            "Testing Fundamentals",
-            "Introduction to Agile",
-            "Code Documentation & Review",
-            "Deployment Basics",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Software Engineering Principles","Requirements Engineering","Software Design Patterns","Version Control with Git","Testing Fundamentals","Introduction to Agile","Code Documentation & Review","Deployment Basics"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "dip",
-          code: "",
+          key: "dip", code: "",
           title: "Digital Image Processing",
           description: "Fundamentals of image acquisition, transformation, enhancement, segmentation, and compression using computational methods.",
-          topics: [
-            "Introduction to Digital Images",
-            "Image Acquisition & Representation",
-            "Spatial Domain Filtering",
-            "Frequency Domain Techniques (Fourier)",
-            "Image Enhancement & Restoration",
-            "Morphological Processing",
-            "Image Segmentation",
-            "Image Compression Standards",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to Digital Images","Image Acquisition & Representation","Spatial Domain Filtering","Frequency Domain Techniques (Fourier)","Image Enhancement & Restoration","Morphological Processing","Image Segmentation","Image Compression Standards"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
@@ -399,80 +216,32 @@ const SITE_DATA = {
       icon: "🇬🇧",
       courses: [
         {
-          key: "research-meth",
-          code: "",
+          key: "research-meth", code: "",
           title: "Research Methodology",
-          description: "Develops research skills including literature review, research design, data collection, analysis, and academic writing for postgraduate students.",
-          topics: [
-            "Introduction to Research & Types",
-            "Literature Review & Citation",
-            "Research Design & Paradigms",
-            "Quantitative Research Methods",
-            "Qualitative Research Methods",
-            "Data Collection Techniques",
-            "Statistical Analysis Fundamentals",
-            "Academic Writing & Dissertation Structure",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Develops research skills including literature review, research design, data collection, analysis, and academic writing.",
+          topics: ["Introduction to Research & Types","Literature Review & Citation","Research Design & Paradigms","Quantitative Research Methods","Qualitative Research Methods","Data Collection Techniques","Statistical Analysis Fundamentals","Academic Writing & Dissertation Structure"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "proj-mgmt",
-          code: "",
+          key: "proj-mgmt", code: "",
           title: "Project Management",
-          description: "Covers principles and practices of managing projects effectively using traditional and agile frameworks with global project contexts.",
-          topics: [
-            "Project Management Fundamentals",
-            "Project Life Cycle & Phases",
-            "Scope, Time & Cost Management",
-            "Risk & Stakeholder Management",
-            "Agile & Prince2 Overview",
-            "Resource Management",
-            "Project Communication Plans",
-            "Case Studies in Global Projects",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Covers principles and practices of managing projects effectively using traditional and agile frameworks.",
+          topics: ["Project Management Fundamentals","Project Life Cycle & Phases","Scope, Time & Cost Management","Risk & Stakeholder Management","Agile & Prince2 Overview","Resource Management","Project Communication Plans","Case Studies in Global Projects"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "python-beds",
-          code: "",
+          key: "python-beds", code: "",
           title: "Python Programming",
-          description: "Practical Python course with emphasis on scripting, data processing, and applied computing for modern software challenges.",
-          topics: [
-            "Python Syntax & Environment",
-            "Control Flow & Functions",
-            "Data Structures in Python",
-            "Object-Oriented Programming",
-            "File I/O & Regular Expressions",
-            "Python for Data Processing",
-            "API Integration & Web Scraping",
-            "Testing & Debugging",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Practical Python course with emphasis on scripting, data processing, and applied computing.",
+          topics: ["Python Syntax & Environment","Control Flow & Functions","Data Structures in Python","Object-Oriented Programming","File I/O & Regular Expressions","Python for Data Processing","API Integration & Web Scraping","Testing & Debugging"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "ai-concepts",
-          code: "",
+          key: "ai-concepts", code: "",
           title: "Concepts and Technologies of AI",
-          description: "Explores the theoretical foundations and emerging technologies of Artificial Intelligence, including current trends and societal implications.",
-          topics: [
-            "History & Philosophy of AI",
-            "Problem Solving & Search Algorithms",
-            "Knowledge Representation",
-            "Machine Learning Concepts",
-            "Deep Learning & Neural Networks",
-            "Natural Language Processing",
-            "AI in Industry: Case Studies",
-            "Ethics, Bias & Future of AI",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Explores the theoretical foundations and emerging technologies of Artificial Intelligence.",
+          topics: ["History & Philosophy of AI","Problem Solving & Search Algorithms","Knowledge Representation","Machine Learning Concepts","Deep Learning & Neural Networks","Natural Language Processing","AI in Industry: Case Studies","Ethics, Bias & Future of AI"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
@@ -483,73 +252,31 @@ const SITE_DATA = {
       icon: "🏛",
       courses: [
         {
-          key: "html-bvp",
-          code: "",
+          key: "html-bvp", code: "",
           title: "Introduction to HTML",
           description: "Beginner course covering the structure and semantics of HTML for building well-formed, accessible web pages.",
-          topics: [
-            "Introduction to the Web & HTML",
-            "HTML Document Structure",
-            "Text Formatting & Semantic Tags",
-            "Links, Images & Media",
-            "Tables & Lists",
-            "HTML Forms & Input Types",
-            "Introduction to CSS Basics",
-            "Building a Simple Webpage",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction to the Web & HTML","HTML Document Structure","Text Formatting & Semantic Tags","Links, Images & Media","Tables & Lists","HTML Forms & Input Types","Introduction to CSS Basics","Building a Simple Webpage"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "c-bvp",
-          code: "",
+          key: "c-bvp", code: "",
           title: "C Programming",
-          description: "Foundational C programming course for engineering students emphasizing logic building and structured programming techniques.",
-          topics: [
-            "C Language Fundamentals",
-            "Data Types, Variables & Constants",
-            "Operators & Expressions",
-            "Control Structures",
-            "Functions",
-            "Arrays & Strings",
-            "Pointers",
-            "File Handling",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          description: "Foundational C programming course for engineering students emphasizing logic building and structured programming.",
+          topics: ["C Language Fundamentals","Data Types, Variables & Constants","Operators & Expressions","Control Structures","Functions","Arrays & Strings","Pointers","File Handling"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
         {
-          key: "ds-bvp",
-          code: "",
+          key: "ds-bvp", code: "",
           title: "Data Structures",
           description: "Introduction to data organization, storage, and algorithmic manipulation using C programming.",
-          topics: [
-            "Introduction & Complexity Analysis",
-            "Arrays & Linked Lists",
-            "Stacks & Queues",
-            "Trees & Binary Search Trees",
-            "Graphs",
-            "Hashing",
-            "Sorting Algorithms",
-            "Searching Algorithms",
-          ],
-          syllabusUrl: "#",
-          notesUrl: "#",
-          assignmentsUrl: "#",
+          topics: ["Introduction & Complexity Analysis","Arrays & Linked Lists","Stacks & Queues","Trees & Binary Search Trees","Graphs","Hashing","Sorting Algorithms","Searching Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
         },
       ],
     },
   ],
 
-  /* ── Conference Papers ───────────────────────────────────── */
-  /*
-   * HOW TO ADD A PAPER:
-   * Add an object to this array.
-   * url: link to Google Scholar / DOI / publisher page
-   * tags: short keyword labels
-   */
+  /* ── Publications ────────────────────────────────────────── */
   papers: [
     { title: "The implementation of machine learning in the insurance industry with big data analytics", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Machine Learning", "Big Data", "Insurance"], url: "https://scholar.google.com/scholar?q=implementation+machine+learning+insurance+industry+big+data+analytics" },
     { title: "Artificial intelligence biosensing system on hand gesture recognition for the hearing impaired", authors: "Swati Sah et al.", venue: "IEEE", tags: ["AI", "Biosensing", "Gesture Recognition"], url: "https://scholar.google.com/scholar?q=artificial+intelligence+biosensing+hand+gesture+recognition+hearing+impaired" },
@@ -583,42 +310,15 @@ const SITE_DATA = {
   ],
 
   /* ── Articles & Journals Data ─────────────────────────────────── */
-  articles: [
-    // ── ADD/EDIT ARTICLES HERE ──
-    // { title: "The Future of Federated Learning in Healthcare", journal: "Journal of Biomedical Informatics", year: "2024", url: "#", tags: ["Survey", "Healthcare", "Federated Learning"] },
-    // { title: "Machine Learning Approaches in Cyber Threat Intelligence", journal: "Computers & Security (Elsevier)", year: "2023", url: "#", tags: ["Survey", "Cyber Security", "ML"] },
-    // { title: "AI Ethics and Bias Mitigation in Financial Services", journal: "IEEE Transactions on Neural Networks", year: "2023", url: "#", tags: ["AI Ethics", "Finance", "Bias"] },
-  ],
+  articles: [],
 
   /* ── Books Data ───────────────────────────────────────────────── */
-  books: [
-    // ── ADD/EDIT BOOKS HERE ──
-    // { title: "AI-Driven Applications in Finance", subtitle: "Intelligent Systems for Modern Banking", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book1.jpg", description: "A comprehensive guide to applying artificial intelligence in financial services, covering algorithmic trading, fraud detection, and risk assessment." },
-    // { title: "AI in Healthcare & Diagnostics", subtitle: "Machine Learning for Medical Intelligence", status: "Forthcoming", publisher: "Publisher Name", year: "2025", cover: "assets/book2.jpg", description: "Explores deep learning, federated learning, and NLP techniques for clinical decision support, medical imaging, and patient monitoring." },
-    // { title: "Cyber Resilience Framework", subtitle: "AI-Powered Defense Strategies", status: "Forthcoming", publisher: "Publisher Name", year: "2026", cover: "assets/book3.jpg", description: "A practitioner's guide to building adaptive, AI-driven cyber resilience systems against evolving threat landscapes." },
-    // { title: "Federated Learning: Principles & Practice", subtitle: "Privacy-Preserving Distributed AI", status: "In Progress", publisher: "Publisher Name", year: "2026", cover: "assets/book4.jpg", description: "Deep dive into federated learning frameworks, optimization techniques, and real-world deployment across healthcare, finance, and IoT." },
-  ],
+  books: [],
 
   /* ── Workshops Data ───────────────────────────────────────────── */
   workshops: {
-    ongoing: [
-      //   {
-      //   title: "AI in Healthcare Workshop",
-      //   date: "12–14 May 2026",
-      //   time: "10:00 AM – 4:00 PM",
-      //   location: "Sharda University, Greater Noida",
-      //   attendees: "120+ Participants",
-      //   link: "https://example.com"
-      // }
-    ],
-    upcoming: [
-      //   {
-      //   title: "Federated Learning FDP",
-      //   date: "20 June 2026",
-      //   time: "11:00 AM – 3:00 PM",
-      //   location: "Online (Zoom)"
-      // }
-    ],
+    ongoing: [],
+    upcoming: [],
     past: [
       {
         title: "India AI Impact Summit 2026",
@@ -639,8 +339,6 @@ const SITE_DATA = {
 
   /* ── Lectures (YouTube) ──────────────────────────────────── */
   lectures: [
-    // ── ADD/EDIT YOUTUBE VIDEOS HERE ──
-    // thumbnailUrl: YouTube thumbnail URL or leave "" for placeholder
     { title: "Random Search & Grid Search", playlist: "", youtubeUrl: "https://youtu.be/bZBeflYLLss?si=nVr94DcPJHu0ac_8", thumbnailUrl: "" },
     { title: "Travelling Salesman Problem in AI", playlist: "", youtubeUrl: "https://youtu.be/qcS_h-wVaME?si=_Xsja5vybUh-26hf", thumbnailUrl: "" },
     { title: "Search in AI", playlist: "", youtubeUrl: "https://youtu.be/xPXpPjnxFtM?si=Abl_I4nWWJKGcg2_", thumbnailUrl: "" },
@@ -671,33 +369,10 @@ function toggleTheme() {
 function updateToggleIcon() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const btn = document.getElementById('themeToggle');
-
   if (!btn) return;
-
   btn.innerHTML = isDark
-    ? `
-      <svg width="18" height="18" viewBox="0 0 24 24"
-       fill="none" stroke="currentColor" stroke-width="1.8"
-       stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    `
-    : `
-      <svg width="18" height="18" viewBox="0 0 24 24"
-       fill="none" stroke="currentColor" stroke-width="1.8"
-       stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.8A9 9 0 1111.2 3
-        7 7 0 0021 12.8z"></path>
-      </svg>
-    `;
+    ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+    : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"></path></svg>`;
 }
 
 initTheme();
@@ -753,12 +428,10 @@ function updateNavActive(route) {
 /* ============================================================
    AWARD TOGGLE
    ============================================================ */
-
 function toggleAward(index) {
   const card = document.getElementById(`award-${index}`);
   card.classList.toggle("active");
 }
-
 
 
 /* ============================================================
@@ -793,7 +466,7 @@ function getNavbar() {
           <a href="#workshops">Workshops</a>
           <a href="#lectures">Lectures &amp; Videos</a>
           <a href="#books">Books</a>
-          <a href="#papers">Conference Papers</a>
+          <a href="#papers">Publications</a>
           <a href="#articles">Articles &amp; Journals</a>
         </div>
       </div>
@@ -1028,19 +701,14 @@ function renderRecognitions() {
 
   document.getElementById("app").innerHTML = `
     ${getNavbar()}
-    
     <div class="page-container">
       <section class="section">
         <div class="section-label">Achievements</div>
         <h2 class="section-title">Recognitions & Awards</h2>
         <div class="section-divider"></div>
-
-        <div class="framed-gallery-grid">
-          ${cards}
-        </div>
+        <div class="framed-gallery-grid">${cards}</div>
       </section>
     </div>
-
     ${getFooter()}
   `;
 }
@@ -1125,13 +793,8 @@ function renderCourse({ uni: uniKey, course: courseKey }) {
 
 /* ── WORKSHOPS ───────────────────────────────────────────────── */
 function workshopSection(title, workshops) {
-  // If no workshops → show message
   if (!workshops || workshops.length === 0) {
-    return `
-      <div class="empty-workshop">
-        No workshops available currently.
-      </div>
-    `;
+    return `<div class="empty-workshop">No workshops available currently.</div>`;
   }
 
   const cards = workshops.map(w => `
@@ -1153,19 +816,15 @@ function workshopSection(title, workshops) {
 
 function renderWorkshops() {
   const w = SITE_DATA.workshops;
-
   setPage(`
     ${pageHeader('Academic Events', 'Workshops', 'Workshops, FDPs & Training Programs')}
-
     <div class="section">
       <div class="section-label">Events</div>
       <h2 class="section-title">Workshops</h2>
       <div class="section-divider"></div>
-
       ${workshopSection("Ongoing Workshops", w.ongoing)}
       ${workshopSection("Upcoming Workshops", w.upcoming)}
       ${workshopSection("Past Workshops", w.past)}
-
     </div>
   `);
 }
@@ -1177,9 +836,7 @@ function renderLectures() {
     <div class="video-card">
       <a href="${v.youtubeUrl}" target="_blank">
         <div class="video-thumb">
-          ${v.thumbnailUrl
-      ? `<img src="${v.thumbnailUrl}" alt="${v.title}">`
-      : '▶'}
+          ${v.thumbnailUrl ? `<img src="${v.thumbnailUrl}" alt="${v.title}">` : '▶'}
         </div>
       </a>
       <div class="video-info">
@@ -1213,9 +870,7 @@ function renderBooks() {
   const cardsHtml = SITE_DATA.books.map(b => `
     <div class="book-card">
       <div class="book-cover">
-        ${b.cover
-      ? `<img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none';this.parentElement.innerHTML='📚'">`
-      : '📚'}
+        ${b.cover ? `<img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none';this.parentElement.innerHTML='📚'">` : '📚'}
       </div>
       <div class="book-info">
         <div class="book-title">${b.title}</div>
@@ -1238,9 +893,11 @@ function renderBooks() {
 }
 
 
-/* ── PAPERS ──────────────────────────────────────────────────── */
+/* ── PUBLICATIONS (renamed from Conference Papers) ───────────── */
 function renderPapers() {
-  const papersHtml = SITE_DATA.papers.map((paper, idx) => `
+  const SCOPUS_URL = "https://www.scopus.com/authid/detail.uri?authorId=58965406600";
+
+  const papersHtml = SITE_DATA.papers.map((paper) => `
     <div class="paper-item">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
         <div style="flex:1;">
@@ -1259,18 +916,122 @@ function renderPapers() {
     </div>`).join('');
 
   setPage(`
-    ${pageHeader('Research Output', 'Conference Papers', `${SITE_DATA.papers.length} peer-reviewed conference contributions`)}
+    ${pageHeader('Research Output', 'Publications', `${SITE_DATA.papers.length} peer-reviewed contributions`)}
     <div class="section">
       <div class="section-label">Research Papers</div>
-      <h2 class="section-title">Conference Papers</h2>
+      <h2 class="section-title">Publications</h2>
       <div class="section-divider"></div>
-      <p style="color:var(--text-light);font-size:.875rem;margin-bottom:2rem;">
-        Click <strong>"View Paper →"</strong> on any entry to open it on Google Scholar.
-      </p>
-      ${papersHtml}
+
+      <!-- SOURCE TABS -->
+      <div class="pub-tabs" id="pubTabs">
+        <button class="pub-tab active" id="tab-scholar" onclick="switchPubTab('scholar')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Google Scholar
+        </button>
+        <button class="pub-tab" id="tab-scopus" onclick="switchPubTab('scopus')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Scopus
+        </button>
+      </div>
+
+      <!-- GOOGLE SCHOLAR PANEL -->
+      <div id="panel-scholar">
+        <p style="color:var(--text-light);font-size:.875rem;margin-bottom:2rem;">
+          Click <strong>"View Paper →"</strong> on any entry to open it on Google Scholar.
+        </p>
+        ${papersHtml}
+      </div>
+
+      <!-- SCOPUS PANEL -->
+      <div id="panel-scopus" style="display:none;">
+        <div class="scopus-redirect-card">
+          <div class="scopus-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3 style="margin:.8rem 0 .5rem;font-size:1.25rem;">Scopus Author Profile</h3>
+          <p style="color:var(--text-light);font-size:.9rem;line-height:1.65;margin-bottom:1.75rem;max-width:500px;">
+            View the complete indexed publication list, citation metrics, h-index, and co-author network for Prof. Swati Sah on Scopus.
+          </p>
+          <a href="${SCOPUS_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:.5rem;">
+            Open Scopus Profile
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;opacity:.65;">Author ID: 58965406600</p>
+        </div>
+      </div>
+
     </div>
+
+    <style>
+      .pub-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--border);
+        margin-bottom: 2rem;
+      }
+      .pub-tab {
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        padding: .65rem 1.4rem;
+        font-size: .9rem;
+        font-family: inherit;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: color .2s, border-color .2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: .01em;
+      }
+      .pub-tab:hover { color: var(--brown-deep); }
+      .pub-tab.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+      .scopus-redirect-card {
+        text-align: center;
+        padding: 4rem 2rem;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: var(--bg-card);
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .scopus-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--bg-subtle, rgba(139,107,72,.08));
+        color: var(--gold);
+      }
+    </style>
   `);
 }
+
+/* Tab switcher for Publications page */
+window.switchPubTab = function(tab) {
+  const scholarPanel = document.getElementById('panel-scholar');
+  const scopusPanel  = document.getElementById('panel-scopus');
+  const scholarBtn   = document.getElementById('tab-scholar');
+  const scopusBtn    = document.getElementById('tab-scopus');
+
+  if (tab === 'scholar') {
+    scholarPanel.style.display = '';
+    scopusPanel.style.display  = 'none';
+    scholarBtn.classList.add('active');
+    scopusBtn.classList.remove('active');
+  } else {
+    scholarPanel.style.display = 'none';
+    scopusPanel.style.display  = '';
+    scopusBtn.classList.add('active');
+    scholarBtn.classList.remove('active');
+  }
+};
 
 
 /* ── ARTICLES ────────────────────────────────────────────────── */
@@ -1355,7 +1116,6 @@ function renderContact() {
           <form id="contact-form" onsubmit="submitContactForm(event)">
             <div class="form-group">
               <label class="form-label">Full Name</label>
-              <!-- The name attribute is what EmailJS looks for -->
               <input class="form-input" type="text" name="from_name" placeholder="Your name" required>
             </div>
             <div class="form-group">
@@ -1386,7 +1146,7 @@ function renderContact() {
 /* ── CONTACT FORM HANDLER (EmailJS) ───────────────────────────── */
 window.submitContactForm = function (event) {
   event.preventDefault();
-  
+
   const formElement = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   submitBtn.innerText = 'Sending...';
@@ -1398,13 +1158,13 @@ window.submitContactForm = function (event) {
   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formElement)
     .then(() => {
       submitBtn.innerText = 'Message Sent Successfully!';
-      submitBtn.style.backgroundColor = '#4caf50'; // green success
+      submitBtn.style.backgroundColor = '#4caf50';
       formElement.reset();
     })
     .catch((error) => {
       console.error('FAILED...', error);
       submitBtn.innerText = 'Failed to Send. Try directly emailing.';
-      submitBtn.style.backgroundColor = '#f44336'; // red error
+      submitBtn.style.backgroundColor = '#f44336';
     })
     .finally(() => {
       setTimeout(() => {
