@@ -6,7 +6,7 @@ const SITE_DATA_DEFAULT = {
 
   /* ── Professor Info ──────────────────────────────────────── */
   professor: {
-    name: "Prof. Swati Sah",
+    name: "Dr. Swati Sah",
     title: "Professor",
     institution: "Sharda University, India",
     email: "iswatisah19@gmail.com",
