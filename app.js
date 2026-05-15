@@ -6,7 +6,7 @@ const SITE_DATA = {
 
   /* ── Professor Info ──────────────────────────────────────── */
   professor: {
-    name: "Dr. Swati Sah",
+    name: "Prof. Swati Sah",
     title: "Professor",
     institution: "Sharda University, India",
     email: "iswatisah19@gmail.com",
@@ -351,6 +351,57 @@ const SITE_DATA = {
 
 
 /* ============================================================
+   HELPERS — Date formatting & YouTube thumbnails
+   ============================================================ */
+function getYoutubeThumbnail(url) {
+  if (!url) return '';
+  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?.*?v=|embed\/|v\/))([a-zA-Z0-9_-]{11})/);
+  return m ? `https://img.youtube.com/vi/${m[1]}/mqdefault.jpg` : '';
+}
+
+function formatDisplayDate(ds) {
+  if (!ds) return ds;
+  const d = new Date(ds);
+  if (isNaN(d)) return ds;
+  return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+}
+
+/* ============================================================
+   ADMIN DATA OVERRIDE — loads localStorage data into SITE_DATA
+   ============================================================ */
+(function applyAdminData() {
+  try {
+    const raw = localStorage.getItem('admin_portfolio_data');
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    if (d.professor)      SITE_DATA.professor      = d.professor;
+    if (d.about)          SITE_DATA.about          = d.about;
+    if (d.qualifications) SITE_DATA.qualifications = d.qualifications;
+    if (d.recognitions)   SITE_DATA.recognitions   = d.recognitions;
+    if (d.lectures)       SITE_DATA.lectures       = d.lectures;
+    if (d.books)          SITE_DATA.books          = d.books;
+    if (d.papers)         SITE_DATA.papers         = d.papers;
+    if (d.articles)       SITE_DATA.articles       = d.articles;
+    if (d.universities)   SITE_DATA.universities   = d.universities;
+    if (d.youtubeChannel) SITE_DATA.youtubeChannel = d.youtubeChannel;
+    if (Array.isArray(d.workshops)) {
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const cat = { ongoing: [], upcoming: [], past: [] };
+      d.workshops.forEach(w => {
+        const wd = new Date(w.date); wd.setHours(0, 0, 0, 0);
+        const diff = wd - today;
+        if (diff < 0)       cat.past.push(w);
+        else if (diff === 0) cat.ongoing.push(w);
+        else                cat.upcoming.push(w);
+      });
+      cat.past.sort((a, b) => new Date(b.date) - new Date(a.date));
+      cat.upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+      SITE_DATA.workshops = cat;
+    }
+  } catch (e) { /* silent fail */ }
+})();
+
+/* ============================================================
    DARK MODE TOGGLE
    ============================================================ */
 function initTheme() {
@@ -375,7 +426,7 @@ function updateToggleIcon() {
     : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"></path></svg>`;
 }
 
-initTheme();
+if (!window.ADMIN_MODE) initTheme();
 
 
 /* ============================================================
@@ -416,8 +467,10 @@ function router() {
   updateToggleIcon();
 }
 
-window.addEventListener('hashchange', router);
-window.addEventListener('DOMContentLoaded', router);
+if (!window.ADMIN_MODE) {
+  window.addEventListener('hashchange', router);
+  window.addEventListener('DOMContentLoaded', router);
+}
 
 function updateNavActive(route) {
   document.querySelectorAll('.nav-link[data-route]').forEach(el => {
@@ -799,7 +852,7 @@ function workshopSection(title, workshops) {
 
   const cards = workshops.map(w => `
     <div class="workshop-card">
-      <div class="workshop-date">${w.date}</div>
+      <div class="workshop-date">${formatDisplayDate(w.date)}</div>
       <div class="workshop-title">${w.title}</div>
       <div class="workshop-venue">📍 ${w.location}</div>
       <div class="workshop-time">⏰ ${w.time}</div>
@@ -836,7 +889,9 @@ function renderLectures() {
     <div class="video-card">
       <a href="${v.youtubeUrl}" target="_blank">
         <div class="video-thumb">
-          ${v.thumbnailUrl ? `<img src="${v.thumbnailUrl}" alt="${v.title}">` : '▶'}
+          ${(v.thumbnailUrl || getYoutubeThumbnail(v.youtubeUrl))
+            ? `<img src="${v.thumbnailUrl || getYoutubeThumbnail(v.youtubeUrl)}" alt="${v.title}" onerror="this.parentElement.innerHTML='▶'">`
+            : '▶'}
         </div>
       </a>
       <div class="video-info">
