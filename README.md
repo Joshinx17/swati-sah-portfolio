@@ -230,3 +230,5 @@ Change these to instantly retheme the entire site.
 | Articles & Journals | `#articles` |
 | Contact | `#contact` |
 | Course Detail | `#course?uni=sharda&course=pps` |
+
+Admin Panel : https://admin-panel-pro-sw.vercel.app/admin
