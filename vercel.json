@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Prof. Swati Sah — Professor at Sharda University, India. Expert in AI, Machine Learning, Federated Learning, and Cyber Security.">
-  <title>Prof. Swati Sah | Academic Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="icon" type="image/png" href="./assets/cropped_circle_image.png">
-  <script>
-    // Apply saved theme BEFORE paint to avoid flash
-    (function(){
-      var t = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-</head>
-<body>
-  <div id="app">
-    <div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#8a6a50;">
-      Loading…
-    </div>
-  </div>
-  
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){
-      // Initialize EmailJS
-      emailjs.init({
-        publicKey: "YOUR_PUBLIC_KEY", // <-- PASTE PUBLIC KEY HERE
-      });
-    })();
-  </script>
-
-  <script src="./app.js"></script>
-</body>
-</html>
+{
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin.html" }
+  ]
+}
