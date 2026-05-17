@@ -1,646 +1,1231 @@
 /* ============================================================
-   DESIGN SYSTEM — Prof. Swati Sah Portfolio
-   Theme: Refined Academic | Warm Beige, Golden & Brown
-   Dark Mode: Deep Navy + Gold
+   SITE DATA — Edit this section to add/update content easily
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+const SITE_DATA = {
 
-/* ── Light Theme ───────────────────────────────────────────── */
-:root {
-  --ivory:         #faf6ef;
-  --parchment:     #f0e8d8;
-  --cream:         #fdf9f3;
-  --beige:         #e8dcc8;
-  --brown-deep:    #4a2e14;
-  --brown:         #6b4423;
-  --brown-mid:     #8b5e3c;
-  --brown-light:   #a87b55;
-  --gold:          #c4973a;
-  --gold-bright:   #d4a845;
-  --gold-light:    #e0b86a;
-  --gold-pale:     #f5e4b8;
-  --text-dark:     #2a1a0a;
-  --text-mid:      #5a3d28;
-  --text-light:    #8a6a50;
-  --border:        #d4c4a8;
-  --border-light:  #e8dccc;
-  --shadow:        rgba(74,46,20,0.10);
-  --shadow-lg:     rgba(74,46,20,0.18);
-  --bg-page:       var(--ivory);
-  --bg-card:       var(--cream);
-  --bg-alt:        var(--parchment);
-  --nav-bg:        rgba(250,246,239,0.94);
-  --hero-g1:       #fdf9f3;
-  --hero-g2:       #f0e8d8;
-  --hero-g3:       #e4d4b8;
-  --hdr-bg1:       #4a2e14;
-  --hdr-bg2:       #6b4423;
-  --uni-hdr:       #4a2e14;
+  /* ── Professor Info ──────────────────────────────────────── */
+  professor: {
+    name: "Prof. Swati Sah",
+    title: "Professor",
+    institution: "Sharda University, India",
+    email: "iswatisah19@gmail.com",
+    linkedin: "https://www.linkedin.com/in/dr-swati-sah-39a36413a/",
+    googleScholar: "#",   // UPDATE with real URL
+    orcid: "#",           // UPDATE with real URL
+    photo: "./assets/cropped_circle_image.png",
+    aboutPhoto: "./assets/swati maam's photo.jpeg",
+    shortBio: `Prof. Swati Sah, Professor at Sharda University, India, has 12+ years of academic and research experience in Artificial Intelligence, Machine Learning, Federated Learning and Cyber Security. She has served in leading institutions across India, Uzbekistan, and Nepal, published extensively, and is authoring books on AI-driven applications in finance, healthcare, and cyber resilience.`,
+    stats: [
+      { num: "12+", label: "Years Experience" },
+      { num: "29+", label: "Publications" },
+      { num: "6", label: "Institutions" },
+      { num: "4+", label: "Books" },
+    ],
+  },
+
+  /* ── About Page ──────────────────────────────────────────── */
+  about: {
+    fullBio: [
+      `Prof. (Dr.) Swati Sah is currently serving as a Professor at Sharda University, Greater Noida, India. Prior to this, she held academic positions at Jain University, Bangalore, and at Amity University, Uzbekistan. She was also associated with Bharati Vidyapeeth Deemed University, Pune, from 2010 to 2017. In May 2018, she was appointed as Head of the Department of Computer Science at Patan College for Professional Studies (PCPS), Nepal, an institution affiliated with the University of Bedfordshire, UK.`,
+      `Dr. Sah was awarded her Ph.D. degree in Computer Application from Bharati Vidyapeeth University, Pune, India, in 2016. The topic of her doctoral research was "Evaluating Optimal Clustering Techniques for Efficient Storage Retrieval Methods in Large Databases using Soft Computing Techniques." She holds a Master of Computer Applications (MCA) degree from Uttar Pradesh Technical University, Lucknow, India, an M.Sc. from Birmingham City University, United Kingdom, and a Bachelor's degree from Kumaun University, Nainital.`,
+      `With over 13 years of experience in teaching and research, she has been actively engaged with various professional associations and academic bodies. She has attended and organized numerous FDPs, seminars, workshops, and conferences. Her research interests lie in the areas of Cyber Security, Artificial Intelligence (AI), and Machine Learning (ML). Her current work focuses on leveraging AI and ML techniques to enhance cyber threat detection and prevention frameworks. She is also passionate about interdisciplinary applications of emerging technologies and continues to explore innovative solutions addressing real-world challenges in digital security and intelligent systems.`,
+      `Dr. Sah has contributed to several scholarly publications and has presented her work at national and international conferences. Some of her forthcoming books include:<br><br>- Federated Learning in Finance: Unlocking Privacy-Preserving and Cyber Resilience using AI (CRC Press)<br>- Cyber-Resilient Federated Learning: Adaptive AI through BCI and Neurotechnological Synergy (CRC Press)<br>- Agentic AI for Securing Decentralized Finance (DeFi): Enhancing Integrity in the FinTech Industry (CRC Press)<br>- Healthcare 5.0 (CRC Press — in process)`
+    ],
+    experience: [
+      { period: "Present", title: "Professor", org: "Sharda University, Greater Noida, UP, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "University of Bedfordshire, United Kingdom", icon: "🇬🇧" },
+      { period: "Previous", title: "Faculty", org: "JAIN University, Bangalore, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "Ajeenkya DY Patil University, India", icon: "🎓" },
+      { period: "Previous", title: "Faculty", org: "Amity University, Tashkent, Uzbekistan", icon: "🌏" },
+      { period: "Previous", title: "Faculty", org: "Bharati Vidyapeeth University, Pune, India", icon: "🎓" },
+    ],
+  },
+
+  /* ── Qualifications ──────────────────────────────────────── */
+  qualifications: [
+    { degree: "Ph.D.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "Machine Learning & Cyber Security" },
+    { degree: "M.Tech.", field: "Computer Science", university: "University Name, Year", specialization: "Artificial Intelligence" },
+    { degree: "B.Tech.", field: "Computer Science & Engineering", university: "University Name, Year", specialization: "" },
+  ],
+
+  /* ── Recognitions / Awards DATA ───────────────────────────────── */
+  recognitions: [
+    {
+      title: "Certificate of Appreciation",
+      organization: "IOT Academy",
+      date: "Feb 18, 2026",
+      description: "Served as Distinguished Speaker in the 5 Days National Level FDP on 'Innovative Research Methodologies' presenting on 'Foundations of Contemporary Research'.",
+      image: "./assets/certificates/certificate-appreciation-08-feb-award.jpeg",
+      link: "https://drive.google.com/file/d/1JofCTq-cSsgY0c9x29wz2wqWeRaIQWF9/view?usp=sharing"
+    },
+    {
+      title: "Certificate of Appreciation",
+      organization: "IOT Academy",
+      date: "Oct 10, 2025",
+      description: "Served as Resource person in the Seven Days National Level FDP on 'The Art and Science of Teaching Tools, Trends, and Techniques' and delivered a special lecture on 'Personality Development for Teachers'.",
+      image: "./assets/certificates/certificate-appreciation-10-oct-award.jpeg",
+      link: "#"
+    },
+    {
+      title: "Vice-Chancellor's Award",
+      organization: "Birmingham City University",
+      date: "Alumni Leadership",
+      description: "In recognition of distinguished professional achievement and continued engagement as an ambassador of Birmingham City University.",
+      image: "./assets/certificates/vice-chancellor-award.jpeg",
+      link: "#"
+    }
+  ],
+
+  /* ── Universities & Courses ──────────────────────────────── */
+  universities: [
+    {
+      key: "sharda",
+      name: "Sharda University",
+      location: "Greater Noida, UP, India",
+      icon: "🏛️",
+      courses: [
+        {
+          key: "pps", code: "",
+          title: "Programming for Problem Solving",
+          description: "An introductory course covering fundamental programming concepts using C/Python to develop systematic problem-solving skills.",
+          topics: ["Introduction to Programming & Problem Solving","Algorithms, Flowcharts & Pseudocode","Variables, Data Types & Operators","Control Flow: Conditions & Loops","Functions & Recursion","Arrays and Strings","Introduction to Object-Oriented Concepts","File I/O and Exception Handling"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "ds-sharda", code: "",
+          title: "Data Structures",
+          description: "Study of fundamental data structures and their algorithmic applications for efficient program design and memory management.",
+          topics: ["Introduction to Data Structures & Complexity","Arrays and Linked Lists","Stacks and Queues","Trees: Binary, BST, AVL","Heaps and Priority Queues","Graphs: Representation & Traversal (BFS/DFS)","Hashing Techniques","Sorting and Searching Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "dbms", code: "",
+          title: "Database Management System",
+          description: "Comprehensive study of database design, SQL querying, normalization theory, and modern database technologies.",
+          topics: ["Introduction to DBMS & Data Models","Entity-Relationship Modeling","Relational Algebra & Calculus","Structured Query Language (SQL)","Normalization (1NF – BCNF)","Transaction Management & Concurrency Control","Indexing and Query Optimization","NoSQL & Modern Database Trends"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "daa", code: "",
+          title: "Design Analysis & Algorithms",
+          description: "Analysis of algorithm design paradigms including divide-and-conquer, greedy methods, dynamic programming, and NP-completeness.",
+          topics: ["Algorithm Complexity & Asymptotic Analysis","Divide and Conquer Strategies","Greedy Algorithms","Dynamic Programming","Graph Algorithms (Shortest Path, MST)","Backtracking & Branch and Bound","NP-Completeness Theory","Approximation Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+    {
+      key: "jain",
+      name: "JAIN University",
+      location: "Bangalore, Karnataka, India",
+      icon: "🎓",
+      courses: [
+        {
+          key: "c-prog", code: "",
+          title: "C Programming",
+          description: "Foundational course in C programming covering structured programming, pointers, memory management, and file handling.",
+          topics: ["Introduction to C & Program Structure","Variables, Data Types & Operators","Control Statements & Loops","Functions & Recursion","Arrays & Strings","Pointers & Memory Management","Structures and Unions","File Handling in C"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "ds-jain", code: "",
+          title: "Data Structures",
+          description: "Study of data organization techniques including linear and non-linear structures with algorithmic applications.",
+          topics: ["Introduction to Data Structures","Linked Lists (Singly, Doubly, Circular)","Stacks and Queues","Trees and Binary Search Trees","Graph Algorithms","Hashing","Sorting Techniques","Algorithm Complexity Analysis"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "bda", code: "",
+          title: "Big Data Analytics (BDA)",
+          description: "Introduction to big data technologies, distributed computing, and analytics frameworks for processing large-scale datasets.",
+          topics: ["Introduction to Big Data & V's of Big Data","Hadoop Ecosystem & HDFS","MapReduce Programming Model","Apache Spark Fundamentals","NoSQL Databases","Data Warehousing Concepts","Real-time Stream Processing","Big Data Visualization"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "python-jain", code: "",
+          title: "Python Programming",
+          description: "Comprehensive Python programming course covering core syntax, data structures, OOP, and practical applications.",
+          topics: ["Python Basics & Environment Setup","Data Types, Variables & Operators","Control Flow & Functions","Lists, Tuples, Dictionaries & Sets","Object-Oriented Programming in Python","File Handling & Exceptions","Python Libraries: NumPy & Pandas","Introduction to Data Visualization"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "ml-jain", code: "",
+          title: "Machine Learning using Python",
+          description: "Hands-on machine learning course implementing supervised and unsupervised algorithms using Python's scikit-learn, NumPy, and Pandas.",
+          topics: ["Introduction to Machine Learning","Python for ML: NumPy, Pandas, Matplotlib","Linear & Logistic Regression","Decision Trees & Random Forests","Support Vector Machines","K-Means & Hierarchical Clustering","Dimensionality Reduction (PCA)","Model Evaluation & Cross-Validation"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+    {
+      key: "adypatil",
+      name: "Ajeenkya DY Patil University",
+      location: "Pune, Maharashtra, India",
+      icon: "🏫",
+      courses: [
+        {
+          key: "sql-analytics", code: "",
+          title: "Data Analytics using SQL",
+          description: "Practical course on extracting insights from relational databases using advanced SQL queries, joins, aggregations, and window functions.",
+          topics: ["Introduction to Databases & SQL","SELECT Statements & Filtering","Joins: INNER, LEFT, RIGHT, FULL","Aggregate Functions & GROUP BY","Subqueries & CTEs","Window Functions (RANK, ROW_NUMBER, etc.)","Database Design for Analytics","Hands-on Case Studies"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "aiml-adyp", code: "",
+          title: "AI & ML",
+          description: "Comprehensive overview of Artificial Intelligence and Machine Learning concepts, algorithms, and real-world applications.",
+          topics: ["Introduction to AI & ML","Supervised vs Unsupervised Learning","Regression & Classification Algorithms","Neural Networks & Deep Learning Basics","Natural Language Processing Overview","Computer Vision Fundamentals","Ethical AI & Bias","Industry Applications of AI & ML"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+    {
+      key: "amity",
+      name: "Amity University",
+      location: "Tashkent, Uzbekistan",
+      icon: "🌏",
+      courses: [
+        {
+          key: "spm", code: "",
+          title: "Software Project Management",
+          description: "Covers frameworks, tools, and best practices for planning, executing, and closing software projects.",
+          topics: ["Introduction to Project Management","Software Development Life Cycles (SDLC)","Agile & Scrum Methodologies","Project Planning & Estimation","Risk Management","Quality Assurance & Testing","Team Management & Communication","Project Monitoring & Closure"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "isd", code: "",
+          title: "Introduction to Software Development",
+          description: "Introductory course covering the principles of software engineering, development methodologies, and basic coding practices.",
+          topics: ["Software Engineering Principles","Requirements Engineering","Software Design Patterns","Version Control with Git","Testing Fundamentals","Introduction to Agile","Code Documentation & Review","Deployment Basics"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "dip", code: "",
+          title: "Digital Image Processing",
+          description: "Fundamentals of image acquisition, transformation, enhancement, segmentation, and compression using computational methods.",
+          topics: ["Introduction to Digital Images","Image Acquisition & Representation","Spatial Domain Filtering","Frequency Domain Techniques (Fourier)","Image Enhancement & Restoration","Morphological Processing","Image Segmentation","Image Compression Standards"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+    {
+      key: "bedfordshire",
+      name: "University of Bedfordshire",
+      location: "United Kingdom",
+      icon: "🇬🇧",
+      courses: [
+        {
+          key: "research-meth", code: "",
+          title: "Research Methodology",
+          description: "Develops research skills including literature review, research design, data collection, analysis, and academic writing.",
+          topics: ["Introduction to Research & Types","Literature Review & Citation","Research Design & Paradigms","Quantitative Research Methods","Qualitative Research Methods","Data Collection Techniques","Statistical Analysis Fundamentals","Academic Writing & Dissertation Structure"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "proj-mgmt", code: "",
+          title: "Project Management",
+          description: "Covers principles and practices of managing projects effectively using traditional and agile frameworks.",
+          topics: ["Project Management Fundamentals","Project Life Cycle & Phases","Scope, Time & Cost Management","Risk & Stakeholder Management","Agile & Prince2 Overview","Resource Management","Project Communication Plans","Case Studies in Global Projects"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "python-beds", code: "",
+          title: "Python Programming",
+          description: "Practical Python course with emphasis on scripting, data processing, and applied computing.",
+          topics: ["Python Syntax & Environment","Control Flow & Functions","Data Structures in Python","Object-Oriented Programming","File I/O & Regular Expressions","Python for Data Processing","API Integration & Web Scraping","Testing & Debugging"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "ai-concepts", code: "",
+          title: "Concepts and Technologies of AI",
+          description: "Explores the theoretical foundations and emerging technologies of Artificial Intelligence.",
+          topics: ["History & Philosophy of AI","Problem Solving & Search Algorithms","Knowledge Representation","Machine Learning Concepts","Deep Learning & Neural Networks","Natural Language Processing","AI in Industry: Case Studies","Ethics, Bias & Future of AI"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+    {
+      key: "bharatividya",
+      name: "Bharati Vidyapeeth University",
+      location: "Pune, Maharashtra, India",
+      icon: "🏛",
+      courses: [
+        {
+          key: "html-bvp", code: "",
+          title: "Introduction to HTML",
+          description: "Beginner course covering the structure and semantics of HTML for building well-formed, accessible web pages.",
+          topics: ["Introduction to the Web & HTML","HTML Document Structure","Text Formatting & Semantic Tags","Links, Images & Media","Tables & Lists","HTML Forms & Input Types","Introduction to CSS Basics","Building a Simple Webpage"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "c-bvp", code: "",
+          title: "C Programming",
+          description: "Foundational C programming course for engineering students emphasizing logic building and structured programming.",
+          topics: ["C Language Fundamentals","Data Types, Variables & Constants","Operators & Expressions","Control Structures","Functions","Arrays & Strings","Pointers","File Handling"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+        {
+          key: "ds-bvp", code: "",
+          title: "Data Structures",
+          description: "Introduction to data organization, storage, and algorithmic manipulation using C programming.",
+          topics: ["Introduction & Complexity Analysis","Arrays & Linked Lists","Stacks & Queues","Trees & Binary Search Trees","Graphs","Hashing","Sorting Algorithms","Searching Algorithms"],
+          syllabusUrl: "#", notesUrl: "#", assignmentsUrl: "#",
+        },
+      ],
+    },
+  ],
+
+  /* ── Publications ────────────────────────────────────────── */
+  papers: [
+    { title: "The implementation of machine learning in the insurance industry with big data analytics", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Machine Learning", "Big Data", "Insurance"], url: "https://scholar.google.com/scholar?q=implementation+machine+learning+insurance+industry+big+data+analytics" },
+    { title: "Artificial intelligence biosensing system on hand gesture recognition for the hearing impaired", authors: "Swati Sah et al.", venue: "IEEE", tags: ["AI", "Biosensing", "Gesture Recognition"], url: "https://scholar.google.com/scholar?q=artificial+intelligence+biosensing+hand+gesture+recognition+hearing+impaired" },
+    { title: "SARIMA Techniques for Predictive Resource Provisioning in Cloud Environments", authors: "Swati Sah et al.", venue: "Springer", tags: ["Cloud Computing", "SARIMA", "Resource Provisioning"], url: "https://scholar.google.com/scholar?q=SARIMA+Techniques+Predictive+Resource+Provisioning+Cloud+Environments" },
+    { title: "Evaluating Pattern Classification Techniques of Neural Network Using k-Means Clustering Algorithm", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Neural Network", "k-Means", "Pattern Classification"], url: "https://scholar.google.com/scholar?q=Evaluating+Pattern+Classification+Neural+Network+k-Means+Clustering" },
+    { title: "Dynamic imaging of pancreatic nuclear factor κB (NF-κB) activation in live mice using adeno-associated virus (AAV) infusion and bioluminescence", authors: "Swati Sah et al.", venue: "Journal Publication", tags: ["Biomedical", "NF-κB", "Bioluminescence"], url: "https://scholar.google.com/scholar?q=Dynamic+imaging+pancreatic+NF-kB+activation+live+mice+AAV+bioluminescence" },
+    { title: "Analysis Application of Big Data-based Analysis of Network Security and Intelligence", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Big Data", "Network Security", "Intelligence"], url: "https://scholar.google.com/scholar?q=Big+Data+Analysis+Network+Security+Intelligence" },
+    { title: "Evaluating Optimal Clustering Techniques for Efficient Storage Retrieval Methods in Large Database Using Soft Computing Techniques", authors: "Swati Sah et al.", venue: "Springer", tags: ["Clustering", "Soft Computing", "Database"], url: "https://scholar.google.com/scholar?q=Optimal+Clustering+Techniques+Storage+Retrieval+Large+Database+Soft+Computing" },
+    { title: "Performance Evaluation of Back Propagation Algorithm vs Back Propagation Through Time Algorithm in Pattern Recognition", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Backpropagation", "BPTT", "Pattern Recognition"], url: "https://scholar.google.com/scholar?q=Performance+Evaluation+Back+Propagation+Algorithm+Back+Propagation+Through+Time+Pattern+Recognition" },
+    { title: "Accident detection system using IoT based cloud computing technology", authors: "Swati Sah et al.", venue: "IEEE", tags: ["IoT", "Cloud Computing", "Accident Detection"], url: "https://scholar.google.com/scholar?q=Accident+detection+system+IoT+cloud+computing+technology" },
+    { title: "Advancements in fake news detection: integrating NLP and multi-modal approaches", authors: "Swati Sah et al.", venue: "Springer / Elsevier", tags: ["NLP", "Fake News Detection", "Multi-modal AI"], url: "https://scholar.google.com/scholar?q=Advancements+fake+news+detection+NLP+multi-modal+approaches" },
+    { title: "Plant Disease Classification using Convolutional Neural Network", authors: "Swati Sah et al.", venue: "IEEE", tags: ["CNN", "Plant Disease", "Image Classification"], url: "https://scholar.google.com/scholar?q=Plant+Disease+Classification+Convolutional+Neural+Network" },
+    { title: "Empowering Leather Quality Assurance: Leveraging Convolutional Neural Networks for Precise Defect Detection and Classification", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["CNN", "Quality Assurance", "Defect Detection"], url: "https://scholar.google.com/scholar?q=Leather+Quality+Assurance+Convolutional+Neural+Networks+Defect+Detection+Classification" },
+    { title: "Predicting the Hardness of Low Alloy Metal using Machine Learning Model", authors: "Swati Sah et al.", venue: "Springer", tags: ["Machine Learning", "Materials Science", "Prediction"], url: "https://scholar.google.com/scholar?q=Predicting+Hardness+Low+Alloy+Metal+Machine+Learning+Model" },
+    { title: "Enhancing IoT security with self-adaptive blockchain-based intrusion detection system", authors: "Swati Sah et al.", venue: "Elsevier / IEEE", tags: ["IoT Security", "Blockchain", "Intrusion Detection"], url: "https://scholar.google.com/scholar?q=IoT+security+self-adaptive+blockchain+intrusion+detection+system" },
+    { title: "Detr-dc5 approaches for improved spatial object detection in satellite imagery", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Object Detection", "Satellite Imagery", "DETR"], url: "https://scholar.google.com/scholar?q=Detr-dc5+spatial+object+detection+satellite+imagery" },
+    { title: "Accurate Prediction of the Diabetic Retinopathy Using Fundonet Memory Classifier", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Healthcare", "Diabetic Retinopathy", "Deep Learning"], url: "https://scholar.google.com/scholar?q=Accurate+Prediction+Diabetic+Retinopathy+Fundonet+Memory+Classifier" },
+    { title: "Optimized Machine Learning Models for Diabetes Prediction — Hyperparameter Tuned Comparative Study", authors: "Swati Sah et al.", venue: "Springer", tags: ["Diabetes Prediction", "Hyperparameter Tuning", "ML"], url: "https://scholar.google.com/scholar?q=Optimized+Machine+Learning+Models+Diabetes+Prediction+Hyperparameter+Tuned" },
+    { title: "Docker Based Decentralised Vulnerability Assessment with Port Scanning Powered by Artificial Intelligence", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Docker", "Cyber Security", "Vulnerability Assessment", "AI"], url: "https://scholar.google.com/scholar?q=Docker+Decentralised+Vulnerability+Assessment+Port+Scanning+Artificial+Intelligence" },
+    { title: "Enhancing Aquaculture Sustainability with Deep Learning Techniques: Fish Species Detection and Disease Diagnosis", authors: "Swati Sah et al.", venue: "Springer / Elsevier", tags: ["Deep Learning", "Aquaculture", "Disease Diagnosis"], url: "https://scholar.google.com/scholar?q=Aquaculture+Sustainability+Deep+Learning+Fish+Species+Detection+Disease+Diagnosis" },
+    { title: "Classification of Brain Tumor Using Support Vector Machine (SVM)", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Healthcare", "Brain Tumor", "SVM"], url: "https://scholar.google.com/scholar?q=Classification+Brain+Tumor+Support+Vector+Machine+SVM" },
+    { title: "Decoding Heart Health: A Predictive Model for Demographic-Based Cardiovascular Risk", authors: "Swati Sah et al.", venue: "Springer / Elsevier", tags: ["Healthcare", "Cardiovascular", "Predictive Model"], url: "https://scholar.google.com/scholar?q=Decoding+Heart+Health+Predictive+Model+Demographic+Cardiovascular+Risk" },
+    { title: "Detection of Diabetic Retinopathy Using Deep Learning", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Healthcare", "Deep Learning", "Retinopathy"], url: "https://scholar.google.com/scholar?q=Detection+Diabetic+Retinopathy+Deep+Learning" },
+    { title: "Geospatial Object Detection in Hyperspectral Imagery Using Spectral-Spatial Networks", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Hyperspectral", "Object Detection", "Remote Sensing"], url: "https://scholar.google.com/scholar?q=Geospatial+Object+Detection+Hyperspectral+Imagery+Spectral-Spatial+Networks" },
+    { title: "Online Proctoring using AI", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["AI", "EdTech", "Online Proctoring"], url: "https://scholar.google.com/scholar?q=Online+Proctoring+using+AI" },
+    { title: "Utility of Waste Water for Farming using Artificial Intelligence", authors: "Swati Sah et al.", venue: "Springer", tags: ["AI", "Agriculture", "Waste Water"], url: "https://scholar.google.com/scholar?q=Utility+Waste+Water+Farming+Artificial+Intelligence" },
+    { title: "Design of a solution for a biometric face recognition task", authors: "Swati Sah et al.", venue: "IEEE", tags: ["Biometrics", "Face Recognition", "Computer Vision"], url: "https://scholar.google.com/scholar?q=Design+solution+biometric+face+recognition+task" },
+    { title: "Stock Price Prediction Using Support Vector Machine (SVM) and Long Short-Term Memory (LSTM) Algorithms", authors: "Swati Sah et al.", venue: "IEEE / Elsevier", tags: ["Finance", "SVM", "LSTM", "Stock Prediction"], url: "https://scholar.google.com/scholar?q=Stock+Price+Prediction+Support+Vector+Machine+SVM+Long+Short+Term+Memory+LSTM" },
+    { title: "Docker Based Decentralized Vulnerability Assessment with Port Scanning Powered by Artificial Intelligence", authors: "Swati Sah et al.", venue: "IEEE / Springer", tags: ["Docker", "Cyber Security", "AI", "Port Scanning"], url: "https://scholar.google.com/scholar?q=Docker+Decentralized+Vulnerability+Assessment+Port+Scanning+Artificial+Intelligence" },
+    { title: "Empowering Leather Quality Assurance: Leveraging CNNs for Precise Defect Detection and Classification (Extended)", authors: "Swati Sah et al.", venue: "Springer", tags: ["CNN", "Quality Assurance", "Manufacturing"], url: "https://scholar.google.com/scholar?q=Leather+Quality+CNN+Defect+Detection+Classification+Extended" },
+  ],
+
+  /* ── Articles & Journals Data ─────────────────────────────────── */
+  articles: [],
+
+  /* ── Books Data ───────────────────────────────────────────────── */
+  books: [],
+
+  /* ── Workshops Data ───────────────────────────────────────────── */
+  workshops: {
+    ongoing: [],
+    upcoming: [],
+    past: [
+      {
+        title: "India AI Impact Summit 2026",
+        date: "09 Feb 2026",
+        time: "10:40 am - 11:30 am",
+        location: "202C Lab, Block 3, Sharda University",
+        link: "https://drive.google.com/file/d/15SUbiK0IRWEKjciKPljGNLuzUdn4V2-W/view?usp=sharing"
+      },
+      {
+        title: "Research Retreat",
+        date: "09 Oct 2024",
+        time: "10:20 am - 12:10 pm",
+        location: "007D Lab, Block 3, Sharda University",
+        link: "https://drive.google.com/file/d/1iJgU2OKnKC33d3QgLOgYtObQz3Y9qosq/view?usp=sharing"
+      }
+    ]
+  },
+
+  /* ── Lectures (YouTube) ──────────────────────────────────── */
+  lectures: [
+    { title: "Random Search & Grid Search", playlist: "", youtubeUrl: "https://youtu.be/bZBeflYLLss?si=nVr94DcPJHu0ac_8", thumbnailUrl: "" },
+    { title: "Travelling Salesman Problem in AI", playlist: "", youtubeUrl: "https://youtu.be/qcS_h-wVaME?si=_Xsja5vybUh-26hf", thumbnailUrl: "" },
+    { title: "Search in AI", playlist: "", youtubeUrl: "https://youtu.be/xPXpPjnxFtM?si=Abl_I4nWWJKGcg2_", thumbnailUrl: "" },
+    { title: "Doubly linked list in data structure", playlist: "", youtubeUrl: "https://youtu.be/IkUqog5q5XQ?si=KyM6dZG1GZIEBfnQ", thumbnailUrl: "" },
+    { title: "Project Management", playlist: "", youtubeUrl: "https://youtu.be/9JOJmnW89yw?si=tdcy5YtFaL0QDdjP", thumbnailUrl: "" },
+    { title: "ITProgManagement", playlist: "", youtubeUrl: "https://youtu.be/h2QXiQ4lYqA?si=pnb6GzI17Gj2jZgy", thumbnailUrl: "" },
+  ],
+  youtubeChannel: "https://www.youtube.com/@swatisah6041",
+};
+
+
+/* ============================================================
+   HELPERS — Date formatting & YouTube thumbnails
+   ============================================================ */
+function getYoutubeThumbnail(url) {
+  if (!url) return '';
+  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?.*?v=|embed\/|v\/))([a-zA-Z0-9_-]{11})/);
+  return m ? `https://img.youtube.com/vi/${m[1]}/mqdefault.jpg` : '';
 }
 
-/* ── Dark Theme ────────────────────────────────────────────── */
-[data-theme="dark"] {
-  --ivory:         #0d1525;
-  --parchment:     #121d36;
-  --cream:         #172038;
-  --beige:         #1e2a48;
-  --brown-deep:    #e8c97a;
-  --brown:         #d4a845;
-  --brown-mid:     #c4973a;
-  --brown-light:   #b8873a;
-  --gold:          #e8c97a;
-  --gold-bright:   #f0d48a;
-  --gold-light:    #f5e090;
-  --gold-pale:     rgba(232,201,122,0.13);
-  --text-dark:     #f0e8d4;
-  --text-mid:      #c8b898;
-  --text-light:    #988a72;
-  --border:        #283560;
-  --border-light:  #1e2850;
-  --shadow:        rgba(0,0,0,0.32);
-  --shadow-lg:     rgba(0,0,0,0.48);
-  --bg-page:       #0d1525;
-  --bg-card:       #172038;
-  --bg-alt:        #121d36;
-  --nav-bg:        rgba(13,21,37,0.96);
-  --hero-g1:       #0d1525;
-  --hero-g2:       #101a30;
-  --hero-g3:       #15213c;
-  --hdr-bg1:       #090f1e;
-  --hdr-bg2:       #111c38;
-  --uni-hdr:       linear-gradient(135deg,#1a2a52,#233060);
+function formatDisplayDate(ds) {
+  if (!ds) return ds;
+  const d = new Date(ds);
+  if (isNaN(d)) return ds;
+  return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
 }
 
-/* ── Reset ─────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg-page);
-  color: var(--text-dark);
-  line-height: 1.7;
-  min-height: 100vh;
-  transition: background .35s, color .35s;
-}
-img { display: block; max-width: 100%; }
-a  { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+/* ============================================================
+   ADMIN DATA OVERRIDE — loads localStorage data into SITE_DATA
+   ============================================================ */
+(function applyAdminData() {
+  try {
+    const raw = localStorage.getItem('admin_portfolio_data');
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    if (d.professor)      SITE_DATA.professor      = d.professor;
+    if (d.about)          SITE_DATA.about          = d.about;
+    if (d.qualifications) SITE_DATA.qualifications = d.qualifications;
+    if (d.recognitions)   SITE_DATA.recognitions   = d.recognitions;
+    if (d.lectures)       SITE_DATA.lectures       = d.lectures;
+    if (d.books)          SITE_DATA.books          = d.books;
+    if (d.papers)         SITE_DATA.papers         = d.papers;
+    if (d.articles)       SITE_DATA.articles       = d.articles;
+    if (d.universities)   SITE_DATA.universities   = d.universities;
+    if (d.youtubeChannel) SITE_DATA.youtubeChannel = d.youtubeChannel;
+    if (Array.isArray(d.workshops)) {
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const cat = { ongoing: [], upcoming: [], past: [] };
+      d.workshops.forEach(w => {
+        const wd = new Date(w.date); wd.setHours(0, 0, 0, 0);
+        const diff = wd - today;
+        if (diff < 0)       cat.past.push(w);
+        else if (diff === 0) cat.ongoing.push(w);
+        else                cat.upcoming.push(w);
+      });
+      cat.past.sort((a, b) => new Date(b.date) - new Date(a.date));
+      cat.upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+      SITE_DATA.workshops = cat;
+    }
+  } catch (e) { /* silent fail */ }
+})();
 
-/* ── Navbar ─────────────────────────────────────────────────── */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0; z-index: 1000;
-  background: var(--nav-bg);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 2.5rem;
-  height: 68px;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: background .35s, border-color .35s;
-}
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem; font-weight: 600;
-  color: var(--brown-deep);
-  letter-spacing: .02em; white-space: nowrap; cursor: pointer;
-}
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; align-items: center; gap: .25rem; }
-.nav-item { position: relative; }
-.nav-link {
-  display: flex; align-items: center; gap: .3rem;
-  padding: .45rem .9rem;
-  font-size: .875rem; font-weight: 500; color: var(--text-mid);
-  border-radius: 8px;
-  transition: color .22s, background .22s; cursor: pointer; white-space: nowrap;
-}
-.nav-link:hover, .nav-link.active { color: var(--brown-deep); background: var(--parchment); }
-.nav-link svg { width: 12px; height: 12px; transition: transform .22s; }
-.nav-item:hover .nav-link svg { transform: rotate(180deg); }
-.nav-right { display: flex; align-items: center; gap: .5rem; }
-.dark-toggle{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid var(--border);
-  color: var(--text-dark); /* icon follows theme */
-  background:transparent;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:all .3s ease;
+/* ============================================================
+   DARK MODE TOGGLE
+   ============================================================ */
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
 }
 
-.dark-toggle:hover{
-  transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-.dropdown {
-  display: none; position: absolute;
-  top: calc(100% - 2px);; left: 0;
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 14px; box-shadow: 0 12px 40px var(--shadow-lg);
-  min-width: 220px; padding: .5rem; z-index: 100;
-}
-.nav-item:hover .dropdown { display: block; animation: fadeDown .2s ease; }
-@keyframes fadeDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
-.dropdown a {
-  display: block; padding: .55rem 1rem;
-  font-size: .875rem; color: var(--text-mid); border-radius: 8px;
-  transition: background .2s, color .2s;
-}
-.dropdown a:hover { background: var(--parchment); color: var(--brown-deep); }
-.nav-mobile-toggle {
-  display: none; background: none; border: none;
-  cursor: pointer; padding: .4rem; color: var(--text-mid);
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateToggleIcon();
 }
 
-/* ── Layout ─────────────────────────────────────────────────── */
-.page-container { padding-top: 68px; min-height: 100vh; }
-.section { padding: 5rem 2.5rem; max-width: 1100px; margin: 0 auto; }
-.section-label {
-  font-family: 'DM Mono', monospace; font-size: .72rem;
-  letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem,4vw,3rem); font-weight: 500;
-  color: var(--brown-deep); line-height: 1.15; margin-bottom: 1rem;
-}
-.section-divider {
-  width: 56px; height: 3px;
-  background: linear-gradient(90deg,var(--gold),var(--gold-light));
-  border-radius: 2px; margin: 1.25rem 0 2.5rem;
+function updateToggleIcon() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  btn.innerHTML = isDark
+    ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+    : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"></path></svg>`;
 }
 
-/* ── Buttons ─────────────────────────────────────────────────── */
-.btn {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .75rem 1.75rem; border-radius: 8px;
-  font-family: 'DM Sans', sans-serif; font-size: .875rem; font-weight: 500;
-  cursor: pointer; transition: all .25s; border: none; text-decoration: none;
-}
-.btn-primary { background: var(--brown-deep); color: #fff; box-shadow: 0 4px 16px var(--shadow); }
-.btn-primary:hover { background: var(--brown); transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow-lg); }
-[data-theme="dark"] .btn-primary { background: var(--gold); color: #0d1525; }
-[data-theme="dark"] .btn-primary:hover { background: var(--gold-bright); }
-.btn-outline { background: transparent; color: var(--brown-deep); border: 1.5px solid var(--brown-deep); }
-.btn-outline:hover { background: var(--brown-deep); color: #fff; }
-[data-theme="dark"] .btn-outline { color: var(--gold); border-color: var(--gold); }
-[data-theme="dark"] .btn-outline:hover { background: var(--gold); color: #0d1525; }
-.btn-sm { padding: .5rem 1.2rem; font-size: .82rem; }
+if (!window.ADMIN_MODE) initTheme();
 
-/* ── Cards ───────────────────────────────────────────────────── */
-.card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
-  transition: box-shadow .25s, transform .25s;
-}
-.card:hover { box-shadow: 0 8px 32px var(--shadow); transform: translateY(-3px); }
 
-/* ── Hero ────────────────────────────────────────────────────── */
-.hero {
-  min-height: calc(100vh - 68px);
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--hero-g1) 0%, var(--hero-g2) 50%, var(--hero-g3) 100%);
-  position: relative; overflow: hidden; padding: 4rem 2.5rem;
-}
-.hero::before {
-  content: ''; position: absolute; top: -120px; right: -120px;
-  width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(196,151,58,.10) 0%, transparent 70%); pointer-events: none;
-}
-.hero::after {
-  content: ''; position: absolute; bottom: -100px; left: -100px;
-  width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(107,68,35,.07) 0%, transparent 70%); pointer-events: none;
-}
-.hero-inner { display: flex; align-items: center; gap: 5rem; max-width: 1000px; width: 100%; position: relative; z-index: 1; }
-.hero-photo-wrap { flex-shrink: 0; position: relative; }
-.hero-photo-ring {
-  width: 260px; height: 260px; border-radius: 50%; padding: 5px;
-  background: linear-gradient(135deg, var(--gold), var(--brown-mid));
-  box-shadow: 0 16px 48px var(--shadow-lg);
-}
-.hero-photo {
-  width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-  background: var(--parchment); display: flex; align-items: center; justify-content: center;
-  font-size: 5rem; overflow: hidden;
-}
-.hero-photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
-.hero-photo-badge {
-  position: absolute; bottom: 12px; right: 0;
-  background: var(--brown-deep); color: #fff;
-  font-size: .72rem; font-family: 'DM Mono',monospace; letter-spacing: .1em;
-  padding: .4rem .85rem; border-radius: 20px; box-shadow: 0 4px 12px var(--shadow);
-}
-[data-theme="dark"] .hero-photo-badge { background: var(--gold); color: #0d1525; }
-.hero-content { flex: 1; }
-.hero-eyebrow { font-family: 'DM Mono',monospace; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.hero-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(2.2rem,5vw,3.6rem); font-weight: 600; color: var(--brown-deep); line-height: 1.1; margin-bottom: 1.25rem; }
-.hero-desc { font-size: .975rem; color: var(--text-mid); line-height: 1.8; max-width: 560px; margin-bottom: 2rem; }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-stats { display: flex; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-.stat-item { text-align: center; }
-.stat-num { font-family: 'Cormorant Garamond',serif; font-size: 2rem; font-weight: 600; color: var(--brown-deep); line-height: 1; }
-.stat-label { font-size: .72rem; color: var(--text-light); letter-spacing: .05em; margin-top: .2rem; }
+/* ============================================================
+   ROUTER — Hash-based SPA
+   ============================================================ */
+const routes = {
+  home: renderHome,
+  about: renderAbout,
+  recognitions: renderRecognitions,
+  qualifications: renderQualifications,
+  workshops: renderWorkshops,
+  lectures: renderLectures,
+  books: renderBooks,
+  papers: renderPapers,
+  articles: renderArticles,
+  contact: renderContact,
+  course: renderCourse,
+};
 
-/* ── Courses Section ─────────────────────────────────────────── */
-.courses-section { background: var(--bg-alt); padding: 5rem 2.5rem; transition: background .35s; }
-.courses-inner { max-width: 1100px; margin: 0 auto; }
-.university-block {
-  margin-bottom: 3rem; background: var(--bg-card);
-  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
-  transition: box-shadow .25s;
+function navigate(route, params = {}) {
+  const qs = Object.keys(params).length ? '?' + new URLSearchParams(params).toString() : '';
+  window.location.hash = '#' + route + qs;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-.university-block:hover { box-shadow: 0 8px 32px var(--shadow); }
-.university-header {
-  padding: 1.5rem 2rem;
-  background: var(--brown-deep);
-  display: flex; align-items: center; gap: 1rem;
-}
-[data-theme="dark"] .university-header {
-  background: linear-gradient(135deg,#1a2a52,#233060);
-  border-bottom: 1px solid var(--border);
-}
-.university-icon {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.25rem; flex-shrink: 0;
-}
-.university-name { font-family: 'Cormorant Garamond',serif; font-size: 1.3rem; font-weight: 500; color: #fff; }
-.university-location { font-size: .78rem; color: rgba(255,255,255,.65); font-family: 'DM Mono',monospace; letter-spacing: .05em; }
-.courses-list {
-  padding: 1.5rem 2rem;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(285px,1fr)); gap: .75rem;
-}
-.course-link {
-  display: flex; align-items: center; gap: .65rem;
-  padding: .7rem 1rem;
-  border: 1px solid var(--border); border-radius: 8px;
-  font-size: .875rem; color: var(--text-mid);
-  background: var(--ivory); transition: all .22s; cursor: pointer;
-}
-[data-theme="dark"] .course-link { background: var(--beige); }
-.course-link:hover {
-  background: var(--brown-deep); color: #fff;
-  border-color: var(--brown-deep); transform: translateX(4px);
-}
-[data-theme="dark"] .course-link:hover { background: var(--gold); border-color: var(--gold); color: #0d1525; }
-.course-link-text { flex: 1; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; line-height: 1.4; }
-.course-name { font-weight: 500; }
-.course-code {
-  font-family: 'DM Mono',monospace; font-size: .70rem; color: var(--gold);
-  background: var(--gold-pale); padding: .15rem .5rem; border-radius: 10px;
-  white-space: nowrap; flex-shrink: 0;
-}
-.course-link:hover .course-code { color: rgba(255,255,255,.85); background: rgba(255,255,255,.18); }
-[data-theme="dark"] .course-link:hover .course-code { color: rgba(13,21,37,.7); background: rgba(13,21,37,.18); }
 
-/* ── Footer ─────────────────────────────────────────────────── */
-footer {
-  background: var(--brown-deep); color: rgba(255,255,255,.8);
-  padding: 2.5rem; text-align: center; font-size: .85rem;
+function parseHash() {
+  const raw = window.location.hash.replace('#', '') || 'home';
+  const [route, search] = raw.split('?');
+  const params = search ? Object.fromEntries(new URLSearchParams(search)) : {};
+  return { route, params };
 }
-[data-theme="dark"] footer { background: #070c18; border-top: 1px solid var(--border); }
-footer a { color: var(--gold-light); }
-footer .footer-name { font-family: 'Cormorant Garamond',serif; font-size: 1.2rem; color: #fff; margin-bottom: .5rem; }
 
-/* ── Page Header ────────────────────────────────────────────── */
-.page-header {
-  background: linear-gradient(135deg, var(--hdr-bg1) 0%, var(--hdr-bg2) 100%);
-  padding: 4rem 2.5rem 3rem; position: relative; overflow: hidden;
+function router() {
+  const { route, params } = parseHash();
+  const fn = routes[route] || renderHome;
+  fn(params);
+  updateNavActive(route);
+  updateToggleIcon();
 }
-[data-theme="dark"] .page-header { border-bottom: 1px solid var(--border); }
-.page-header::before {
-  content: ''; position: absolute; top: -60px; right: -60px;
-  width: 300px; height: 300px; border-radius: 50%;
-  background: rgba(255,255,255,.04); pointer-events: none;
+
+if (!window.ADMIN_MODE) {
+  window.addEventListener('hashchange', router);
+  window.addEventListener('DOMContentLoaded', router);
 }
-.page-header-inner { max-width: 1100px; margin: 0 auto; }
-.page-header-label { font-family: 'DM Mono',monospace; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: .75rem; }
-.page-header-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(2rem,4vw,3rem); font-weight: 500; color: #fff; line-height: 1.15; }
-.page-header-sub { font-size: 1rem; color: rgba(255,255,255,.65); margin-top: .75rem; }
 
-/* ── About ───────────────────────────────────────────────────── */
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
-.about-sidebar { position: sticky; top: 88px; }
-.about-photo {
-  width: 100%; aspect-ratio: 3/4; border-radius: 16px; object-fit: cover;
-  border: 3px solid var(--border); background: var(--parchment);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 4rem; overflow: hidden;
+function updateNavActive(route) {
+  document.querySelectorAll('.nav-link[data-route]').forEach(el => {
+    el.classList.toggle('active', el.dataset.route === route);
+  });
 }
-.about-photo img { width:100%; height:100%; object-fit:cover; }
-.about-sidebar-info { margin-top: 1.5rem; }
-.sidebar-label { font-family: 'DM Mono',monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
-.sidebar-value { font-size: .9rem; color: var(--text-mid); margin-bottom: 1rem; }
-.about-content h2 { font-family: 'Cormorant Garamond',serif; font-size: 1.8rem; font-weight: 500; color: var(--brown-deep); margin-bottom: 1rem; }
-.about-content p { font-size: .95rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.5rem; }
 
-/* Timeline */
-.timeline { margin: 2rem 0; }
-.timeline-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; position: relative; }
-.timeline-item::before { content: ''; position: absolute; left: 19px; top: 42px; width: 2px; height: calc(100% + 10px); background: var(--border); }
-.timeline-item:last-child::before { display: none; }
-.timeline-dot {
-  flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-  background: var(--brown-deep); display: flex; align-items: center; justify-content: center;
-  font-size: .8rem; color: #fff; position: relative; z-index: 1;
+/* ============================================================
+   AWARD TOGGLE
+   ============================================================ */
+function toggleAward(index) {
+  const card = document.getElementById(`award-${index}`);
+  card.classList.toggle("active");
 }
-[data-theme="dark"] .timeline-dot { background: var(--gold); color: #0d1525; }
-.timeline-body { flex: 1; padding-top: .5rem; }
-.timeline-title { font-weight: 600; font-size: .95rem; color: var(--text-dark); }
-.timeline-org { font-size: .875rem; color: var(--brown-mid); font-weight: 500; }
-.timeline-period { font-family: 'DM Mono',monospace; font-size: .72rem; color: var(--text-light); }
 
-/* Qual */
-.qualifications-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1.25rem; margin-top: 1.5rem; }
-.qual-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card); border-left: 4px solid var(--gold); }
-.qual-degree { font-weight: 600; font-size: .95rem; color: var(--brown-deep); }
-.qual-field { font-size: .875rem; color: var(--text-mid); margin: .2rem 0; }
-.qual-univ { font-family: 'DM Mono',monospace; font-size: .75rem; color: var(--text-light); }
 
-/* Recognitions */
-.recognition-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card); margin-bottom: 1rem; transition: box-shadow .25s; }
-.recognition-item:hover { box-shadow: 0 4px 16px var(--shadow); }
-.recognition-icon { font-size: 1.5rem; flex-shrink: 0; }
-.recognition-title { font-weight: 600; font-size: .925rem; color: var(--brown-deep); }
-.recognition-body { font-size: .875rem; color: var(--text-mid); margin-top: .2rem; }
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+function getNavbar() {
+  return `
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo" onclick="navigate('home')">Prof. <span>Swati Sah</span></div>
 
-/* ── Course Detail ───────────────────────────────────────────── */
-.course-detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
-.course-topic-item { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem 1rem; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--text-mid); }
-.course-topic-item:last-child { border-bottom: none; }
-.topic-num { font-family: 'DM Mono',monospace; font-size: .72rem; color: var(--gold); flex-shrink: 0; padding-top: .1rem; }
-.course-sidebar-card { background: var(--brown-deep); border-radius: 16px; padding: 2rem; color: #fff; position: sticky; top: 88px; }
-[data-theme="dark"] .course-sidebar-card { background: linear-gradient(135deg,#1a2a52,#233060); border: 1px solid var(--border); }
-.course-sidebar-card h3 { font-family: 'Cormorant Garamond',serif; font-size: 1.3rem; font-weight: 500; margin-bottom: 1.25rem; }
-.resource-btn {
-  display: flex; align-items: center; gap: .65rem; width: 100%;
-  padding: .85rem 1rem;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-  border-radius: 8px; color: #fff;
-  font-family: 'DM Sans',sans-serif; font-size: .875rem; font-weight: 500;
-  cursor: pointer; transition: background .2s; margin-bottom: .75rem; text-decoration: none;
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a class="nav-link" href="#home" data-route="home">Home</a>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-link">About
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
+        </div>
+        <div class="dropdown">
+          <a href="#about">Overview</a>
+          <a href="#recognitions">Recognitions &amp; Awards</a>
+          <a href="#qualifications">Qualifications</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-link">Work
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
+        </div>
+        <div class="dropdown">
+          <a href="#workshops">Workshops</a>
+          <a href="#lectures">Lectures &amp; Videos</a>
+          <a href="#books">Books</a>
+          <a href="#papers">Publications</a>
+          <a href="#articles">Articles &amp; Journals</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="#contact" data-route="contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="dark-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+      <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="2" y1="6" x2="20" y2="6"/>
+          <line x1="2" y1="11" x2="20" y2="11"/>
+          <line x1="2" y1="16" x2="20" y2="16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>`;
 }
-.resource-btn:hover { background: rgba(255,255,255,.2); }
 
-/* ── Work Pages ─────────────────────────────────────────────── */
-.video-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.5rem; margin-top: 2rem; }
-.video-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-card); transition: box-shadow .25s, transform .25s; }
-.video-card:hover { box-shadow: 0 8px 24px var(--shadow); transform: translateY(-3px); }
-.video-thumb { aspect-ratio: 16/9; background: var(--brown-deep); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,.35); overflow: hidden; }
-[data-theme="dark"] .video-thumb { background: linear-gradient(135deg,#1a2a52,#233060); }
-.video-thumb img { width:100%; height:100%; object-fit: cover; }
-.video-info { padding: 1.25rem; }
-.video-title { font-weight: 600; font-size: .925rem; color: var(--text-dark); margin-bottom: .4rem; }
-.video-meta { font-size: .8rem; color: var(--text-light); }
-
-.book-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 1.5rem; margin-top: 2rem; }
-.book-card { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--bg-card); transition: box-shadow .25s, transform .25s; }
-.book-card:hover { box-shadow: 0 8px 24px var(--shadow); transform: translateY(-3px); }
-.book-cover { aspect-ratio: 3/4; background: linear-gradient(135deg,var(--brown-deep),var(--brown-light)); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: rgba(255,255,255,.3); overflow: hidden; }
-[data-theme="dark"] .book-cover { background: linear-gradient(135deg,#1a2a52,#2a3a6a); }
-.book-cover img { width:100%; height:100%; object-fit: cover; }
-.book-info { padding: 1.25rem; }
-.book-title { font-family: 'Cormorant Garamond',serif; font-size: 1.1rem; color: var(--brown-deep); font-weight: 500; margin-bottom: .4rem; }
-.book-meta { font-size: .8rem; color: var(--text-light); margin-bottom: .75rem; }
-.book-status { font-size: .72rem; font-family: 'DM Mono',monospace; letter-spacing: .1em; padding: .3rem .7rem; border-radius: 20px; background: var(--gold-pale); color: var(--brown); display: inline-block; }
-
-/* Papers */
-.paper-item { padding: 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card); margin-bottom: 1rem; transition: box-shadow .25s; }
-.paper-item:hover { box-shadow: 0 4px 16px var(--shadow); }
-.paper-title { font-weight: 600; font-size: .95rem; margin-bottom: .4rem; }
-.paper-title a { color: var(--brown-deep); transition: color .2s; }
-.paper-title a:hover { color: var(--gold); }
-[data-theme="dark"] .paper-title a { color: var(--gold-light); }
-[data-theme="dark"] .paper-title a:hover { color: var(--gold-bright); }
-.paper-authors { font-size: .875rem; color: var(--text-mid); margin-bottom: .3rem; }
-.paper-venue { font-family: 'DM Mono',monospace; font-size: .78rem; color: var(--gold); }
-.paper-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
-.paper-tag { font-size: .72rem; padding: .25rem .65rem; background: var(--parchment); color: var(--brown-mid); border-radius: 20px; border: 1px solid var(--border); }
-[data-theme="dark"] .paper-tag { background: var(--beige); color: var(--text-mid); }
-
-/* Workshops */
-.workshop-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap: 1.5rem; margin-top: 2rem; }
-.workshop-card { border: 1px solid var(--border); border-radius: 16px; background: var(--bg-card); padding: 1.75rem; border-top: 4px solid var(--gold); transition: box-shadow .25s, transform .25s; }
-.workshop-card:hover { box-shadow: 0 8px 24px var(--shadow); transform: translateY(-3px); }
-.workshop-date { font-family: 'DM Mono',monospace; font-size: .75rem; color: var(--gold); letter-spacing: .1em; margin-bottom: .5rem; }
-.workshop-title { font-weight: 600; font-size: .95rem; color: var(--brown-deep); margin-bottom: .4rem; }
-.workshop-venue { font-size: .875rem; color: var(--text-mid); }
-.workshop-role { display: inline-block; font-size: .72rem; padding: .25rem .7rem; background: var(--brown-deep); color: #fff; border-radius: 20px; margin-top: .75rem; font-family: 'DM Mono',monospace; }
-[data-theme="dark"] .workshop-role { background: var(--gold); color: #0d1525; }
-
-/* Contact */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
-.contact-info-card { background: var(--brown-deep); border-radius: 16px; padding: 2.5rem; color: #fff; position: sticky; top: 88px; }
-[data-theme="dark"] .contact-info-card { background: linear-gradient(135deg,#1a2a52,#233060); border: 1px solid var(--border); }
-.contact-info-card h2 { font-family: 'Cormorant Garamond',serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 2rem; }
-.contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
-.contact-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-.contact-label { font-size: .75rem; color: rgba(255,255,255,.6); margin-bottom: .2rem; }
-.contact-value { font-size: .9rem; color: #fff; }
-.contact-value a { color: var(--gold-light); }
-.contact-form-card { padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
-.contact-form-card h2 { font-family: 'Cormorant Garamond',serif; font-size: 1.8rem; font-weight: 500; color: var(--brown-deep); margin-bottom: 2rem; }
-.form-group { margin-bottom: 1.5rem; }
-.form-label { display: block; font-size: .85rem; font-weight: 500; color: var(--text-mid); margin-bottom: .5rem; }
-.form-input, .form-textarea { width: 100%; padding: .8rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; background: var(--ivory); font-family: 'DM Sans',sans-serif; font-size: .9rem; color: var(--text-dark); transition: border-color .2s; outline: none; }
-.form-input:focus, .form-textarea:focus { border-color: var(--gold); }
-.form-textarea { resize: vertical; min-height: 130px; }
-
-/* ── Responsive ──────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .hero-inner { flex-direction: column; text-align: center; gap: 3rem; }
-  .hero-stats { justify-content: center; }
-  .hero-actions { justify-content: center; }
-  .hero-desc { margin: 0 auto 2rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-sidebar { position: static; }
-  .course-detail-grid { grid-template-columns: 1fr; }
-  .course-sidebar-card { position: static; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .contact-info-card { position: static; }
+function toggleMobileNav() {
+  document.getElementById('navbar').classList.toggle('nav-mobile-open');
 }
-@media (max-width: 768px) {
-  .navbar { padding: 0 1.25rem; }
-  .nav-links { display: none; }
-  .nav-mobile-toggle { display: block; }
-  .section { padding: 3.5rem 1.25rem; }
-  .hero, .courses-section { padding: 3rem 1.25rem; }
-  .hero-photo-ring { width: 200px; height: 200px; }
-  .page-header { padding: 3rem 1.25rem 2rem; }
-  .navbar.nav-mobile-open .nav-links {
-    display: flex; flex-direction: column;
-    position: absolute; top: 68px; left: 0; right: 0;
-    background: var(--bg-card); border-bottom: 1px solid var(--border);
-    padding: 1rem; box-shadow: 0 8px 24px var(--shadow); gap: .25rem; z-index: 999;
+
+function getFooter() {
+  const p = SITE_DATA.professor;
+  return `
+  <footer>
+    <div class="footer-name">${p.name}</div>
+    <div>${p.title} · ${p.institution}</div>
+    <div style="margin-top:.75rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:${p.email}">${p.email}</a>
+      <a href="${p.linkedin}" target="_blank">LinkedIn</a>
+      <a href="${p.googleScholar}" target="_blank">Google Scholar</a>
+      <a href="${SITE_DATA.youtubeChannel}" target="_blank">YouTube</a>
+    </div>
+    <div style="margin-top:1rem;font-size:.78rem;opacity:.5;">© ${new Date().getFullYear()} ${p.name} · All rights reserved</div>
+  </footer>`;
+}
+
+function setPage(html) {
+  document.getElementById('app').innerHTML =
+    getNavbar() +
+    `<div class="page-container">${html}</div>` +
+    getFooter();
+  updateToggleIcon();
+}
+
+function pageHeader(label, title, sub = '') {
+  return `
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-header-label">${label}</div>
+      <h1 class="page-header-title">${title}</h1>
+      ${sub ? `<p class="page-header-sub">${sub}</p>` : ''}
+    </div>
+  </div>`;
+}
+
+
+/* ============================================================
+   PAGE RENDERERS
+   ============================================================ */
+
+/* ── HOME ────────────────────────────────────────────────────── */
+function renderHome() {
+  const p = SITE_DATA.professor;
+
+  const statsHtml = p.stats.map(s => `
+    <div class="stat-item">
+      <div class="stat-num">${s.num}</div>
+      <div class="stat-label">${s.label}</div>
+    </div>`).join('');
+
+  const universitiesHtml = SITE_DATA.universities.map(uni => {
+    const coursesHtml = uni.courses.map(c => `
+      <div class="course-link" onclick="navigate('course',{uni:'${uni.key}',course:'${c.key}'})">
+        <span style="font-size:.9rem;flex-shrink:0;">📖</span>
+        <span class="course-link-text">
+          <span class="course-name">${c.title}</span>
+          ${c.code ? `<span class="course-code">${c.code}</span>` : ''}
+        </span>
+        <span style="font-size:.75rem;opacity:.45;flex-shrink:0;">→</span>
+      </div>`).join('');
+
+    return `
+    <div class="university-block">
+      <div class="university-header">
+        <div class="university-icon">${uni.icon}</div>
+        <div>
+          <div class="university-name">${uni.name}</div>
+          <div class="university-location">${uni.location}</div>
+        </div>
+      </div>
+      <div class="courses-list">${coursesHtml}</div>
+    </div>`;
+  }).join('');
+
+  setPage(`
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-photo-wrap fade-up delay-1">
+          <div class="hero-photo-ring">
+            <div class="hero-photo">
+              <img src="${p.photo}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='👩‍🏫'">
+            </div>
+          </div>
+          <div class="hero-photo-badge">12+ Years Experience</div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow fade-up delay-1">Professor · Researcher · Author</div>
+          <h1 class="hero-name fade-up delay-2">${p.name}</h1>
+          <p class="hero-desc fade-up delay-3">${p.shortBio}</p>
+          <div class="hero-actions fade-up delay-4">
+            <a class="btn btn-primary" href="#about">Know More</a>
+            <a class="btn btn-outline" href="#contact">Get in Touch</a>
+          </div>
+          <div class="hero-stats fade-up delay-5">${statsHtml}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section class="courses-section">
+      <div class="courses-inner">
+        <div class="section-label">Teaching Portfolio</div>
+        <h2 class="section-title">Courses Taught</h2>
+        <div class="section-divider"></div>
+        ${universitiesHtml}
+      </div>
+    </section>
+  `);
+}
+
+
+/* ── ABOUT ───────────────────────────────────────────────────── */
+function renderAbout() {
+  const p = SITE_DATA.professor;
+  const a = SITE_DATA.about;
+
+  const bioHtml = a.fullBio.map(para => `<p>${para}</p>`).join('');
+
+  const expHtml = a.experience.map(e => `
+    <div class="timeline-item">
+      <div class="timeline-dot">${e.icon}</div>
+      <div class="timeline-body">
+        <div class="timeline-title">${e.title}</div>
+        <div class="timeline-org">${e.org}</div>
+        <div class="timeline-period">${e.period}</div>
+      </div>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Academic Profile', p.name, p.title + ' · ' + p.institution)}
+    <div class="section">
+      <div class="about-grid">
+        <aside class="about-sidebar">
+          <div class="about-photo">
+            <img src="${p.aboutPhoto}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='👩‍🏫'">
+          </div>
+          <div class="about-sidebar-info">
+            <div class="sidebar-label">Institution</div>
+            <div class="sidebar-value">${p.institution}</div>
+
+            <div class="sidebar-label">Research Areas</div>
+            <div class="sidebar-value">AI · ML · Federated Learning · Cyber Security</div>
+
+            <div class="sidebar-label">Email</div>
+            <div class="sidebar-value">
+              <a href="mailto:${p.email}" style="color:var(--gold)">${p.email}</a>
+            </div>
+
+            <div class="sidebar-label">Links</div>
+            <div class="sidebar-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem;">
+              <a href="${p.googleScholar}" class="btn btn-outline btn-sm" target="_blank">Scholar</a>
+              <a href="${p.linkedin}" class="btn btn-outline btn-sm" target="_blank">LinkedIn</a>
+              <a href="${SITE_DATA.youtubeChannel}" class="btn btn-outline btn-sm" target="_blank">YouTube</a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="about-content">
+          <div class="section-label">Biography</div>
+          <h2>About Prof. Swati Sah</h2>
+          <div class="section-divider"></div>
+          ${bioHtml}
+
+          <div class="section-label mt-4">Academic Journey</div>
+          <h2>Experience</h2>
+          <div class="section-divider"></div>
+          <div class="timeline">${expHtml}</div>
+
+          <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
+            <a href="./assets/swati-sah-resume.docx" download class="btn btn-primary">
+              ⬇&nbsp; Download Full CV / Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+
+/* ── RECOGNITIONS ────────────────────────────────────────────── */
+function renderRecognitions() {
+  const data = SITE_DATA.recognitions;
+
+  const cards = data.map((item, index) => `
+    <div class="framed-certificate-card" id="award-${index}">
+      <div class="certificate-frame">
+        <div class="certificate-matte">
+          <div class="certificate-image">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+        </div>
+      </div>
+      <div class="certificate-plaque">
+        <h3 class="certificate-title">${item.title}</h3>
+        <div class="certificate-meta">
+          <span class="certificate-org">${item.organization}</span>
+          <span class="certificate-date">${item.date}</span>
+        </div>
+        <p class="certificate-desc">${item.description}</p>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById("app").innerHTML = `
+    ${getNavbar()}
+    <div class="page-container">
+      <section class="section">
+        <div class="section-label">Achievements</div>
+        <h2 class="section-title">Recognitions & Awards</h2>
+        <div class="section-divider"></div>
+        <div class="framed-gallery-grid">${cards}</div>
+      </section>
+    </div>
+    ${getFooter()}
+  `;
+}
+
+
+/* ── QUALIFICATIONS ──────────────────────────────────────────── */
+function renderQualifications() {
+  const cardsHtml = SITE_DATA.qualifications.map(q => `
+    <div class="qual-card">
+      <div class="qual-degree">${q.degree}</div>
+      <div class="qual-field">${q.field}</div>
+      <div class="qual-univ">${q.university}</div>
+      ${q.specialization ? `<div style="font-size:.8rem;color:var(--gold);margin-top:.5rem;">${q.specialization}</div>` : ''}
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Academic Background', 'Qualifications', 'Educational Credentials & Academic Training')}
+    <div class="section">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Academic Qualifications</h2>
+      <div class="section-divider"></div>
+      <div class="qualifications-grid">${cardsHtml}</div>
+    </div>
+  `);
+}
+
+
+/* ── COURSE DETAIL ───────────────────────────────────────────── */
+function renderCourse({ uni: uniKey, course: courseKey }) {
+  const uni = SITE_DATA.universities.find(u => u.key === uniKey);
+  if (!uni) { renderHome(); return; }
+  const course = uni.courses.find(c => c.key === courseKey);
+  if (!course) { renderHome(); return; }
+
+  const topicsHtml = course.topics.map((t, i) => `
+    <div class="course-topic-item">
+      <span class="topic-num">${String(i + 1).padStart(2, '0')}</span>
+      <span>${t}</span>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader(uni.name + ' · ' + uni.location,
+    course.title + (course.code ? ` <span style="font-size:1.1rem;opacity:.55;font-weight:400">[${course.code}]</span>` : ''))}
+
+    <div class="section">
+      <a href="#home" class="btn btn-outline btn-sm" style="margin-bottom:2rem;">← Back to Home</a>
+
+      <div class="course-detail-grid">
+        <div>
+          <div class="section-label">Course Overview</div>
+          <h2 class="section-title" style="font-size:1.8rem;">${course.title}</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--text-mid);line-height:1.85;margin-bottom:2rem;">${course.description}</p>
+
+          <div class="section-label">Syllabus Topics</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--brown-deep);margin-bottom:1rem;">Course Content</h3>
+          <div style="border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--bg-card);">
+            ${topicsHtml}
+          </div>
+        </div>
+
+        <aside>
+          <div class="course-sidebar-card">
+            <h3>Course Resources</h3>
+            <p style="font-size:.85rem;opacity:.7;margin-bottom:1.5rem;">${uni.name}</p>
+            <a href="${course.syllabusUrl}" class="resource-btn" target="_blank">📄&nbsp; View Syllabus</a>
+            <a href="${course.notesUrl}" class="resource-btn" target="_blank">📝&nbsp; Lecture Notes</a>
+            <a href="${course.assignmentsUrl}" class="resource-btn" target="_blank">📋&nbsp; Assignments</a>
+          </div>
+
+          <div class="card" style="margin-top:1.5rem;">
+            <div class="section-label">Institution</div>
+            <div style="font-weight:600;color:var(--brown-deep);margin:.3rem 0;">${uni.name}</div>
+            <div style="font-size:.85rem;color:var(--text-light);">${uni.location}</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  `);
+}
+
+
+/* ── WORKSHOPS ───────────────────────────────────────────────── */
+function workshopSection(title, workshops) {
+  if (!workshops || workshops.length === 0) {
+    return `<div class="empty-workshop">No workshops available currently.</div>`;
   }
-  .navbar.nav-mobile-open .dropdown { display: block !important; position: static; box-shadow: none; background: var(--parchment); margin-top: .25rem; }
+
+  const cards = workshops.map(w => `
+    <div class="workshop-card">
+      <div class="workshop-date">${formatDisplayDate(w.date)}</div>
+      <div class="workshop-title">${w.title}</div>
+      <div class="workshop-venue">📍 ${w.location}</div>
+      <div class="workshop-time">⏰ ${w.time}</div>
+      ${w.attendees ? `<div class="workshop-attendees">👥 ${w.attendees}</div>` : ''}
+      ${w.link ? `<a href="${w.link}" target="_blank" class="btn btn-outline btn-sm">View Details</a>` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <h3 class="workshop-section-title">${title}</h3>
+    <div class="workshop-grid">${cards}</div>
+  `;
 }
 
-/* ── Utility ─────────────────────────────────────────────────── */
-.gap-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-.mt-4 { margin-top: 2rem; }
-
-@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-.fade-up { animation: fadeUp .7s ease forwards; }
-.delay-1{animation-delay:.1s;opacity:0}
-.delay-2{animation-delay:.22s;opacity:0}
-.delay-3{animation-delay:.36s;opacity:0}
-.delay-4{animation-delay:.5s;opacity:0}
-.delay-5{animation-delay:.65s;opacity:0}
-
-
-/* Workshops section css */
-.workshop-section-title{
-  margin-top:3rem;
-  font-size:1.6rem;
-  color:var(--brown-deep);
-  font-family:'Cormorant Garamond',serif;
+function renderWorkshops() {
+  const w = SITE_DATA.workshops;
+  setPage(`
+    ${pageHeader('Academic Events', 'Workshops', 'Workshops, FDPs & Training Programs')}
+    <div class="section">
+      <div class="section-label">Events</div>
+      <h2 class="section-title">Workshops</h2>
+      <div class="section-divider"></div>
+      ${workshopSection("Ongoing Workshops", w.ongoing)}
+      ${workshopSection("Upcoming Workshops", w.upcoming)}
+      ${workshopSection("Past Workshops", w.past)}
+    </div>
+  `);
 }
 
-.empty-workshop{
-  padding:2rem;
-  border:1px dashed var(--border);
-  border-radius:14px;
-  text-align:center;
-  color:var(--text-light);
-  margin-bottom:2rem;
+
+/* ── LECTURES ────────────────────────────────────────────────── */
+function renderLectures() {
+  const videosHtml = SITE_DATA.lectures.map(v => `
+    <div class="video-card">
+      <a href="${v.youtubeUrl}" target="_blank">
+        <div class="video-thumb">
+          ${(v.thumbnailUrl || getYoutubeThumbnail(v.youtubeUrl))
+            ? `<img src="${v.thumbnailUrl || getYoutubeThumbnail(v.youtubeUrl)}" alt="${v.title}" onerror="this.parentElement.innerHTML='▶'">`
+            : '▶'}
+        </div>
+      </a>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta">${v.playlist}</div>
+        <a href="${v.youtubeUrl}" target="_blank" class="btn btn-outline btn-sm" style="margin-top:.75rem;">Watch on YouTube</a>
+      </div>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Video Lectures', 'Lectures &amp; Videos', 'Educational content available on YouTube')}
+    <div class="section">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+        <div>
+          <div class="section-label">YouTube Content</div>
+          <h2 class="section-title">Video Lectures</h2>
+          <div class="section-divider"></div>
+        </div>
+        <a href="${SITE_DATA.youtubeChannel}" target="_blank" class="btn btn-primary" style="flex-shrink:0;">
+          ▶&nbsp; Visit YouTube Channel
+        </a>
+      </div>
+      <div class="video-grid">${videosHtml}</div>
+    </div>
+  `);
 }
 
-/* ── Framed Certificates Gallery ───────────────────────── */
-.framed-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
-  align-items: start;
+
+/* ── BOOKS ───────────────────────────────────────────────────── */
+function renderBooks() {
+  const cardsHtml = SITE_DATA.books.map(b => `
+    <div class="book-card">
+      <div class="book-cover">
+        ${b.cover ? `<img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none';this.parentElement.innerHTML='📚'">` : '📚'}
+      </div>
+      <div class="book-info">
+        <div class="book-title">${b.title}</div>
+        <div style="font-size:.82rem;color:var(--text-mid);font-style:italic;margin-bottom:.4rem;">${b.subtitle}</div>
+        <div class="book-meta">${b.publisher} · ${b.year}</div>
+        <div class="book-status">${b.status}</div>
+        <p style="font-size:.82rem;color:var(--text-light);line-height:1.6;margin-top:.75rem;">${b.description}</p>
+      </div>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Publications', 'Books', 'Authored &amp; co-authored academic books')}
+    <div class="section">
+      <div class="section-label">Academic Books</div>
+      <h2 class="section-title">Books</h2>
+      <div class="section-divider"></div>
+      <div class="book-grid">${cardsHtml}</div>
+    </div>
+  `);
 }
 
-.framed-certificate-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  height: 100%;
+
+/* ── PUBLICATIONS (renamed from Conference Papers) ───────────── */
+function renderPapers() {
+  const SCOPUS_URL = "https://www.scopus.com/authid/detail.uri?authorId=58965406600";
+
+  const papersHtml = SITE_DATA.papers.map((paper) => `
+    <div class="paper-item">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;">
+          <div class="paper-title">
+            <a href="${paper.url}" target="_blank" rel="noopener noreferrer">${paper.title}</a>
+          </div>
+          <div class="paper-authors">${paper.authors}</div>
+          <div class="paper-venue">${paper.venue}</div>
+        </div>
+        <a href="${paper.url}" target="_blank" rel="noopener noreferrer"
+           class="btn btn-outline btn-sm" style="flex-shrink:0;white-space:nowrap;">
+          View Paper →
+        </a>
+      </div>
+      <div class="paper-tags">${paper.tags.map(t => `<span class="paper-tag">${t}</span>`).join('')}</div>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Research Output', 'Publications', `${SITE_DATA.papers.length} peer-reviewed contributions`)}
+    <div class="section">
+      <div class="section-label">Research Papers</div>
+      <h2 class="section-title">Publications</h2>
+      <div class="section-divider"></div>
+
+      <!-- SOURCE TABS -->
+      <div class="pub-tabs" id="pubTabs">
+        <button class="pub-tab active" id="tab-scholar" onclick="switchPubTab('scholar')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Google Scholar
+        </button>
+        <button class="pub-tab" id="tab-scopus" onclick="switchPubTab('scopus')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Scopus
+        </button>
+      </div>
+
+      <!-- GOOGLE SCHOLAR PANEL -->
+      <div id="panel-scholar">
+        <p style="color:var(--text-light);font-size:.875rem;margin-bottom:2rem;">
+          Click <strong>"View Paper →"</strong> on any entry to open it on Google Scholar.
+        </p>
+        ${papersHtml}
+      </div>
+
+      <!-- SCOPUS PANEL -->
+      <div id="panel-scopus" style="display:none;">
+        <div class="scopus-redirect-card">
+          <div class="scopus-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3 style="margin:.8rem 0 .5rem;font-size:1.25rem;">Scopus Author Profile</h3>
+          <p style="color:var(--text-light);font-size:.9rem;line-height:1.65;margin-bottom:1.75rem;max-width:500px;">
+            View the complete indexed publication list, citation metrics, h-index, and co-author network for Prof. Swati Sah on Scopus.
+          </p>
+          <a href="${SCOPUS_URL}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:.5rem;">
+            Open Scopus Profile
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;opacity:.65;">Author ID: 58965406600</p>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      .pub-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--border);
+        margin-bottom: 2rem;
+      }
+      .pub-tab {
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        padding: .65rem 1.4rem;
+        font-size: .9rem;
+        font-family: inherit;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: color .2s, border-color .2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: .01em;
+      }
+      .pub-tab:hover { color: var(--brown-deep); }
+      .pub-tab.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+      .scopus-redirect-card {
+        text-align: center;
+        padding: 4rem 2rem;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: var(--bg-card);
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .scopus-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--bg-subtle, rgba(139,107,72,.08));
+        color: var(--gold);
+      }
+    </style>
+  `);
 }
 
-/* The Wooden/Gold Frame */
-.certificate-frame {
-  position: relative;
-  padding: 1.5rem; /* Thickness of the frame */
-  background: linear-gradient(135deg, #4a2e14 0%, #2a1a0a 40%, #5a3d28 60%, #3a2210 100%);
-  border-radius: 4px;
-  box-shadow: 
-    0 15px 35px rgba(0,0,0,0.4),
-    inset 0 0 10px rgba(0,0,0,0.8),
-    inset 0 0 2px rgba(255,255,255,0.2);
-  /* Inner gold trim */
-  border: 4px solid var(--gold-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-}
+/* Tab switcher for Publications page */
+window.switchPubTab = function(tab) {
+  const scholarPanel = document.getElementById('panel-scholar');
+  const scopusPanel  = document.getElementById('panel-scopus');
+  const scholarBtn   = document.getElementById('tab-scholar');
+  const scopusBtn    = document.getElementById('tab-scopus');
 
-.certificate-frame:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 25px 45px rgba(0,0,0,0.5),
-    inset 0 0 10px rgba(0,0,0,0.8);
-}
-
-[data-theme="dark"] .certificate-frame {
-  background: linear-gradient(135deg, #111c38 0%, #0a1122 40%, #1a2a52 60%, #0d1525 100%);
-  border-color: var(--gold);
-}
-
-/* The Matte (Passepartout) */
-.certificate-matte {
-  background: #fffdf9; /* Slightly warm off-white */
-  padding: 2.5rem; /* Thickness of the matte */
-  box-shadow: inset 0 0 25px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.6);
-}
-
-[data-theme="dark"] .certificate-matte {
-  background: #f0e8d4;
-  box-shadow: inset 0 0 35px rgba(0,0,0,0.2), 0 0 8px rgba(0,0,0,0.8);
-}
-
-/* The Certificate Image */
-.certificate-image {
-  position: relative;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2), inset 0 0 3px rgba(0,0,0,0.1);
-  background: #fff;
-  overflow: hidden;
-  border-radius: 0px;
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.certificate-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-}
-
-/* Text Area Below Frame */
-.certificate-plaque {
-  padding: 0.5rem 1rem;
-  text-align: center;
-  width: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.certificate-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--brown-deep);
-  margin-bottom: 0.5rem;
-}
-
-.certificate-meta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-bottom: 1rem;
-  font-family: 'DM Mono', monospace;
-  flex-wrap: wrap;
-}
-
-.certificate-org {
-  font-weight: 600;
-  color: var(--gold);
-}
-
-.certificate-date::before {
-  content: "•";
-  margin-right: 0.5rem;
-  color: var(--border);
-}
-
-.certificate-desc {
-  font-size: 0.9rem;
-  color: var(--text-mid);
-  line-height: 1.6;
-  flex: 1;
-}
-
-@media (max-width: 600px) {
-  .certificate-frame {
-    padding: 1rem;
+  if (tab === 'scholar') {
+    scholarPanel.style.display = '';
+    scopusPanel.style.display  = 'none';
+    scholarBtn.classList.add('active');
+    scopusBtn.classList.remove('active');
+  } else {
+    scholarPanel.style.display = 'none';
+    scopusPanel.style.display  = '';
+    scopusBtn.classList.add('active');
+    scholarBtn.classList.remove('active');
   }
-  .certificate-matte {
-    padding: 1.5rem;
-  }
+};
+
+
+/* ── ARTICLES ────────────────────────────────────────────────── */
+function renderArticles() {
+  const articlesHtml = SITE_DATA.articles.map(a => `
+    <div class="paper-item">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;">
+          <div class="paper-title">
+            <a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a>
+          </div>
+          <div class="paper-venue">${a.journal} · ${a.year}</div>
+        </div>
+        <a href="${a.url}" target="_blank" rel="noopener noreferrer"
+           class="btn btn-outline btn-sm" style="flex-shrink:0;white-space:nowrap;">
+          View Article
+        </a>
+      </div>
+      <div class="paper-tags">${a.tags.map(t => `<span class="paper-tag">${t}</span>`).join('')}</div>
+    </div>`).join('');
+
+  setPage(`
+    ${pageHeader('Research Output', 'Articles &amp; Journals', 'Journal articles and research publications')}
+    <div class="section">
+      <div class="section-label">Journal Publications</div>
+      <h2 class="section-title">Articles &amp; Journals</h2>
+      <div class="section-divider"></div>
+      ${articlesHtml}
+    </div>
+  `);
 }
+
+
+/* ── CONTACT ─────────────────────────────────────────────────── */
+function renderContact() {
+  const p = SITE_DATA.professor;
+  setPage(`
+    ${pageHeader('Get in Touch', 'Contact', 'Reach out for collaborations, speaking invitations, or academic enquiries')}
+    <div class="section">
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h2>Contact Information</h2>
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:${p.email}">${p.email}</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🏛</div>
+            <div>
+              <div class="contact-label">Institution</div>
+              <div class="contact-value">${p.institution}</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🔗</div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value"><a href="${p.linkedin}" target="_blank">View Profile</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎓</div>
+            <div>
+              <div class="contact-label">Google Scholar</div>
+              <div class="contact-value"><a href="${p.googleScholar}" target="_blank">View Publications</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📺</div>
+            <div>
+              <div class="contact-label">YouTube</div>
+              <div class="contact-value"><a href="${SITE_DATA.youtubeChannel}" target="_blank">@swatisah6041</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h2>Send a Message</h2>
+          <form id="contact-form" onsubmit="submitContactForm(event)">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input class="form-input" type="text" name="from_name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" name="reply_to" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input class="form-input" type="text" name="subject" placeholder="Research collaboration / Speaking invite / Other" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" name="message" placeholder="Your message..." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" id="submit-btn" style="width:100%;justify-content:center;">
+              Send Message
+            </button>
+          </form>
+          <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem;text-align:center;">
+            Or email directly at <a href="mailto:${p.email}" style="color:var(--gold)">${p.email}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+/* ── CONTACT FORM HANDLER (EmailJS) ───────────────────────────── */
+window.submitContactForm = function (event) {
+  event.preventDefault();
+
+  const formElement = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.innerText = 'Sending...';
+  submitBtn.disabled = true;
+
+  const SERVICE_ID = "YOUR_SERVICE_ID";
+  const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+  emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formElement)
+    .then(() => {
+      submitBtn.innerText = 'Message Sent Successfully!';
+      submitBtn.style.backgroundColor = '#4caf50';
+      formElement.reset();
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      submitBtn.innerText = 'Failed to Send. Try directly emailing.';
+      submitBtn.style.backgroundColor = '#f44336';
+    })
+    .finally(() => {
+      setTimeout(() => {
+        submitBtn.innerText = 'Send Message';
+        submitBtn.disabled = false;
+        submitBtn.style.backgroundColor = '';
+      }, 5000);
+    });
+};
